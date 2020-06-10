@@ -1,0 +1,1 @@
+../../../SDWebImageYYPlugin/SDWebImageYYPlugin/Classes/YYImage/YYImageBridge/YYImage+SDAdditions.h

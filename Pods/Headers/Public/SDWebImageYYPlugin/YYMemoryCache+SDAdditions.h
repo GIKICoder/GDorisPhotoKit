@@ -1,0 +1,1 @@
+../../../SDWebImageYYPlugin/SDWebImageYYPlugin/Classes/YYCache/YYCacheBridge/YYMemoryCache+SDAdditions.h

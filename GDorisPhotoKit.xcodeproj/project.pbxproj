@@ -1,0 +1,1095 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2BC7F7252490CE6D00C53A83 /* GDorisPhotoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BC7F71B2490CE6D00C53A83 /* GDorisPhotoKit.framework */; };
+		2BC7F72A2490CE6D00C53A83 /* GDorisPhotoKitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7292490CE6D00C53A83 /* GDorisPhotoKitTests.m */; };
+		2BC7F72C2490CE6D00C53A83 /* GDorisPhotoKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F71E2490CE6D00C53A83 /* GDorisPhotoKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2BC7F80C2490CF9F00C53A83 /* NSURL+SDPhotoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7362490CF9F00C53A83 /* NSURL+SDPhotoPlugin.m */; };
+		2BC7F80D2490CF9F00C53A83 /* SDPhotosPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7372490CF9F00C53A83 /* SDPhotosPlugin.h */; };
+		2BC7F80E2490CF9F00C53A83 /* SDPhotosDefine.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7382490CF9F00C53A83 /* SDPhotosDefine.h */; };
+		2BC7F80F2490CF9F00C53A83 /* SDPhotosLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7392490CF9F00C53A83 /* SDPhotosLoader.m */; };
+		2BC7F8102490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F73A2490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.h */; };
+		2BC7F8112490CF9F00C53A83 /* SDPhotosError.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F73B2490CF9F00C53A83 /* SDPhotosError.h */; };
+		2BC7F8122490CF9F00C53A83 /* NSURL+SDPhotoPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F73C2490CF9F00C53A83 /* NSURL+SDPhotoPlugin.h */; };
+		2BC7F8132490CF9F00C53A83 /* SDPhotosDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F73D2490CF9F00C53A83 /* SDPhotosDefine.m */; };
+		2BC7F8142490CF9F00C53A83 /* SDPhotosError.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F73E2490CF9F00C53A83 /* SDPhotosError.m */; };
+		2BC7F8152490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F73F2490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.m */; };
+		2BC7F8162490CF9F00C53A83 /* SDPhotosLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7402490CF9F00C53A83 /* SDPhotosLoader.h */; };
+		2BC7F8222490CF9F00C53A83 /* IGDorisPhotoBrower.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7522490CF9F00C53A83 /* IGDorisPhotoBrower.h */; };
+		2BC7F8232490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7532490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.h */; };
+		2BC7F8242490CF9F00C53A83 /* GDorisBrowserBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7542490CF9F00C53A83 /* GDorisBrowserBaseCell.m */; };
+		2BC7F8252490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7552490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.m */; };
+		2BC7F8262490CF9F00C53A83 /* GDorisBrowserBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7562490CF9F00C53A83 /* GDorisBrowserBaseCell.h */; };
+		2BC7F8272490CF9F00C53A83 /* GDorisPhotoPickerBaseController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7582490CF9F00C53A83 /* GDorisPhotoPickerBaseController.h */; };
+		2BC7F8282490CF9F00C53A83 /* GDorisPhotoConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7592490CF9F00C53A83 /* GDorisPhotoConfiguration.h */; };
+		2BC7F8292490CF9F00C53A83 /* GDorisPhotoPickerCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F75A2490CF9F00C53A83 /* GDorisPhotoPickerCell.h */; };
+		2BC7F82A2490CF9F00C53A83 /* GDorisPhotoAppearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F75B2490CF9F00C53A83 /* GDorisPhotoAppearance.m */; };
+		2BC7F82B2490CF9F00C53A83 /* GDorisPhotoPickerBean.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F75C2490CF9F00C53A83 /* GDorisPhotoPickerBean.h */; };
+		2BC7F82C2490CF9F00C53A83 /* GDorisAnimatedButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F75D2490CF9F00C53A83 /* GDorisAnimatedButton.m */; };
+		2BC7F82D2490CF9F00C53A83 /* GDorisPhotoCameraCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F75E2490CF9F00C53A83 /* GDorisPhotoCameraCell.m */; };
+		2BC7F82E2490CF9F00C53A83 /* GDorisPhotoPickerBaseInternal.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F75F2490CF9F00C53A83 /* GDorisPhotoPickerBaseInternal.h */; };
+		2BC7F82F2490CF9F00C53A83 /* GDorisPhotoConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7602490CF9F00C53A83 /* GDorisPhotoConfiguration.m */; };
+		2BC7F8302490CF9F00C53A83 /* GDorisPhotoPickerBaseController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7612490CF9F00C53A83 /* GDorisPhotoPickerBaseController.m */; };
+		2BC7F8312490CF9F00C53A83 /* IGDorisPhotoPicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7622490CF9F00C53A83 /* IGDorisPhotoPicker.h */; };
+		2BC7F8322490CF9F00C53A83 /* GDorisPhotoPickerBean.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7632490CF9F00C53A83 /* GDorisPhotoPickerBean.m */; };
+		2BC7F8332490CF9F00C53A83 /* GDorisPhotoPickerCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7642490CF9F00C53A83 /* GDorisPhotoPickerCell.m */; };
+		2BC7F8342490CF9F00C53A83 /* GDorisPhotoAppearance.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7652490CF9F00C53A83 /* GDorisPhotoAppearance.h */; };
+		2BC7F8352490CF9F00C53A83 /* GDorisAnimatedButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7662490CF9F00C53A83 /* GDorisAnimatedButton.h */; };
+		2BC7F8362490CF9F00C53A83 /* GDorisPhotoCameraCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7672490CF9F00C53A83 /* GDorisPhotoCameraCell.h */; };
+		2BC7F8552490CF9F00C53A83 /* UIView+GDoris.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F78C2490CF9F00C53A83 /* UIView+GDoris.h */; };
+		2BC7F8562490CF9F00C53A83 /* GDorisPhotoHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F78D2490CF9F00C53A83 /* GDorisPhotoHelper.h */; };
+		2BC7F8572490CF9F00C53A83 /* UIControl+GDoris.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F78E2490CF9F00C53A83 /* UIControl+GDoris.h */; };
+		2BC7F8582490CF9F00C53A83 /* NSArray+GDoris.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F78F2490CF9F00C53A83 /* NSArray+GDoris.m */; };
+		2BC7F8592490CF9F00C53A83 /* UIView+GDoris.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7902490CF9F00C53A83 /* UIView+GDoris.m */; };
+		2BC7F85A2490CF9F00C53A83 /* GDorisPhotoHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7912490CF9F00C53A83 /* GDorisPhotoHelper.m */; };
+		2BC7F85B2490CF9F00C53A83 /* NSArray+GDoris.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7922490CF9F00C53A83 /* NSArray+GDoris.h */; };
+		2BC7F85C2490CF9F00C53A83 /* UIControl+GDoris.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7932490CF9F00C53A83 /* UIControl+GDoris.m */; };
+		2BC7F85D2490CF9F00C53A83 /* XCAssetsManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7952490CF9F00C53A83 /* XCAssetsManager.h */; };
+		2BC7F85E2490CF9F00C53A83 /* XCAsset.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7962490CF9F00C53A83 /* XCAsset.h */; };
+		2BC7F85F2490CF9F00C53A83 /* XCAssetsGroup.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7972490CF9F00C53A83 /* XCAssetsGroup.h */; };
+		2BC7F8602490CF9F00C53A83 /* XCAssetsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7982490CF9F00C53A83 /* XCAssetsManager.m */; };
+		2BC7F8612490CF9F00C53A83 /* XCAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7992490CF9F00C53A83 /* XCAsset.m */; };
+		2BC7F8622490CF9F00C53A83 /* XCAssetsGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F79A2490CF9F00C53A83 /* XCAssetsGroup.m */; };
+		2BC7F8632490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F79C2490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.m */; };
+		2BC7F8642490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F79D2490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.h */; };
+		2BC7F8652490CF9F00C53A83 /* GDorisSwipeGestureTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F79E2490CF9F00C53A83 /* GDorisSwipeGestureTransition.m */; };
+		2BC7F8662490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F79F2490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.h */; };
+		2BC7F8672490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7A02490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.m */; };
+		2BC7F8682490CF9F00C53A83 /* GDorisSwipeGestureTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7A12490CF9F00C53A83 /* GDorisSwipeGestureTransition.h */; };
+		2BC7F8B02490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7F52490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.h */; };
+		2BC7F8B12490CF9F00C53A83 /* GDorisPickerNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7F62490CF9F00C53A83 /* GDorisPickerNavigationBar.m */; };
+		2BC7F8B22490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7F72490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.m */; };
+		2BC7F8B32490CF9F00C53A83 /* GDorisPickerBrowserLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7F82490CF9F00C53A83 /* GDorisPickerBrowserLoader.h */; };
+		2BC7F8B42490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7F92490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.m */; };
+		2BC7F8B52490CF9F00C53A83 /* GDorisPickerBrowserCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7FA2490CF9F00C53A83 /* GDorisPickerBrowserCell.h */; };
+		2BC7F8B62490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7FB2490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.m */; };
+		2BC7F8B72490CF9F00C53A83 /* GDorisAlbumLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7FC2490CF9F00C53A83 /* GDorisAlbumLoader.m */; };
+		2BC7F8B82490CF9F00C53A83 /* GDorisPickerToolView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F7FD2490CF9F00C53A83 /* GDorisPickerToolView.h */; };
+		2BC7F8B92490CF9F00C53A83 /* GDorisPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7FE2490CF9F00C53A83 /* GDorisPhotoPickerController.m */; };
+		2BC7F8BA2490CF9F00C53A83 /* GDorisPhotoLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F7FF2490CF9F00C53A83 /* GDorisPhotoLoader.m */; };
+		2BC7F8BB2490CF9F00C53A83 /* IGDorisPhotoPickerDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8002490CF9F00C53A83 /* IGDorisPhotoPickerDelegate.h */; };
+		2BC7F8BC2490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8012490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.h */; };
+		2BC7F8BD2490CF9F00C53A83 /* GDorisPickerNavigationBar.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8022490CF9F00C53A83 /* GDorisPickerNavigationBar.h */; };
+		2BC7F8BE2490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8032490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.m */; };
+		2BC7F8BF2490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8042490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.h */; };
+		2BC7F8C02490CF9F00C53A83 /* GDorisPickerBrowserCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8052490CF9F00C53A83 /* GDorisPickerBrowserCell.m */; };
+		2BC7F8C12490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8062490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.h */; };
+		2BC7F8C22490CF9F00C53A83 /* GDorisPickerBrowserLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8072490CF9F00C53A83 /* GDorisPickerBrowserLoader.m */; };
+		2BC7F8C32490CF9F00C53A83 /* GDorisPhotoLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8082490CF9F00C53A83 /* GDorisPhotoLoader.h */; };
+		2BC7F8C42490CF9F00C53A83 /* GDorisPhotoPickerController.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8092490CF9F00C53A83 /* GDorisPhotoPickerController.h */; };
+		2BC7F8C52490CF9F00C53A83 /* GDorisAlbumLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F80A2490CF9F00C53A83 /* GDorisAlbumLoader.h */; };
+		2BC7F8C62490CF9F00C53A83 /* GDorisPickerToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F80B2490CF9F00C53A83 /* GDorisPickerToolView.m */; };
+		2BC7F8CA2490D57600C53A83 /* GDorisPhotoAlbumTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8C82490D57600C53A83 /* GDorisPhotoAlbumTableView.m */; };
+		2BC7F8CB2490D57600C53A83 /* GDorisPhotoAlbumTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8C92490D57600C53A83 /* GDorisPhotoAlbumTableView.h */; };
+		2BC7F8D12490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8CD2490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.m */; };
+		2BC7F8D22490D62C00C53A83 /* GDorisRunLoopWorker.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8CE2490D62C00C53A83 /* GDorisRunLoopWorker.m */; };
+		2BC7F8D32490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8CF2490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.h */; };
+		2BC7F8D42490D62C00C53A83 /* GDorisRunLoopWorker.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8D02490D62C00C53A83 /* GDorisRunLoopWorker.h */; };
+		2BC7F8D72490D66C00C53A83 /* GDorisPhotoAlbumCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8D52490D66C00C53A83 /* GDorisPhotoAlbumCell.h */; };
+		2BC7F8D82490D66C00C53A83 /* GDorisPhotoAlbumCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8D62490D66C00C53A83 /* GDorisPhotoAlbumCell.m */; };
+		2BC7F8DB2490D69900C53A83 /* UIImage+GDoris.h in Headers */ = {isa = PBXBuildFile; fileRef = 2BC7F8D92490D69900C53A83 /* UIImage+GDoris.h */; };
+		2BC7F8DC2490D69900C53A83 /* UIImage+GDoris.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F8DA2490D69900C53A83 /* UIImage+GDoris.m */; };
+		2BC7F91E2490E01500C53A83 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F91D2490E01500C53A83 /* AppDelegate.m */; };
+		2BC7F9212490E01500C53A83 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F9202490E01500C53A83 /* SceneDelegate.m */; };
+		2BC7F9242490E01500C53A83 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F9232490E01500C53A83 /* ViewController.m */; };
+		2BC7F9272490E01500C53A83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC7F9252490E01500C53A83 /* Main.storyboard */; };
+		2BC7F9292490E01500C53A83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2BC7F9282490E01500C53A83 /* Assets.xcassets */; };
+		2BC7F92C2490E01500C53A83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BC7F92A2490E01500C53A83 /* LaunchScreen.storyboard */; };
+		2BC7F92F2490E01500C53A83 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BC7F92E2490E01500C53A83 /* main.m */; };
+		D0634261EA187662E779B69A /* libPods-GDorisPhotoKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E799068792C2B3CED2582AAE /* libPods-GDorisPhotoKit.a */; };
+		D2563AD511C2BE467BA820F9 /* libPods-GDorisPhotoKit-GDorisPhotoKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AB5F16C818985F5AEB67B6 /* libPods-GDorisPhotoKit-GDorisPhotoKitTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2BC7F7262490CE6D00C53A83 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2BC7F7122490CE6D00C53A83 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2BC7F71A2490CE6D00C53A83;
+			remoteInfo = GDorisPhotoKit;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2BC7F71B2490CE6D00C53A83 /* GDorisPhotoKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GDorisPhotoKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC7F71E2490CE6D00C53A83 /* GDorisPhotoKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoKit.h; sourceTree = "<group>"; };
+		2BC7F71F2490CE6D00C53A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BC7F7242490CE6D00C53A83 /* GDorisPhotoKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GDorisPhotoKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC7F7292490CE6D00C53A83 /* GDorisPhotoKitTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoKitTests.m; sourceTree = "<group>"; };
+		2BC7F72B2490CE6D00C53A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BC7F7362490CF9F00C53A83 /* NSURL+SDPhotoPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+SDPhotoPlugin.m"; sourceTree = "<group>"; };
+		2BC7F7372490CF9F00C53A83 /* SDPhotosPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotosPlugin.h; sourceTree = "<group>"; };
+		2BC7F7382490CF9F00C53A83 /* SDPhotosDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotosDefine.h; sourceTree = "<group>"; };
+		2BC7F7392490CF9F00C53A83 /* SDPhotosLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotosLoader.m; sourceTree = "<group>"; };
+		2BC7F73A2490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PHImageRequestOptions+SDPhotoPlugin.h"; sourceTree = "<group>"; };
+		2BC7F73B2490CF9F00C53A83 /* SDPhotosError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotosError.h; sourceTree = "<group>"; };
+		2BC7F73C2490CF9F00C53A83 /* NSURL+SDPhotoPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+SDPhotoPlugin.h"; sourceTree = "<group>"; };
+		2BC7F73D2490CF9F00C53A83 /* SDPhotosDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotosDefine.m; sourceTree = "<group>"; };
+		2BC7F73E2490CF9F00C53A83 /* SDPhotosError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SDPhotosError.m; sourceTree = "<group>"; };
+		2BC7F73F2490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "PHImageRequestOptions+SDPhotoPlugin.m"; sourceTree = "<group>"; };
+		2BC7F7402490CF9F00C53A83 /* SDPhotosLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SDPhotosLoader.h; sourceTree = "<group>"; };
+		2BC7F7522490CF9F00C53A83 /* IGDorisPhotoBrower.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDorisPhotoBrower.h; sourceTree = "<group>"; };
+		2BC7F7532490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoBrowserBaseController.h; sourceTree = "<group>"; };
+		2BC7F7542490CF9F00C53A83 /* GDorisBrowserBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisBrowserBaseCell.m; sourceTree = "<group>"; };
+		2BC7F7552490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoBrowserBaseController.m; sourceTree = "<group>"; };
+		2BC7F7562490CF9F00C53A83 /* GDorisBrowserBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisBrowserBaseCell.h; sourceTree = "<group>"; };
+		2BC7F7582490CF9F00C53A83 /* GDorisPhotoPickerBaseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerBaseController.h; sourceTree = "<group>"; };
+		2BC7F7592490CF9F00C53A83 /* GDorisPhotoConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoConfiguration.h; sourceTree = "<group>"; };
+		2BC7F75A2490CF9F00C53A83 /* GDorisPhotoPickerCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerCell.h; sourceTree = "<group>"; };
+		2BC7F75B2490CF9F00C53A83 /* GDorisPhotoAppearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoAppearance.m; sourceTree = "<group>"; };
+		2BC7F75C2490CF9F00C53A83 /* GDorisPhotoPickerBean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerBean.h; sourceTree = "<group>"; };
+		2BC7F75D2490CF9F00C53A83 /* GDorisAnimatedButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisAnimatedButton.m; sourceTree = "<group>"; };
+		2BC7F75E2490CF9F00C53A83 /* GDorisPhotoCameraCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoCameraCell.m; sourceTree = "<group>"; };
+		2BC7F75F2490CF9F00C53A83 /* GDorisPhotoPickerBaseInternal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerBaseInternal.h; sourceTree = "<group>"; };
+		2BC7F7602490CF9F00C53A83 /* GDorisPhotoConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoConfiguration.m; sourceTree = "<group>"; };
+		2BC7F7612490CF9F00C53A83 /* GDorisPhotoPickerBaseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerBaseController.m; sourceTree = "<group>"; };
+		2BC7F7622490CF9F00C53A83 /* IGDorisPhotoPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDorisPhotoPicker.h; sourceTree = "<group>"; };
+		2BC7F7632490CF9F00C53A83 /* GDorisPhotoPickerBean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerBean.m; sourceTree = "<group>"; };
+		2BC7F7642490CF9F00C53A83 /* GDorisPhotoPickerCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerCell.m; sourceTree = "<group>"; };
+		2BC7F7652490CF9F00C53A83 /* GDorisPhotoAppearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoAppearance.h; sourceTree = "<group>"; };
+		2BC7F7662490CF9F00C53A83 /* GDorisAnimatedButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisAnimatedButton.h; sourceTree = "<group>"; };
+		2BC7F7672490CF9F00C53A83 /* GDorisPhotoCameraCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoCameraCell.h; sourceTree = "<group>"; };
+		2BC7F78C2490CF9F00C53A83 /* UIView+GDoris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+GDoris.h"; sourceTree = "<group>"; };
+		2BC7F78D2490CF9F00C53A83 /* GDorisPhotoHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoHelper.h; sourceTree = "<group>"; };
+		2BC7F78E2490CF9F00C53A83 /* UIControl+GDoris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIControl+GDoris.h"; sourceTree = "<group>"; };
+		2BC7F78F2490CF9F00C53A83 /* NSArray+GDoris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+GDoris.m"; sourceTree = "<group>"; };
+		2BC7F7902490CF9F00C53A83 /* UIView+GDoris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+GDoris.m"; sourceTree = "<group>"; };
+		2BC7F7912490CF9F00C53A83 /* GDorisPhotoHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoHelper.m; sourceTree = "<group>"; };
+		2BC7F7922490CF9F00C53A83 /* NSArray+GDoris.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+GDoris.h"; sourceTree = "<group>"; };
+		2BC7F7932490CF9F00C53A83 /* UIControl+GDoris.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIControl+GDoris.m"; sourceTree = "<group>"; };
+		2BC7F7952490CF9F00C53A83 /* XCAssetsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAssetsManager.h; sourceTree = "<group>"; };
+		2BC7F7962490CF9F00C53A83 /* XCAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAsset.h; sourceTree = "<group>"; };
+		2BC7F7972490CF9F00C53A83 /* XCAssetsGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XCAssetsGroup.h; sourceTree = "<group>"; };
+		2BC7F7982490CF9F00C53A83 /* XCAssetsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAssetsManager.m; sourceTree = "<group>"; };
+		2BC7F7992490CF9F00C53A83 /* XCAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAsset.m; sourceTree = "<group>"; };
+		2BC7F79A2490CF9F00C53A83 /* XCAssetsGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XCAssetsGroup.m; sourceTree = "<group>"; };
+		2BC7F79C2490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisScrollerPanGesutreRecognizer.m; sourceTree = "<group>"; };
+		2BC7F79D2490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoZoomAnimatedTransition.h; sourceTree = "<group>"; };
+		2BC7F79E2490CF9F00C53A83 /* GDorisSwipeGestureTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisSwipeGestureTransition.m; sourceTree = "<group>"; };
+		2BC7F79F2490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisScrollerPanGesutreRecognizer.h; sourceTree = "<group>"; };
+		2BC7F7A02490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoZoomAnimatedTransition.m; sourceTree = "<group>"; };
+		2BC7F7A12490CF9F00C53A83 /* GDorisSwipeGestureTransition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisSwipeGestureTransition.h; sourceTree = "<group>"; };
+		2BC7F7F52490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerBrowserThumbnailView.h; sourceTree = "<group>"; };
+		2BC7F7F62490CF9F00C53A83 /* GDorisPickerNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerNavigationBar.m; sourceTree = "<group>"; };
+		2BC7F7F72490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerBrowserNavigationBar.m; sourceTree = "<group>"; };
+		2BC7F7F82490CF9F00C53A83 /* GDorisPickerBrowserLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerBrowserLoader.h; sourceTree = "<group>"; };
+		2BC7F7F92490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerBrowserVideoCell.m; sourceTree = "<group>"; };
+		2BC7F7FA2490CF9F00C53A83 /* GDorisPickerBrowserCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerBrowserCell.h; sourceTree = "<group>"; };
+		2BC7F7FB2490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerBrowserController.m; sourceTree = "<group>"; };
+		2BC7F7FC2490CF9F00C53A83 /* GDorisAlbumLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisAlbumLoader.m; sourceTree = "<group>"; };
+		2BC7F7FD2490CF9F00C53A83 /* GDorisPickerToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerToolView.h; sourceTree = "<group>"; };
+		2BC7F7FE2490CF9F00C53A83 /* GDorisPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoPickerController.m; sourceTree = "<group>"; };
+		2BC7F7FF2490CF9F00C53A83 /* GDorisPhotoLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoLoader.m; sourceTree = "<group>"; };
+		2BC7F8002490CF9F00C53A83 /* IGDorisPhotoPickerDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IGDorisPhotoPickerDelegate.h; sourceTree = "<group>"; };
+		2BC7F8012490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerBrowserNavigationBar.h; sourceTree = "<group>"; };
+		2BC7F8022490CF9F00C53A83 /* GDorisPickerNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerNavigationBar.h; sourceTree = "<group>"; };
+		2BC7F8032490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerBrowserThumbnailView.m; sourceTree = "<group>"; };
+		2BC7F8042490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerBrowserController.h; sourceTree = "<group>"; };
+		2BC7F8052490CF9F00C53A83 /* GDorisPickerBrowserCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerBrowserCell.m; sourceTree = "<group>"; };
+		2BC7F8062490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPickerBrowserVideoCell.h; sourceTree = "<group>"; };
+		2BC7F8072490CF9F00C53A83 /* GDorisPickerBrowserLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerBrowserLoader.m; sourceTree = "<group>"; };
+		2BC7F8082490CF9F00C53A83 /* GDorisPhotoLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoLoader.h; sourceTree = "<group>"; };
+		2BC7F8092490CF9F00C53A83 /* GDorisPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoPickerController.h; sourceTree = "<group>"; };
+		2BC7F80A2490CF9F00C53A83 /* GDorisAlbumLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisAlbumLoader.h; sourceTree = "<group>"; };
+		2BC7F80B2490CF9F00C53A83 /* GDorisPickerToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPickerToolView.m; sourceTree = "<group>"; };
+		2BC7F8C82490D57600C53A83 /* GDorisPhotoAlbumTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoAlbumTableView.m; sourceTree = "<group>"; };
+		2BC7F8C92490D57600C53A83 /* GDorisPhotoAlbumTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoAlbumTableView.h; sourceTree = "<group>"; };
+		2BC7F8CD2490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionViewCell+GDorisWorker.m"; sourceTree = "<group>"; };
+		2BC7F8CE2490D62C00C53A83 /* GDorisRunLoopWorker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisRunLoopWorker.m; sourceTree = "<group>"; };
+		2BC7F8CF2490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionViewCell+GDorisWorker.h"; sourceTree = "<group>"; };
+		2BC7F8D02490D62C00C53A83 /* GDorisRunLoopWorker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisRunLoopWorker.h; sourceTree = "<group>"; };
+		2BC7F8D52490D66C00C53A83 /* GDorisPhotoAlbumCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDorisPhotoAlbumCell.h; sourceTree = "<group>"; };
+		2BC7F8D62490D66C00C53A83 /* GDorisPhotoAlbumCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDorisPhotoAlbumCell.m; sourceTree = "<group>"; };
+		2BC7F8D92490D69900C53A83 /* UIImage+GDoris.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+GDoris.h"; sourceTree = "<group>"; };
+		2BC7F8DA2490D69900C53A83 /* UIImage+GDoris.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+GDoris.m"; sourceTree = "<group>"; };
+		2BC7F91A2490E01500C53A83 /* Example-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2BC7F91C2490E01500C53A83 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2BC7F91D2490E01500C53A83 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2BC7F91F2490E01500C53A83 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
+		2BC7F9202490E01500C53A83 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		2BC7F9222490E01500C53A83 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2BC7F9232490E01500C53A83 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2BC7F9262490E01500C53A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2BC7F9282490E01500C53A83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2BC7F92B2490E01500C53A83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2BC7F92D2490E01500C53A83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BC7F92E2490E01500C53A83 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		30AB5F16C818985F5AEB67B6 /* libPods-GDorisPhotoKit-GDorisPhotoKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GDorisPhotoKit-GDorisPhotoKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4070346CAF868AB11B146F8A /* Pods-GDorisPhotoKit-GDorisPhotoKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit-GDorisPhotoKitTests.release.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit-GDorisPhotoKitTests/Pods-GDorisPhotoKit-GDorisPhotoKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		AC2E4B7EE5C35D71BD12812D /* Pods-GDorisPhotoKit-GDorisPhotoKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit-GDorisPhotoKitTests.debug.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit-GDorisPhotoKitTests/Pods-GDorisPhotoKit-GDorisPhotoKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		C7AED6E665A4BD6785C6EBD0 /* Pods-GDorisPhotoKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit.debug.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit/Pods-GDorisPhotoKit.debug.xcconfig"; sourceTree = "<group>"; };
+		E68355F93D1FD4DFCBB8C1CD /* Pods-GDorisPhotoKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit.release.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit/Pods-GDorisPhotoKit.release.xcconfig"; sourceTree = "<group>"; };
+		E799068792C2B3CED2582AAE /* libPods-GDorisPhotoKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-GDorisPhotoKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2BC7F7182490CE6D00C53A83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D0634261EA187662E779B69A /* libPods-GDorisPhotoKit.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC7F7212490CE6D00C53A83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC7F7252490CE6D00C53A83 /* GDorisPhotoKit.framework in Frameworks */,
+				D2563AD511C2BE467BA820F9 /* libPods-GDorisPhotoKit-GDorisPhotoKitTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC7F9172490E01500C53A83 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2BC7F7112490CE6D00C53A83 = {
+			isa = PBXGroup;
+			children = (
+				2BC7F71D2490CE6D00C53A83 /* GDorisPhotoKit */,
+				2BC7F7282490CE6D00C53A83 /* GDorisPhotoKitTests */,
+				2BC7F91B2490E01500C53A83 /* Example-iOS */,
+				2BC7F71C2490CE6D00C53A83 /* Products */,
+				5DABE35FAD96181F806BF54D /* Pods */,
+				68F2328DD8D3B438C7BD7148 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		2BC7F71C2490CE6D00C53A83 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F71B2490CE6D00C53A83 /* GDorisPhotoKit.framework */,
+				2BC7F7242490CE6D00C53A83 /* GDorisPhotoKitTests.xctest */,
+				2BC7F91A2490E01500C53A83 /* Example-iOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2BC7F71D2490CE6D00C53A83 /* GDorisPhotoKit */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F7942490CF9F00C53A83 /* AssetLibrary */,
+				2BC7F78B2490CF9F00C53A83 /* Helper */,
+				2BC7F7502490CF9F00C53A83 /* PhotoCore */,
+				2BC7F7F42490CF9F00C53A83 /* PhotoPicker_v2 */,
+				2BC7F7352490CF9F00C53A83 /* SDPhotoPlugin */,
+				2BC7F79B2490CF9F00C53A83 /* Transition */,
+				2BC7F71E2490CE6D00C53A83 /* GDorisPhotoKit.h */,
+				2BC7F71F2490CE6D00C53A83 /* Info.plist */,
+			);
+			path = GDorisPhotoKit;
+			sourceTree = "<group>";
+		};
+		2BC7F7282490CE6D00C53A83 /* GDorisPhotoKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F7292490CE6D00C53A83 /* GDorisPhotoKitTests.m */,
+				2BC7F72B2490CE6D00C53A83 /* Info.plist */,
+			);
+			path = GDorisPhotoKitTests;
+			sourceTree = "<group>";
+		};
+		2BC7F7352490CF9F00C53A83 /* SDPhotoPlugin */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F73C2490CF9F00C53A83 /* NSURL+SDPhotoPlugin.h */,
+				2BC7F7362490CF9F00C53A83 /* NSURL+SDPhotoPlugin.m */,
+				2BC7F73A2490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.h */,
+				2BC7F73F2490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.m */,
+				2BC7F7382490CF9F00C53A83 /* SDPhotosDefine.h */,
+				2BC7F73D2490CF9F00C53A83 /* SDPhotosDefine.m */,
+				2BC7F73B2490CF9F00C53A83 /* SDPhotosError.h */,
+				2BC7F73E2490CF9F00C53A83 /* SDPhotosError.m */,
+				2BC7F7402490CF9F00C53A83 /* SDPhotosLoader.h */,
+				2BC7F7392490CF9F00C53A83 /* SDPhotosLoader.m */,
+				2BC7F7372490CF9F00C53A83 /* SDPhotosPlugin.h */,
+			);
+			path = SDPhotoPlugin;
+			sourceTree = "<group>";
+		};
+		2BC7F7502490CF9F00C53A83 /* PhotoCore */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F7512490CF9F00C53A83 /* BaseBrowser */,
+				2BC7F7572490CF9F00C53A83 /* BasePicker */,
+			);
+			path = PhotoCore;
+			sourceTree = "<group>";
+		};
+		2BC7F7512490CF9F00C53A83 /* BaseBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F7522490CF9F00C53A83 /* IGDorisPhotoBrower.h */,
+				2BC7F7532490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.h */,
+				2BC7F7542490CF9F00C53A83 /* GDorisBrowserBaseCell.m */,
+				2BC7F7552490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.m */,
+				2BC7F7562490CF9F00C53A83 /* GDorisBrowserBaseCell.h */,
+			);
+			path = BaseBrowser;
+			sourceTree = "<group>";
+		};
+		2BC7F7572490CF9F00C53A83 /* BasePicker */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F7662490CF9F00C53A83 /* GDorisAnimatedButton.h */,
+				2BC7F75D2490CF9F00C53A83 /* GDorisAnimatedButton.m */,
+				2BC7F7652490CF9F00C53A83 /* GDorisPhotoAppearance.h */,
+				2BC7F75B2490CF9F00C53A83 /* GDorisPhotoAppearance.m */,
+				2BC7F7672490CF9F00C53A83 /* GDorisPhotoCameraCell.h */,
+				2BC7F75E2490CF9F00C53A83 /* GDorisPhotoCameraCell.m */,
+				2BC7F7592490CF9F00C53A83 /* GDorisPhotoConfiguration.h */,
+				2BC7F7602490CF9F00C53A83 /* GDorisPhotoConfiguration.m */,
+				2BC7F7582490CF9F00C53A83 /* GDorisPhotoPickerBaseController.h */,
+				2BC7F7612490CF9F00C53A83 /* GDorisPhotoPickerBaseController.m */,
+				2BC7F75F2490CF9F00C53A83 /* GDorisPhotoPickerBaseInternal.h */,
+				2BC7F75C2490CF9F00C53A83 /* GDorisPhotoPickerBean.h */,
+				2BC7F7632490CF9F00C53A83 /* GDorisPhotoPickerBean.m */,
+				2BC7F75A2490CF9F00C53A83 /* GDorisPhotoPickerCell.h */,
+				2BC7F7642490CF9F00C53A83 /* GDorisPhotoPickerCell.m */,
+				2BC7F7622490CF9F00C53A83 /* IGDorisPhotoPicker.h */,
+			);
+			path = BasePicker;
+			sourceTree = "<group>";
+		};
+		2BC7F78B2490CF9F00C53A83 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F8CC2490D62C00C53A83 /* GDorisRunLoop */,
+				2BC7F78D2490CF9F00C53A83 /* GDorisPhotoHelper.h */,
+				2BC7F7912490CF9F00C53A83 /* GDorisPhotoHelper.m */,
+				2BC7F7922490CF9F00C53A83 /* NSArray+GDoris.h */,
+				2BC7F78F2490CF9F00C53A83 /* NSArray+GDoris.m */,
+				2BC7F78E2490CF9F00C53A83 /* UIControl+GDoris.h */,
+				2BC7F7932490CF9F00C53A83 /* UIControl+GDoris.m */,
+				2BC7F78C2490CF9F00C53A83 /* UIView+GDoris.h */,
+				2BC7F7902490CF9F00C53A83 /* UIView+GDoris.m */,
+				2BC7F8D92490D69900C53A83 /* UIImage+GDoris.h */,
+				2BC7F8DA2490D69900C53A83 /* UIImage+GDoris.m */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		2BC7F7942490CF9F00C53A83 /* AssetLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F7962490CF9F00C53A83 /* XCAsset.h */,
+				2BC7F7992490CF9F00C53A83 /* XCAsset.m */,
+				2BC7F7972490CF9F00C53A83 /* XCAssetsGroup.h */,
+				2BC7F79A2490CF9F00C53A83 /* XCAssetsGroup.m */,
+				2BC7F7952490CF9F00C53A83 /* XCAssetsManager.h */,
+				2BC7F7982490CF9F00C53A83 /* XCAssetsManager.m */,
+			);
+			path = AssetLibrary;
+			sourceTree = "<group>";
+		};
+		2BC7F79B2490CF9F00C53A83 /* Transition */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F79D2490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.h */,
+				2BC7F7A02490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.m */,
+				2BC7F79F2490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.h */,
+				2BC7F79C2490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.m */,
+				2BC7F7A12490CF9F00C53A83 /* GDorisSwipeGestureTransition.h */,
+				2BC7F79E2490CF9F00C53A83 /* GDorisSwipeGestureTransition.m */,
+			);
+			path = Transition;
+			sourceTree = "<group>";
+		};
+		2BC7F7F42490CF9F00C53A83 /* PhotoPicker_v2 */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F8C92490D57600C53A83 /* GDorisPhotoAlbumTableView.h */,
+				2BC7F8C82490D57600C53A83 /* GDorisPhotoAlbumTableView.m */,
+				2BC7F8D52490D66C00C53A83 /* GDorisPhotoAlbumCell.h */,
+				2BC7F8D62490D66C00C53A83 /* GDorisPhotoAlbumCell.m */,
+				2BC7F80A2490CF9F00C53A83 /* GDorisAlbumLoader.h */,
+				2BC7F7FC2490CF9F00C53A83 /* GDorisAlbumLoader.m */,
+				2BC7F8082490CF9F00C53A83 /* GDorisPhotoLoader.h */,
+				2BC7F7FF2490CF9F00C53A83 /* GDorisPhotoLoader.m */,
+				2BC7F8042490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.h */,
+				2BC7F7FB2490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.m */,
+				2BC7F8092490CF9F00C53A83 /* GDorisPhotoPickerController.h */,
+				2BC7F7FE2490CF9F00C53A83 /* GDorisPhotoPickerController.m */,
+				2BC7F7FA2490CF9F00C53A83 /* GDorisPickerBrowserCell.h */,
+				2BC7F8052490CF9F00C53A83 /* GDorisPickerBrowserCell.m */,
+				2BC7F7F82490CF9F00C53A83 /* GDorisPickerBrowserLoader.h */,
+				2BC7F8072490CF9F00C53A83 /* GDorisPickerBrowserLoader.m */,
+				2BC7F8012490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.h */,
+				2BC7F7F72490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.m */,
+				2BC7F7F52490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.h */,
+				2BC7F8032490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.m */,
+				2BC7F8062490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.h */,
+				2BC7F7F92490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.m */,
+				2BC7F8022490CF9F00C53A83 /* GDorisPickerNavigationBar.h */,
+				2BC7F7F62490CF9F00C53A83 /* GDorisPickerNavigationBar.m */,
+				2BC7F7FD2490CF9F00C53A83 /* GDorisPickerToolView.h */,
+				2BC7F80B2490CF9F00C53A83 /* GDorisPickerToolView.m */,
+				2BC7F8002490CF9F00C53A83 /* IGDorisPhotoPickerDelegate.h */,
+			);
+			path = PhotoPicker_v2;
+			sourceTree = "<group>";
+		};
+		2BC7F8CC2490D62C00C53A83 /* GDorisRunLoop */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F8D02490D62C00C53A83 /* GDorisRunLoopWorker.h */,
+				2BC7F8CE2490D62C00C53A83 /* GDorisRunLoopWorker.m */,
+				2BC7F8CF2490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.h */,
+				2BC7F8CD2490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.m */,
+			);
+			path = GDorisRunLoop;
+			sourceTree = "<group>";
+		};
+		2BC7F91B2490E01500C53A83 /* Example-iOS */ = {
+			isa = PBXGroup;
+			children = (
+				2BC7F91C2490E01500C53A83 /* AppDelegate.h */,
+				2BC7F91D2490E01500C53A83 /* AppDelegate.m */,
+				2BC7F91F2490E01500C53A83 /* SceneDelegate.h */,
+				2BC7F9202490E01500C53A83 /* SceneDelegate.m */,
+				2BC7F9222490E01500C53A83 /* ViewController.h */,
+				2BC7F9232490E01500C53A83 /* ViewController.m */,
+				2BC7F9252490E01500C53A83 /* Main.storyboard */,
+				2BC7F9282490E01500C53A83 /* Assets.xcassets */,
+				2BC7F92A2490E01500C53A83 /* LaunchScreen.storyboard */,
+				2BC7F92D2490E01500C53A83 /* Info.plist */,
+				2BC7F92E2490E01500C53A83 /* main.m */,
+			);
+			path = "Example-iOS";
+			sourceTree = "<group>";
+		};
+		5DABE35FAD96181F806BF54D /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C7AED6E665A4BD6785C6EBD0 /* Pods-GDorisPhotoKit.debug.xcconfig */,
+				E68355F93D1FD4DFCBB8C1CD /* Pods-GDorisPhotoKit.release.xcconfig */,
+				AC2E4B7EE5C35D71BD12812D /* Pods-GDorisPhotoKit-GDorisPhotoKitTests.debug.xcconfig */,
+				4070346CAF868AB11B146F8A /* Pods-GDorisPhotoKit-GDorisPhotoKitTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		68F2328DD8D3B438C7BD7148 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E799068792C2B3CED2582AAE /* libPods-GDorisPhotoKit.a */,
+				30AB5F16C818985F5AEB67B6 /* libPods-GDorisPhotoKit-GDorisPhotoKitTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		2BC7F7162490CE6D00C53A83 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC7F85B2490CF9F00C53A83 /* NSArray+GDoris.h in Headers */,
+				2BC7F8BF2490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.h in Headers */,
+				2BC7F8352490CF9F00C53A83 /* GDorisAnimatedButton.h in Headers */,
+				2BC7F8642490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.h in Headers */,
+				2BC7F8DB2490D69900C53A83 /* UIImage+GDoris.h in Headers */,
+				2BC7F8C12490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.h in Headers */,
+				2BC7F8B32490CF9F00C53A83 /* GDorisPickerBrowserLoader.h in Headers */,
+				2BC7F8262490CF9F00C53A83 /* GDorisBrowserBaseCell.h in Headers */,
+				2BC7F8562490CF9F00C53A83 /* GDorisPhotoHelper.h in Headers */,
+				2BC7F8282490CF9F00C53A83 /* GDorisPhotoConfiguration.h in Headers */,
+				2BC7F85D2490CF9F00C53A83 /* XCAssetsManager.h in Headers */,
+				2BC7F8D32490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.h in Headers */,
+				2BC7F8232490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.h in Headers */,
+				2BC7F8B02490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.h in Headers */,
+				2BC7F8D72490D66C00C53A83 /* GDorisPhotoAlbumCell.h in Headers */,
+				2BC7F8222490CF9F00C53A83 /* IGDorisPhotoBrower.h in Headers */,
+				2BC7F8362490CF9F00C53A83 /* GDorisPhotoCameraCell.h in Headers */,
+				2BC7F80E2490CF9F00C53A83 /* SDPhotosDefine.h in Headers */,
+				2BC7F8B52490CF9F00C53A83 /* GDorisPickerBrowserCell.h in Headers */,
+				2BC7F8682490CF9F00C53A83 /* GDorisSwipeGestureTransition.h in Headers */,
+				2BC7F82E2490CF9F00C53A83 /* GDorisPhotoPickerBaseInternal.h in Headers */,
+				2BC7F85F2490CF9F00C53A83 /* XCAssetsGroup.h in Headers */,
+				2BC7F72C2490CE6D00C53A83 /* GDorisPhotoKit.h in Headers */,
+				2BC7F8572490CF9F00C53A83 /* UIControl+GDoris.h in Headers */,
+				2BC7F85E2490CF9F00C53A83 /* XCAsset.h in Headers */,
+				2BC7F8C32490CF9F00C53A83 /* GDorisPhotoLoader.h in Headers */,
+				2BC7F8662490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.h in Headers */,
+				2BC7F8C52490CF9F00C53A83 /* GDorisAlbumLoader.h in Headers */,
+				2BC7F8B82490CF9F00C53A83 /* GDorisPickerToolView.h in Headers */,
+				2BC7F8122490CF9F00C53A83 /* NSURL+SDPhotoPlugin.h in Headers */,
+				2BC7F8BB2490CF9F00C53A83 /* IGDorisPhotoPickerDelegate.h in Headers */,
+				2BC7F82B2490CF9F00C53A83 /* GDorisPhotoPickerBean.h in Headers */,
+				2BC7F8272490CF9F00C53A83 /* GDorisPhotoPickerBaseController.h in Headers */,
+				2BC7F8C42490CF9F00C53A83 /* GDorisPhotoPickerController.h in Headers */,
+				2BC7F8BC2490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.h in Headers */,
+				2BC7F8162490CF9F00C53A83 /* SDPhotosLoader.h in Headers */,
+				2BC7F8CB2490D57600C53A83 /* GDorisPhotoAlbumTableView.h in Headers */,
+				2BC7F8102490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.h in Headers */,
+				2BC7F8292490CF9F00C53A83 /* GDorisPhotoPickerCell.h in Headers */,
+				2BC7F8312490CF9F00C53A83 /* IGDorisPhotoPicker.h in Headers */,
+				2BC7F8112490CF9F00C53A83 /* SDPhotosError.h in Headers */,
+				2BC7F8BD2490CF9F00C53A83 /* GDorisPickerNavigationBar.h in Headers */,
+				2BC7F8D42490D62C00C53A83 /* GDorisRunLoopWorker.h in Headers */,
+				2BC7F80D2490CF9F00C53A83 /* SDPhotosPlugin.h in Headers */,
+				2BC7F8342490CF9F00C53A83 /* GDorisPhotoAppearance.h in Headers */,
+				2BC7F8552490CF9F00C53A83 /* UIView+GDoris.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		2BC7F71A2490CE6D00C53A83 /* GDorisPhotoKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BC7F72F2490CE6D00C53A83 /* Build configuration list for PBXNativeTarget "GDorisPhotoKit" */;
+			buildPhases = (
+				57F9DEB6C042CE621F5641FA /* [CP] Check Pods Manifest.lock */,
+				2BC7F7162490CE6D00C53A83 /* Headers */,
+				2BC7F7172490CE6D00C53A83 /* Sources */,
+				2BC7F7182490CE6D00C53A83 /* Frameworks */,
+				2BC7F7192490CE6D00C53A83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GDorisPhotoKit;
+			productName = GDorisPhotoKit;
+			productReference = 2BC7F71B2490CE6D00C53A83 /* GDorisPhotoKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2BC7F7232490CE6D00C53A83 /* GDorisPhotoKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BC7F7322490CE6D00C53A83 /* Build configuration list for PBXNativeTarget "GDorisPhotoKitTests" */;
+			buildPhases = (
+				5820DF84B3FF1406B9CA6AFD /* [CP] Check Pods Manifest.lock */,
+				2BC7F7202490CE6D00C53A83 /* Sources */,
+				2BC7F7212490CE6D00C53A83 /* Frameworks */,
+				2BC7F7222490CE6D00C53A83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2BC7F7272490CE6D00C53A83 /* PBXTargetDependency */,
+			);
+			name = GDorisPhotoKitTests;
+			productName = GDorisPhotoKitTests;
+			productReference = 2BC7F7242490CE6D00C53A83 /* GDorisPhotoKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2BC7F9192490E01500C53A83 /* Example-iOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2BC7F9462490E01600C53A83 /* Build configuration list for PBXNativeTarget "Example-iOS" */;
+			buildPhases = (
+				2BC7F9162490E01500C53A83 /* Sources */,
+				2BC7F9172490E01500C53A83 /* Frameworks */,
+				2BC7F9182490E01500C53A83 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Example-iOS";
+			productName = "Example-iOS";
+			productReference = 2BC7F91A2490E01500C53A83 /* Example-iOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2BC7F7122490CE6D00C53A83 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = GIKI;
+				TargetAttributes = {
+					2BC7F71A2490CE6D00C53A83 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					2BC7F7232490CE6D00C53A83 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+					2BC7F9192490E01500C53A83 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 2BC7F7152490CE6D00C53A83 /* Build configuration list for PBXProject "GDorisPhotoKit" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2BC7F7112490CE6D00C53A83;
+			productRefGroup = 2BC7F71C2490CE6D00C53A83 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2BC7F71A2490CE6D00C53A83 /* GDorisPhotoKit */,
+				2BC7F7232490CE6D00C53A83 /* GDorisPhotoKitTests */,
+				2BC7F9192490E01500C53A83 /* Example-iOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2BC7F7192490CE6D00C53A83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC7F7222490CE6D00C53A83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC7F9182490E01500C53A83 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC7F92C2490E01500C53A83 /* LaunchScreen.storyboard in Resources */,
+				2BC7F9292490E01500C53A83 /* Assets.xcassets in Resources */,
+				2BC7F9272490E01500C53A83 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		57F9DEB6C042CE621F5641FA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GDorisPhotoKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5820DF84B3FF1406B9CA6AFD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-GDorisPhotoKit-GDorisPhotoKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2BC7F7172490CE6D00C53A83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC7F8CA2490D57600C53A83 /* GDorisPhotoAlbumTableView.m in Sources */,
+				2BC7F8582490CF9F00C53A83 /* NSArray+GDoris.m in Sources */,
+				2BC7F8B72490CF9F00C53A83 /* GDorisAlbumLoader.m in Sources */,
+				2BC7F8632490CF9F00C53A83 /* GDorisScrollerPanGesutreRecognizer.m in Sources */,
+				2BC7F8302490CF9F00C53A83 /* GDorisPhotoPickerBaseController.m in Sources */,
+				2BC7F8322490CF9F00C53A83 /* GDorisPhotoPickerBean.m in Sources */,
+				2BC7F8622490CF9F00C53A83 /* XCAssetsGroup.m in Sources */,
+				2BC7F8142490CF9F00C53A83 /* SDPhotosError.m in Sources */,
+				2BC7F8332490CF9F00C53A83 /* GDorisPhotoPickerCell.m in Sources */,
+				2BC7F8672490CF9F00C53A83 /* GDorisPhotoZoomAnimatedTransition.m in Sources */,
+				2BC7F8652490CF9F00C53A83 /* GDorisSwipeGestureTransition.m in Sources */,
+				2BC7F8252490CF9F00C53A83 /* GDorisPhotoBrowserBaseController.m in Sources */,
+				2BC7F8C02490CF9F00C53A83 /* GDorisPickerBrowserCell.m in Sources */,
+				2BC7F80F2490CF9F00C53A83 /* SDPhotosLoader.m in Sources */,
+				2BC7F8D82490D66C00C53A83 /* GDorisPhotoAlbumCell.m in Sources */,
+				2BC7F8242490CF9F00C53A83 /* GDorisBrowserBaseCell.m in Sources */,
+				2BC7F85C2490CF9F00C53A83 /* UIControl+GDoris.m in Sources */,
+				2BC7F8132490CF9F00C53A83 /* SDPhotosDefine.m in Sources */,
+				2BC7F8BE2490CF9F00C53A83 /* GDorisPickerBrowserThumbnailView.m in Sources */,
+				2BC7F8B12490CF9F00C53A83 /* GDorisPickerNavigationBar.m in Sources */,
+				2BC7F82F2490CF9F00C53A83 /* GDorisPhotoConfiguration.m in Sources */,
+				2BC7F8152490CF9F00C53A83 /* PHImageRequestOptions+SDPhotoPlugin.m in Sources */,
+				2BC7F8C22490CF9F00C53A83 /* GDorisPickerBrowserLoader.m in Sources */,
+				2BC7F82A2490CF9F00C53A83 /* GDorisPhotoAppearance.m in Sources */,
+				2BC7F85A2490CF9F00C53A83 /* GDorisPhotoHelper.m in Sources */,
+				2BC7F8592490CF9F00C53A83 /* UIView+GDoris.m in Sources */,
+				2BC7F82D2490CF9F00C53A83 /* GDorisPhotoCameraCell.m in Sources */,
+				2BC7F8D12490D62C00C53A83 /* UICollectionViewCell+GDorisWorker.m in Sources */,
+				2BC7F8BA2490CF9F00C53A83 /* GDorisPhotoLoader.m in Sources */,
+				2BC7F8B92490CF9F00C53A83 /* GDorisPhotoPickerController.m in Sources */,
+				2BC7F8C62490CF9F00C53A83 /* GDorisPickerToolView.m in Sources */,
+				2BC7F8B42490CF9F00C53A83 /* GDorisPickerBrowserVideoCell.m in Sources */,
+				2BC7F8B22490CF9F00C53A83 /* GDorisPickerBrowserNavigationBar.m in Sources */,
+				2BC7F8B62490CF9F00C53A83 /* GDorisPhotoPickerBrowserController.m in Sources */,
+				2BC7F82C2490CF9F00C53A83 /* GDorisAnimatedButton.m in Sources */,
+				2BC7F8602490CF9F00C53A83 /* XCAssetsManager.m in Sources */,
+				2BC7F8D22490D62C00C53A83 /* GDorisRunLoopWorker.m in Sources */,
+				2BC7F8612490CF9F00C53A83 /* XCAsset.m in Sources */,
+				2BC7F80C2490CF9F00C53A83 /* NSURL+SDPhotoPlugin.m in Sources */,
+				2BC7F8DC2490D69900C53A83 /* UIImage+GDoris.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC7F7202490CE6D00C53A83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC7F72A2490CE6D00C53A83 /* GDorisPhotoKitTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2BC7F9162490E01500C53A83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2BC7F9242490E01500C53A83 /* ViewController.m in Sources */,
+				2BC7F91E2490E01500C53A83 /* AppDelegate.m in Sources */,
+				2BC7F92F2490E01500C53A83 /* main.m in Sources */,
+				2BC7F9212490E01500C53A83 /* SceneDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2BC7F7272490CE6D00C53A83 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2BC7F71A2490CE6D00C53A83 /* GDorisPhotoKit */;
+			targetProxy = 2BC7F7262490CE6D00C53A83 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2BC7F9252490E01500C53A83 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BC7F9262490E01500C53A83 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2BC7F92A2490E01500C53A83 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2BC7F92B2490E01500C53A83 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2BC7F72D2490CE6D00C53A83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		2BC7F72E2490CE6D00C53A83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2BC7F7302490CE6D00C53A83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7AED6E665A4BD6785C6EBD0 /* Pods-GDorisPhotoKit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 44JM5SC2D7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GDorisPhotoKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GDorisPhotoKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BC7F7312490CE6D00C53A83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E68355F93D1FD4DFCBB8C1CD /* Pods-GDorisPhotoKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = 44JM5SC2D7;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = GDorisPhotoKit/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GDorisPhotoKit;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2BC7F7332490CE6D00C53A83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC2E4B7EE5C35D71BD12812D /* Pods-GDorisPhotoKit-GDorisPhotoKitTests.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44JM5SC2D7;
+				INFOPLIST_FILE = GDorisPhotoKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GDorisPhotoKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BC7F7342490CE6D00C53A83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4070346CAF868AB11B146F8A /* Pods-GDorisPhotoKit-GDorisPhotoKitTests.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44JM5SC2D7;
+				INFOPLIST_FILE = GDorisPhotoKitTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = GIKI.GDorisPhotoKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2BC7F9472490E01600C53A83 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44JM5SC2D7;
+				INFOPLIST_FILE = "Example-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "GIKI.Example-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2BC7F9482490E01600C53A83 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 44JM5SC2D7;
+				INFOPLIST_FILE = "Example-iOS/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "GIKI.Example-iOS";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2BC7F7152490CE6D00C53A83 /* Build configuration list for PBXProject "GDorisPhotoKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BC7F72D2490CE6D00C53A83 /* Debug */,
+				2BC7F72E2490CE6D00C53A83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BC7F72F2490CE6D00C53A83 /* Build configuration list for PBXNativeTarget "GDorisPhotoKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BC7F7302490CE6D00C53A83 /* Debug */,
+				2BC7F7312490CE6D00C53A83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BC7F7322490CE6D00C53A83 /* Build configuration list for PBXNativeTarget "GDorisPhotoKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BC7F7332490CE6D00C53A83 /* Debug */,
+				2BC7F7342490CE6D00C53A83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2BC7F9462490E01600C53A83 /* Build configuration list for PBXNativeTarget "Example-iOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2BC7F9472490E01600C53A83 /* Debug */,
+				2BC7F9482490E01600C53A83 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2BC7F7122490CE6D00C53A83 /* Project object */;
+}
