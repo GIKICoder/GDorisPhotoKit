@@ -7,7 +7,7 @@
 //
 
 #import "GDorisPhotoCameraCell.h"
-
+#import "UIImage+GDoris.h"
 @interface GDorisPhotoCameraCell ()
 @property (nonatomic, strong) UIImageView * cameraView;
 @end
@@ -20,7 +20,7 @@
     if (self) {
         [self.contentView addSubview:({
             _cameraView = [UIImageView new];
-            _cameraView.image = [UIImage imageNamed:@"doris_picker_camera_icon"];
+            _cameraView.image = [UIImage g_imageNamed:@"GDoris_photo_picker_cell_camera_ic"];
             _cameraView;
         })];
     }

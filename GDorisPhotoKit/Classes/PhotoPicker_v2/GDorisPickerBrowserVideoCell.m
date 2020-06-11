@@ -9,6 +9,7 @@
 #import "GDorisPickerBrowserVideoCell.h"
 #import <AVFoundation/AVFoundation.h>
 #import "GDorisPhotoBrowserBaseController.h"
+#import "UIImage+GDoris.h"
 @interface GDorisPickerBrowserVideoCell ()
 @property (nonatomic, strong) UIImageView * playView;
 @property (nonatomic, assign) CGSize  ic_size;
@@ -32,7 +33,7 @@
 {
     if (!_playView) {
         _playView = [[UIImageView alloc] init];
-        UIImage * image = [UIImage imageNamed:@"player_control_icon_play_big"];
+        UIImage * image = [UIImage g_imageNamed:@"GDoris_photo_browser_video_play"];
         _playView.image = image;
         self.ic_size = image.size;
         [self.contentView addSubview:_playView];

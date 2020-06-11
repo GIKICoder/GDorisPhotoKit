@@ -12,6 +12,7 @@
 #import "UIControl+GDoris.h"
 #import "GDorisPhotoConfiguration.h"
 #import "GDorisPhotoPickerBaseInternal.h"
+#import "UIImage+GDoris.h"
 @interface GDorisPhotoPickerCell ()
 @property (nonatomic, strong) UIImageView  * imageView;
 @property (nonatomic, strong) UIView * operationCotainer;
@@ -50,8 +51,8 @@
         [self.operationCotainer addSubview:({
             _selectButton = [GDorisAnimatedButton buttonWithType:UIButtonTypeCustom];
             [_selectButton addTarget:self action:@selector(selectButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-            [_selectButton setImage:[UIImage imageNamed:@"PhotoLibrary_unselected"] forState:UIControlStateNormal];
-            [_selectButton setImage:[UIImage imageNamed:@"PhotoLibrary_selected"] forState:UIControlStateSelected];
+            [_selectButton setImage:[UIImage g_imageNamed:@"GDoris_photo_picker_cell_unselect_ic"] forState:UIControlStateNormal];
+            [_selectButton setImage:[UIImage g_imageNamed:@"PhotoLibrary_selected"] forState:UIControlStateSelected];
             _selectButton.selectType = GDorisPickerSelectCount;
             [_selectButton g_enlargeHitWithEdges: UIEdgeInsetsMake(20, 20, 20, 20)];
             _selectButton;
@@ -72,7 +73,7 @@
             _photoTagLabel.textAlignment = NSTextAlignmentCenter;
             _photoTagLabel.layer.cornerRadius = 4;
             _photoTagLabel.layer.masksToBounds = YES;
-            _photoTagLabel.backgroundColor = GDorisColor(255, 87, 88);// GDorisColor(91, 121, 164);
+            _photoTagLabel.backgroundColor = GDorisAppearanceINST.tintColor;
             _photoTagLabel.text = @"GIF";
             _photoTagLabel.hidden = YES;
             _photoTagLabel;
@@ -86,7 +87,7 @@
             _editerLabel.textAlignment = NSTextAlignmentCenter;
             _editerLabel.layer.cornerRadius = 4;
             _editerLabel.layer.masksToBounds = YES;
-            _editerLabel.backgroundColor = GDorisColor(255, 87, 88); // GDorisColor(91, 121, 164);
+            _editerLabel.backgroundColor = GDorisAppearanceINST.tintColor;
             _editerLabel.hidden = YES;
             _editerLabel;
         })];
