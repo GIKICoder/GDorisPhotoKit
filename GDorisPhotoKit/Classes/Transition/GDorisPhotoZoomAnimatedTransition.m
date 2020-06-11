@@ -146,7 +146,7 @@ CGRect GImageAspectFitRectForSize(UIImage *image, CGSize size){
     UIView *presentedView = inView;
     if ([self.presentedAdapter respondsToSelector:@selector(presentedView)]) {
         UIView * presetedView_ = [self.presentedAdapter presentedView];
-        if (presetedView_.frame.size.height > inView.frame.size.height) {
+        if (presetedView_.frame.size.height < inView.frame.size.height) {
             presentedView = presetedView_;
         } else {
             presentedView = presetedView_.superview;
