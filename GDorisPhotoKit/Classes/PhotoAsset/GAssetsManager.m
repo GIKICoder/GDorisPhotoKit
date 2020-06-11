@@ -70,10 +70,10 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 - (void)appEnterForeground
 {
 #ifdef DEBUG
-    NSString * key = [NSString stringWithFormat:@"XCPHOTOPICKER_ALBUM_%lu_%d_%d",(unsigned long)XCAlbumContentTypeAll,0,1];
+    NSString * key = [NSString stringWithFormat:@"XCPHOTOPICKER_ALBUM_%lu_%d_%d",(unsigned long)GAlbumContentTypeAll,0,1];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         __block NSMutableArray * arrayM = [NSMutableArray array];
-        [[GAssetsManager sharedInstance]  enumerateAllAlbumsWithAlbumContentType:XCAlbumContentTypeAll showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:^(GAssetsGroup * _Nonnull resultAssetsGroup) {
+        [[GAssetsManager sharedInstance]  enumerateAllAlbumsWithAlbumContentType:GAlbumContentTypeAll showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:^(GAssetsGroup * _Nonnull resultAssetsGroup) {
             if (resultAssetsGroup) {
                 [arrayM addObject:resultAssetsGroup];
             }
@@ -122,7 +122,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     }];
 }
 
-- (GAssetsGroup *)fetchSystemAlbumWithContentType:( XCAlbumContentType)contentType
+- (GAssetsGroup *)fetchSystemAlbumWithContentType:( GAlbumContentType)contentType
 {
     //    CFTimeInterval startTime = CACurrentMediaTime();
     // 创建一个 PHFetchOptions，用于创建  GAssetsGroup 对资源的排序和类型进行控制
@@ -152,7 +152,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 /// @param contentType <#contentType description#>
 /// @param showEmptyAlbum <#showEmptyAlbum description#>
 /// @param showSmartAlbum <#showSmartAlbum description#>
-- (NSArray<GAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum
+- (NSArray<GAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(GAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum
 {
     NSArray * array = [PHPhotoLibrary fetchAllAlbumsWithAlbumContentType:contentType showEmptyAlbum:showEmptyAlbum showSmartAlbum:showSmartAlbum];
     // 创建一个 PHFetchOptions，用于  GAssetsGroup 对资源的排序以及对内容类型进行控制
@@ -168,7 +168,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     return groupsM.copy;
 }
 
-- (void)enumerateAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)( GAssetsGroup *resultAssetsGroup))enumerationBlock {
+- (void)enumerateAllAlbumsWithAlbumContentType:( GAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)( GAssetsGroup *resultAssetsGroup))enumerationBlock {
     // 根据条件获取所有合适的相册，并保存到临时数组中
     NSArray *tempAlbumsArray = [PHPhotoLibrary fetchAllAlbumsWithAlbumContentType:contentType showEmptyAlbum:showEmptyAlbum showSmartAlbum:showSmartAlbumIfSupported];
     
@@ -192,7 +192,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     }
 }
 
-- (void)enumerateAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType usingBlock:(void (^)( GAssetsGroup *resultAssetsGroup))enumerationBlock {
+- (void)enumerateAllAlbumsWithAlbumContentType:( GAlbumContentType)contentType usingBlock:(void (^)( GAssetsGroup *resultAssetsGroup))enumerationBlock {
     [self enumerateAllAlbumsWithAlbumContentType:contentType showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:enumerationBlock];
 }
 /**
@@ -228,7 +228,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
                                        completionHandler:^(BOOL success, NSDate *creationDate, NSError *error) {
         if (success) {
             if (!albumPhAssetCollection) {
-                NSArray * array = [PHPhotoLibrary fetchAllAlbumsWithAlbumContentType:XCAlbumContentTypeOnlyPhoto showEmptyAlbum:NO showSmartAlbum:NO];
+                NSArray * array = [PHPhotoLibrary fetchAllAlbumsWithAlbumContentType:GAlbumContentTypeOnlyPhoto showEmptyAlbum:NO showSmartAlbum:NO];
                 albumPhAssetCollection = array.firstObject;
             }
             PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
@@ -312,27 +312,27 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 
 @implementation PHPhotoLibrary (XCUtils)
 
-+ (PHFetchOptions *)createFetchOptionsWithAlbumContentType:( XCAlbumContentType)contentType {
++ (PHFetchOptions *)createFetchOptionsWithAlbumContentType:( GAlbumContentType)contentType {
     PHFetchOptions *fetchOptions = [[PHFetchOptions alloc] init];
     // 根据输入的内容类型过滤相册内的资源
     switch (contentType) {
             /*
-             case XCAlbumContentTypeAll:
+             case GAlbumContentTypeAll:
              {
              fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i", PHAssetMediaTypeImage];
              fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i",PHAssetMediaTypeVideo];
              }
              break;
              */
-        case  XCAlbumContentTypeOnlyPhoto:
+        case  GAlbumContentTypeOnlyPhoto:
             fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i", PHAssetMediaTypeImage];
             break;
             
-        case  XCAlbumContentTypeOnlyVideo:
+        case  GAlbumContentTypeOnlyVideo:
             fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i",PHAssetMediaTypeVideo];
             break;
             
-        case  XCAlbumContentTypeOnlyAudio:
+        case  GAlbumContentTypeOnlyAudio:
             fetchOptions.predicate = [NSPredicate predicateWithFormat:@"mediaType = %i",PHAssetMediaTypeAudio];
             break;
             
@@ -342,7 +342,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     return fetchOptions;
 }
 
-+ (NSArray *)fetchAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum {
++ (NSArray *)fetchAllAlbumsWithAlbumContentType:( GAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum {
     NSMutableArray *tempAlbumsArray = [[NSMutableArray alloc] init];
     
     // 创建一个 PHFetchOptions，用于创建  GAssetsGroup 对资源的排序和类型进行控制

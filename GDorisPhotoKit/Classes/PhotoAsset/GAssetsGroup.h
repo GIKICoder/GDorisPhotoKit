@@ -20,17 +20,17 @@ NS_ASSUME_NONNULL_BEGIN
 @class  GAsset;
 
 /// 相册展示内容的类型
-typedef NS_ENUM(NSUInteger,  XCAlbumContentType) {
-     XCAlbumContentTypeAll,                                  // 展示所有资源
-     XCAlbumContentTypeOnlyPhoto,                            // 只展示照片
-     XCAlbumContentTypeOnlyVideo,                            // 只展示视频
-     XCAlbumContentTypeOnlyAudio                             // 只展示音频
+typedef NS_ENUM(NSUInteger,  GAlbumContentType) {
+     GAlbumContentTypeAll,                                  // 展示所有资源
+     GAlbumContentTypeOnlyPhoto,                            // 只展示照片
+     GAlbumContentTypeOnlyVideo,                            // 只展示视频
+     GAlbumContentTypeOnlyAudio                             // 只展示音频
 };
 
 /// 相册展示内容按日期排序的方式
-typedef NS_ENUM(NSUInteger,  XCAlbumSortType) {
-     XCAlbumSortTypePositive,  // 日期最新的内容排在后面
-     XCAlbumSortTypeReverse  // 日期最新的内容排在前面
+typedef NS_ENUM(NSUInteger,  GAlbumSortType) {
+     GAlbumSortTypePositive,  // 日期最新的内容排在后面
+     GAlbumSortTypeReverse  // 日期最新的内容排在前面
 };
 
 
@@ -62,7 +62,7 @@ typedef NS_ENUM(NSUInteger,  XCAlbumSortType) {
 /// 获取前多少个相册资源
 /// @param count 数量
 /// @param albumSortType 排序方式
-- (NSArray *)fetchTopCountAssets:(NSInteger)count sortType:(XCAlbumSortType)albumSortType;
+- (NSArray *)fetchTopCountAssets:(NSInteger)count sortType:(GAlbumSortType)albumSortType;
 
 /**
  *  枚举相册内所有的资源
@@ -72,7 +72,7 @@ typedef NS_ENUM(NSUInteger,  XCAlbumSortType) {
  *                          枚举所有资源结束后，enumerationBlock 会被再调用一次，这时 result 的值为 nil。
  *                          可以以此作为判断枚举结束的标记
  */
-- (void)enumerateAssetsWithOptions:(XCAlbumSortType)albumSortType usingBlock:(void (^)(GAsset *resultAsset))enumerationBlock;
+- (void)enumerateAssetsWithOptions:(GAlbumSortType)albumSortType usingBlock:(void (^)(GAsset *resultAsset))enumerationBlock;
 
 /// 获取最新的相册资源
 /// @param count 回去的数量

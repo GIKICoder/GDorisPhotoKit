@@ -67,12 +67,12 @@
 /// 获取前多少个相册资源
 /// @param count 数量
 /// @param albumSortType 排序方式
-- (NSArray *)fetchTopCountAssets:(NSInteger)count sortType:(XCAlbumSortType)albumSortType
+- (NSArray *)fetchTopCountAssets:(NSInteger)count sortType:(GAlbumSortType)albumSortType
 {
     CFTimeInterval startTime = CACurrentMediaTime();
     
     NSEnumerationOptions Options = NSEnumerationConcurrent;
-    if (albumSortType == XCAlbumSortTypeReverse) {
+    if (albumSortType == GAlbumSortTypeReverse) {
         Options = NSEnumerationReverse;
     }
     __block NSMutableArray * tempsM = [NSMutableArray array];
@@ -122,12 +122,12 @@
         }
 }
 
-- (void)enumerateAssetsWithOptions:( XCAlbumSortType)albumSortType usingBlock:(void (^)( GAsset *resultAsset))enumerationBlock {
+- (void)enumerateAssetsWithOptions:( GAlbumSortType)albumSortType usingBlock:(void (^)( GAsset *resultAsset))enumerationBlock {
 #ifdef DEBUG
     CFTimeInterval startTime = CACurrentMediaTime();
 #endif
     NSEnumerationOptions Options = NSEnumerationConcurrent;
-    if (albumSortType == XCAlbumSortTypeReverse) {
+    if (albumSortType == GAlbumSortTypeReverse) {
         Options = NSEnumerationReverse;
     }
     [self.phFetchResult enumerateObjectsWithOptions:(Options) usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -151,7 +151,7 @@
 }
 
 - (void)enumerateAssetsUsingBlock:(void (^)( GAsset *resultAsset))enumerationBlock {
-    [self enumerateAssetsWithOptions: XCAlbumSortTypePositive usingBlock:enumerationBlock];
+    [self enumerateAssetsWithOptions: GAlbumSortTypePositive usingBlock:enumerationBlock];
 }
 
 @end

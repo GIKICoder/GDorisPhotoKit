@@ -68,13 +68,13 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
 
 /// 获取系统相册
 /// @param contentType <#contentType description#>
-- (GAssetsGroup *)fetchSystemAlbumWithContentType:( XCAlbumContentType)contentType;
+- (GAssetsGroup *)fetchSystemAlbumWithContentType:( GAlbumContentType)contentType;
 
 /// 获取全部相册
 /// @param contentType <#contentType description#>
 /// @param showEmptyAlbum <#showEmptyAlbum description#>
 /// @param showSmartAlbum <#showSmartAlbum description#>
-- (NSArray<GAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum;
+- (NSArray<GAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(GAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum;
 
 /**
  *  获取所有的相册，包括个人收藏，最近添加，自拍这类“智能相册”
@@ -85,10 +85,10 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
  *  @param enumerationBlock          参数 resultAssetsGroup 表示每次枚举时对应的相册。枚举所有相册结束后，enumerationBlock 会被再调用一次，
  *                                   这时 resultAssetsGroup 的值为 nil。可以以此作为判断枚举结束的标记。
  */
-- (void)enumerateAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)(GAssetsGroup *resultAssetsGroup))enumerationBlock;
+- (void)enumerateAllAlbumsWithAlbumContentType:(GAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)(GAssetsGroup *resultAssetsGroup))enumerationBlock;
 
 /// 获取所有相册，默认显示系统的“智能相册”，不显示空相册（经过 contentType 过滤后为空的相册）
-- (void)enumerateAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType usingBlock:(void (^)(GAssetsGroup *resultAssetsGroup))enumerationBlock;
+- (void)enumerateAllAlbumsWithAlbumContentType:(GAlbumContentType)contentType usingBlock:(void (^)(GAssetsGroup *resultAssetsGroup))enumerationBlock;
 
 /**
  *  保存图片或视频到指定的相册
@@ -131,7 +131,7 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
  *
  *  @return 返回一个合适的 PHFetchOptions
  */
-+ (PHFetchOptions *)createFetchOptionsWithAlbumContentType:( XCAlbumContentType)contentType;
++ (PHFetchOptions *)createFetchOptionsWithAlbumContentType:( GAlbumContentType)contentType;
 
 /**
  *  获取所有相册
@@ -142,7 +142,7 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
  *
  *  @return 返回包含所有合适相册的数组
  */
-+ (NSArray *)fetchAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum;
++ (NSArray *)fetchAllAlbumsWithAlbumContentType:( GAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum;
 
 /// 获取一个 PHAssetCollection 中创建日期最新的资源
 + (PHAsset *)fetchLatestAssetWithAssetCollection:(PHAssetCollection *)assetCollection;

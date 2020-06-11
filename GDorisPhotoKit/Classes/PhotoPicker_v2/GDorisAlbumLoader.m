@@ -27,7 +27,7 @@
 {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         DorisAlbumContentType albumType =  configuration.albumType;
-        XCAlbumContentType  type = [self.class covertAssetTypeWith:albumType];
+        GAlbumContentType  type = [self.class covertAssetTypeWith:albumType];
         dispatch_block_t block = ^{
             NSArray * groups = [[GAssetsManager sharedInstance] fetchAllAlbumsWithAlbumContentType:type showEmptyAlbum:NO showSmartAlbum:YES];
             dispatch_async(dispatch_get_main_queue(), ^{
@@ -97,7 +97,7 @@
                 }
             }];
         } else { ///全部获取
-            XCAlbumSortType sortType = configuration.appearance.isReveres ? XCAlbumSortTypeReverse : XCAlbumSortTypePositive;
+            GAlbumSortType sortType = configuration.appearance.isReveres ? GAlbumSortTypeReverse : GAlbumSortTypePositive;
             [group enumerateAssetsWithOptions:sortType usingBlock:^(GAsset * _Nonnull resultAsset) {
                 blockIndex ++;
                 if (blockIndex == quickCount && quickCount > 0) {
@@ -300,20 +300,20 @@
     }];
 }
 
-+ (XCAlbumContentType)covertAssetTypeWith:(DorisAlbumContentType)contentType
++ (GAlbumContentType)covertAssetTypeWith:(DorisAlbumContentType)contentType
 {
     switch (contentType) {
         case DorisAlbumContentTypeAll:
-            return XCAlbumContentTypeAll;
+            return GAlbumContentTypeAll;
             break;
         case DorisAlbumContentTypeOnlyPhoto:
-            return XCAlbumContentTypeOnlyPhoto;
+            return GAlbumContentTypeOnlyPhoto;
             break;
         case DorisAlbumContentTypeOnlyVideo:
-            return XCAlbumContentTypeOnlyVideo;
+            return GAlbumContentTypeOnlyVideo;
             break;
         default:
-            return XCAlbumContentTypeAll;
+            return GAlbumContentTypeAll;
             break;
     }
 }
