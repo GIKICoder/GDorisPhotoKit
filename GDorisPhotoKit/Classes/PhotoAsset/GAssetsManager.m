@@ -9,15 +9,15 @@
 #import "GAssetsManager.h"
 #import "GAsset.h"
 
-void XCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
+void GImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
     [[ GAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:albumAssetsGroup orientation:image.imageOrientation completionBlock:completionBlock];
 }
 
-void XCSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
+void GSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
     [[ GAssetsManager sharedInstance] saveImageWithImagePathURL:[NSURL fileURLWithPath:imagePath] albumAssetsGroup:albumAssetsGroup completionBlock:completionBlock];
 }
 
-void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
+void GSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
     [[ GAssetsManager sharedInstance] saveVideoWithVideoPathURL:[NSURL fileURLWithPath:videoPath] albumAssetsGroup:albumAssetsGroup completionBlock:completionBlock];
 }
 
@@ -69,17 +69,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 
 - (void)appEnterForeground
 {
-#ifdef DEBUG
-    NSString * key = [NSString stringWithFormat:@"XCPHOTOPICKER_ALBUM_%lu_%d_%d",(unsigned long)GAlbumContentTypeAll,0,1];
-    dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        __block NSMutableArray * arrayM = [NSMutableArray array];
-        [[GAssetsManager sharedInstance]  enumerateAllAlbumsWithAlbumContentType:GAlbumContentTypeAll showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:^(GAssetsGroup * _Nonnull resultAssetsGroup) {
-            if (resultAssetsGroup) {
-                [arrayM addObject:resultAssetsGroup];
-            }
-        }];
-    });
-#endif
+    
 }
 
 - (void)didReceiveMemoryWarning

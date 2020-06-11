@@ -37,13 +37,13 @@ typedef void (^XCWriteAssetCompletionBlock)(GAsset * __nullable asset, NSError *
 
 
 /// 保存图片到指定相册（传入 UIImage）
-extern void XCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
+extern void GImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
 
 /// 保存图片到指定相册（传入图片路径）
-extern void XCSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
+extern void GSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
 
 /// 保存视频到指定相册
-extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
+extern void GSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
 
 /**
  *  构建  GAssetsManager 这个对象并提供单例的调用方式主要出于下面两点考虑：
