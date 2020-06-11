@@ -1,0 +1,11 @@
+use_frameworks!
+
+platform :ios, '8.0'
+
+target 'GDorisPhotoKit_Example' do
+  pod 'GDorisPhotoKit', :path => '../'
+
+  target 'GDorisPhotoKit_Tests' do
+    inherit! :search_paths    
+  end
+end

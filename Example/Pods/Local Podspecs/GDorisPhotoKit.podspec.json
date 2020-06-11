@@ -1,0 +1,48 @@
+{
+  "name": "GDorisPhotoKit",
+  "version": "0.1.0",
+  "summary": "A short description of GDorisPhotoKit.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/gikicoder/GDorisPhotoKit",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "810373457@qq.com": "giki.biu@gmail.com"
+  },
+  "source": {
+    "git": "https://github.com/gikicoder/GDorisPhotoKit.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "GDorisPhotoKit/Classes/**/*",
+  "dependencies": {
+    "YYText": [
+
+    ],
+    "YYImage": [
+
+    ],
+    "YYImage/WebP": [
+
+    ],
+    "SDWebImage": [
+      "~> 5.0"
+    ],
+    "SDWebImageWebPCoder": [
+
+    ],
+    "SDWebImageYYPlugin": [
+
+    ],
+    "Masonry": [
+
+    ],
+    "FLAnimatedImage": [
+
+    ]
+  }
+}

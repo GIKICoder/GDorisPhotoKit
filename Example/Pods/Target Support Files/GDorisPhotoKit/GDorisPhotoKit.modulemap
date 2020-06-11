@@ -1,0 +1,6 @@
+framework module GDorisPhotoKit {
+  umbrella header "GDorisPhotoKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
