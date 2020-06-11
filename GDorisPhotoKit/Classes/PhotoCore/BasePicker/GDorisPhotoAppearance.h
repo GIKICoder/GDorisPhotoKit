@@ -27,6 +27,8 @@ typedef NS_ENUM(NSUInteger,  DorisPhotoRegularType) {
      DorisPhotoRegularTypeVideo,                            // 视频最大数量
 };
 
+#define GDorisAppearanceINST  [GDorisPhotoAppearance defaultAppearance]
+
 @interface GDorisPhotoAppearance : NSObject
 
 /// 是否展示空相册 default：NO
@@ -62,6 +64,8 @@ typedef NS_ENUM(NSUInteger,  DorisPhotoRegularType) {
 /// 列数 default: 4
 @property (nonatomic, assign) NSInteger  pickerColumns;
 
+/// photo picker TintColor
+@property (nonatomic, strong) UIColor * tintColor;
 
 + (GDorisPhotoAppearance *)defaultAppearance;
 

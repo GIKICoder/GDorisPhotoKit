@@ -9,6 +9,7 @@
 #import "GDorisInputStylePanel.h"
 #import "GDorisSliderView.h"
 #import "GDorisPhotoHelper.h"
+#import "GDorisPhotoAppearance.h"
 @interface GDorisInputStylePanel ()
 @property (nonatomic, strong) UILabel * alphaLabel;
 @property (nonatomic, strong) GDorisSliderView * sliderView;
@@ -33,9 +34,9 @@
             _sliderView.trackHeight = 2;
             _sliderView.value = 1;
             _sliderView.maximumTrackTintColor = GDorisColorCreate(@"999999");
-            _sliderView.minimumTrackTintColor = GDorisColorCreate(@"FF5758");
+            _sliderView.minimumTrackTintColor = GDorisAppearanceINST.tintColor;
             _sliderView.thumbTintSize = CGSizeMake(20, 20);
-            _sliderView.thumbTintColor = GDorisColorCreate(@"FF5758");
+            _sliderView.thumbTintColor = GDorisAppearanceINST.tintColor;
             _sliderView;
         })];
         [self.alphaLabel mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -80,7 +81,7 @@
 {
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.titleLabel.font = [UIFont systemFontOfSize:14];
-    [button setTitleColor:GDorisColorCreate(@"FF5758") forState:UIControlStateSelected];
+    [button setTitleColor:GDorisAppearanceINST.tintColor forState:UIControlStateSelected];
     [button setTitleColor:GDorisColorCreate(@"262626") forState:UIControlStateNormal];
     [button setTitle:title forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];

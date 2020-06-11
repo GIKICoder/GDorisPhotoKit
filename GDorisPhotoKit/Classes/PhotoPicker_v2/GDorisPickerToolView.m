@@ -8,6 +8,7 @@
 
 #import "GDorisPickerToolView.h"
 #import "GDorisPhotoHelper.h"
+#import "GDorisPhotoAppearance.h"
 @interface GDorisPickerToolView()
 @property (nonatomic, strong) UIView * container;
 @property (nonatomic, strong) UIButton * leftButton;
@@ -34,7 +35,7 @@
             _leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
             [_leftButton setTitleColor:GDorisColorCreate(@"262626") forState:UIControlStateNormal];
             [_leftButton setTitleColor:GDorisColorCreate(@"262626") forState:UIControlStateHighlighted];
-            [_leftButton setTitleColor:GDorisColorCreate(@"f5f5f5") forState:UIControlStateDisabled];
+            [_leftButton setTitleColor:GDorisAppearanceINST.tintColor forState:UIControlStateDisabled];
             _leftButton.tag = DorisPickerToolbarLeft;
             _leftButton;
         })];
@@ -58,7 +59,7 @@
             [_rightButton setTitleColor:UIColor.whiteColor forState:UIControlStateDisabled];
             _rightButton.enabled = NO;
             _rightButton.tag = DorisPickerToolbarRight;
-            UIImage *imageN = [GDorisPhotoHelper createImageWithColor:GDorisColorCreate(@"FF5758") size:CGSizeMake(67, 40)];
+            UIImage *imageN = [GDorisPhotoHelper createImageWithColor:GDorisAppearanceINST.tintColor size:CGSizeMake(67, 40)];
             UIImage *imageD = [GDorisPhotoHelper createImageWithColor:GDorisColorCreate(@"D5D9D7") size:CGSizeMake(67, 40)];
             [_rightButton setBackgroundImage:imageN forState:UIControlStateNormal];
             [_rightButton setBackgroundImage:imageD forState:UIControlStateDisabled];

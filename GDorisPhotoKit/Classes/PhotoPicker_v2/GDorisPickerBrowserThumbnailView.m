@@ -9,6 +9,7 @@
 #import "GDorisPickerBrowserThumbnailView.h"
 #import "GDorisPhotoHelper.h"
 #import "GAsset.h"
+#import "GDorisPhotoAppearance.h"
 @interface GDorisPhotoPickerThumbnailCell : UICollectionViewCell
 @property (nonatomic, strong) UIImageView * imageView;
 @property (nonatomic, strong) UIView * borderView;
@@ -29,7 +30,7 @@
         [self.contentView addSubview:({
             _borderView = [UIView new];
             _borderView.layer.borderWidth = 2;
-            _borderView.layer.borderColor = GDorisColorCreate(@"FF5758").CGColor;
+            _borderView.layer.borderColor = GDorisAppearanceINST.tintColor.CGColor;
             _borderView.hidden = YES;
             _borderView;
         })];

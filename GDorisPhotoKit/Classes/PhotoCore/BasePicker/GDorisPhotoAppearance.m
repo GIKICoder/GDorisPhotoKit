@@ -7,13 +7,17 @@
 //
 
 #import "GDorisPhotoAppearance.h"
-
+#import "GDorisPhotoHelper.h"
 @implementation GDorisPhotoAppearance
 
 
 + (GDorisPhotoAppearance *)defaultAppearance
 {
-    GDorisPhotoAppearance * appearance = [GDorisPhotoAppearance new];
+    static GDorisPhotoAppearance * appearance = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        appearance = [GDorisPhotoAppearance new];
+    });
     return appearance;
 }
 
@@ -31,9 +35,10 @@
         self.edgeInset = UIEdgeInsetsMake(4, 4, 4, 4);
         self.selectAnimated = YES;
         self.selectCountEnabled = YES;
-        self.showCamera = YES;
+        self.showCamera = NO;
         self.gestureSelectEnabled = NO;
         self.can3DTouchPreview = YES;
+        self.tintColor = GDorisColorCreate(@"FF5758");
     }
     return self;
 }

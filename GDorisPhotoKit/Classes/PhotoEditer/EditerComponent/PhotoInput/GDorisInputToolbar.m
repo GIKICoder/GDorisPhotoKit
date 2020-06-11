@@ -9,6 +9,7 @@
 #import "GDorisInputToolbar.h"
 #import "GDorisPhotoHelper.h"
 #import "Masonry.h"
+#import "GDorisPhotoAppearance.h"
 @interface GDorisInputToolbar ()
 @property (nonatomic, strong) UIButton * keyboardBtn;
 @property (nonatomic, strong) UIButton * styleBtn;
@@ -43,7 +44,7 @@
     button.tag = tag;
     button.titleLabel.font = [UIFont systemFontOfSize:16];
     [button setTitleColor:GDorisColorCreate(@"262626") forState:UIControlStateNormal];
-    [button setTitleColor:GDorisColorCreate(@"FF5758") forState:UIControlStateSelected];
+    [button setTitleColor:GDorisAppearanceINST.tintColor forState:UIControlStateSelected];
     [button setTitle:text forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     return button;

@@ -8,6 +8,7 @@
 
 #import "GDorisAnimatedButton.h"
 #import "GDorisPhotoHelper.h"
+#import "GDorisPhotoAppearance.h"
 @interface GDorisAnimatedButton ()
 @property (nonatomic, strong) UIImageView * iconView;
 @property (nonatomic, strong) UILabel * numberLabel;
@@ -73,7 +74,7 @@
 {
     if (!_iconView) {
         _iconView = [[UIImageView alloc] init];
-        _iconView.backgroundColor = GDorisColorCreate(@"FF5758");
+        _iconView.backgroundColor = GDorisAppearanceINST.tintColor;
         [self addSubview:_iconView];
         _numberLabel = [UILabel new];
         _numberLabel.font = [UIFont systemFontOfSize:12];
