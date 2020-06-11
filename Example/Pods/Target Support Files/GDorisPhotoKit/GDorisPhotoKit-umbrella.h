@@ -10,9 +10,6 @@
 #endif
 #endif
 
-#import "XCAsset.h"
-#import "XCAssetsGroup.h"
-#import "XCAssetsManager.h"
 #import "GDorisPhotoHelper.h"
 #import "GDorisRunLoopWorker.h"
 #import "UICollectionViewCell+GDorisWorker.h"
@@ -20,6 +17,9 @@
 #import "UIControl+GDoris.h"
 #import "UIImage+GDoris.h"
 #import "UIView+GDoris.h"
+#import "GAsset.h"
+#import "GAssetsGroup.h"
+#import "GAssetsManager.h"
 #import "GDorisBrowserBaseCell.h"
 #import "GDorisPhotoBrowserBaseController.h"
 #import "IGDorisPhotoBrower.h"
@@ -65,6 +65,7 @@
 #import "GDorisEditerHitTestView.h"
 #import "GDorisEditerToolbar.h"
 #import "GDorisFilterToolbar.h"
+#import "GDorisSliderView.h"
 #import "GDorisAlbumLoader.h"
 #import "GDorisPhotoAlbumCell.h"
 #import "GDorisPhotoAlbumTableView.h"

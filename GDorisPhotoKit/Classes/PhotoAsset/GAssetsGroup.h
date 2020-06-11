@@ -1,5 +1,5 @@
 //
-//  XCAssetsGroup.h
+//  GAssetsGroup.h
 //  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/8/13.
@@ -17,7 +17,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 
-@class  XCAsset;
+@class  GAsset;
 
 /// 相册展示内容的类型
 typedef NS_ENUM(NSUInteger,  XCAlbumContentType) {
@@ -34,7 +34,7 @@ typedef NS_ENUM(NSUInteger,  XCAlbumSortType) {
 };
 
 
-@interface  XCAssetsGroup : NSObject
+@interface  GAssetsGroup : NSObject
 
 - (instancetype)initWithPHCollection:(PHAssetCollection *)phAssetCollection;
 
@@ -72,13 +72,13 @@ typedef NS_ENUM(NSUInteger,  XCAlbumSortType) {
  *                          枚举所有资源结束后，enumerationBlock 会被再调用一次，这时 result 的值为 nil。
  *                          可以以此作为判断枚举结束的标记
  */
-- (void)enumerateAssetsWithOptions:(XCAlbumSortType)albumSortType usingBlock:(void (^)(XCAsset *resultAsset))enumerationBlock;
+- (void)enumerateAssetsWithOptions:(XCAlbumSortType)albumSortType usingBlock:(void (^)(GAsset *resultAsset))enumerationBlock;
 
 /// 获取最新的相册资源
 /// @param count 回去的数量
 /// @param enumerationBlock <#enumerationBlock description#>
 - (void)enumerateLasterAssetsWithCount:(NSInteger)count
-                            usingBlock:(void (^)( XCAsset *resultAsset))enumerationBlock;
+                            usingBlock:(void (^)( GAsset *resultAsset))enumerationBlock;
 
 /**
  *  枚举相册内所有的资源，相册内资源按日期最新的排在最后面
@@ -87,7 +87,7 @@ typedef NS_ENUM(NSUInteger,  XCAlbumSortType) {
  *                          枚举所有资源结束后，enumerationBlock 会被再调用一次，这时 result 的值为 nil。
  *                          可以以此作为判断枚举结束的标记
  */
-- (void)enumerateAssetsUsingBlock:(void (^)(XCAsset *result))enumerationBlock;
+- (void)enumerateAssetsUsingBlock:(void (^)(GAsset *result))enumerationBlock;
 
 @end
 

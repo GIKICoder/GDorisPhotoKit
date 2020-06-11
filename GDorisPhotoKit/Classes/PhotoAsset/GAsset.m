@@ -1,15 +1,15 @@
 //
-//  XCAsset.m
+//  GAsset.m
 //  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/8/13.
 //  Copyright © 2019 GIKI. All rights reserved.
 //
 
-#import "XCAsset.h"
+#import "GAsset.h"
 #import <Photos/Photos.h>
 #import <MobileCoreServices/UTCoreTypes.h>
-#import "XCAssetsManager.h"
+#import "GAssetsManager.h"
 #import "UIImage+GDoris.h"
 static NSString * const kAssetInfoImageData = @"imageData";
 static NSString * const kAssetInfoOriginInfo = @"originInfo";
@@ -17,9 +17,9 @@ static NSString * const kAssetInfoDataUTI = @"dataUTI";
 static NSString * const kAssetInfoOrientation = @"orientation";
 static NSString * const kAssetInfoSize = @"size";
 
-#define XCASSET_WIDTH [[UIScreen mainScreen] bounds].size.width
-#define XCASSET_HEIGHT [[UIScreen mainScreen] bounds].size.height
-@interface  XCAsset ()
+#define GAsset_WIDTH [[UIScreen mainScreen] bounds].size.width
+#define GAsset_HEIGHT [[UIScreen mainScreen] bounds].size.height
+@interface  GAsset ()
 
 @property (nonatomic, copy) NSDictionary *phAssetInfo;
 @property (nonatomic, assign) CGSize  imageSize;
@@ -27,7 +27,7 @@ static NSString * const kAssetInfoSize = @"size";
 @property (nonatomic, copy  ) NSString * privateId;
 @end
 
-@implementation  XCAsset {
+@implementation  GAsset {
     PHAsset *_phAsset;
     //    float imageSize;
 }
@@ -35,9 +35,9 @@ static NSString * const kAssetInfoSize = @"size";
 - (instancetype)initWithImage:(UIImage *)image
 {
     if (self = [super init]) {
-        _assetType = XCAssetTypeImage;
+        _assetType = GAssetTypeImage;
         self.editerImage = image;
-        _assetSubType =  XCAssetSubTypeImage;
+        _assetSubType =  GAssetSubTypeImage;
         _imageSize = image.size;
         int64_t localId = [[NSDate date]  timeIntervalSince1970] * 1000;
         self.privateId = [NSString stringWithFormat:@"local_%lld",localId];
@@ -50,29 +50,29 @@ static NSString * const kAssetInfoSize = @"size";
         _phAsset = phAsset;
         switch (phAsset.mediaType) {
             case PHAssetMediaTypeImage:
-                _assetType =  XCAssetTypeImage;
+                _assetType =  GAssetTypeImage;
                 if ([[phAsset valueForKey:@"uniformTypeIdentifier"] isEqualToString:(__bridge NSString *)kUTTypeGIF]) {
-                    _assetSubType =  XCAssetSubTypeGIF;
+                    _assetSubType =  GAssetSubTypeGIF;
                 } else {
                     if (@available(iOS 9.1, *)) {
                         if (phAsset.mediaSubtypes & PHAssetMediaSubtypePhotoLive) {
-                            _assetSubType =  XCAssetSubTypeLivePhoto;
+                            _assetSubType =  GAssetSubTypeLivePhoto;
                         } else {
-                            _assetSubType =  XCAssetSubTypeImage;
+                            _assetSubType =  GAssetSubTypeImage;
                         }
                     } else {
-                        _assetSubType =  XCAssetSubTypeImage;
+                        _assetSubType =  GAssetSubTypeImage;
                     }
                 }
                 break;
             case PHAssetMediaTypeVideo:
-                _assetType =  XCAssetTypeVideo;
+                _assetType =  GAssetTypeVideo;
                 break;
             case PHAssetMediaTypeAudio:
-                _assetType =  XCAssetTypeAudio;
+                _assetType =  GAssetTypeAudio;
                 break;
             default:
-                _assetType =  XCAssetTypeUnknow;
+                _assetType =  GAssetTypeUnknow;
                 break;
         }
         _imageSize =  CGSizeMake(_phAsset.pixelWidth, _phAsset.pixelHeight);
@@ -90,7 +90,7 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *phImageRequestOptions = [[PHImageRequestOptions alloc] init];
     phImageRequestOptions.synchronous = YES;
     phImageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeExact;
-    [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
+    [[[GAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
                                                                         targetSize:CGSizeMake(_phAsset.pixelWidth, _phAsset.pixelHeight)
                                                                        contentMode:PHImageContentModeDefault
                                                                            options:phImageRequestOptions
@@ -102,7 +102,7 @@ static NSString * const kAssetInfoSize = @"size";
         phImageRequestOptions.deliveryMode = PHImageRequestOptionsDeliveryModeHighQualityFormat;
         phImageRequestOptions.networkAccessAllowed = YES;
         phImageRequestOptions.synchronous = YES;
-        [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:phImageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+        [[[GAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:phImageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
             resultImage = [UIImage imageWithData:imageData];
         }];
         if (resultImage == nil) {//针对视频取不到原图的情况进行处理
@@ -123,7 +123,7 @@ static NSString * const kAssetInfoSize = @"size";
     phImageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeFast;
     // 在 PHImageManager 中，targetSize 等 size 都是使用 px 作为单位，因此需要对targetSize 中对传入的 Size 进行处理，宽高各自乘以 ScreenScale，从而得到正确的图片
     __block UIImage * resultImage = nil;
-    [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
+    [[[GAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
                                                                         targetSize:CGSizeMake(tzsize.width * [[UIScreen mainScreen] scale], tzsize.height * [[UIScreen mainScreen] scale])
                                                                        contentMode:PHImageContentModeAspectFill options:phImageRequestOptions
                                                                      resultHandler:^(UIImage *result, NSDictionary *info) {
@@ -139,8 +139,8 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
     imageRequestOptions.networkAccessAllowed = YES;
     imageRequestOptions.synchronous = YES;
-    [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
-                                                                         targetSize:CGSizeMake(XCASSET_WIDTH, XCASSET_HEIGHT)
+    [[[ GAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset
+                                                                         targetSize:CGSizeMake(GAsset_WIDTH, GAsset_HEIGHT)
                                                                         contentMode:PHImageContentModeAspectFill
                                                                             options:imageRequestOptions
                                                                       resultHandler:^(UIImage *result, NSDictionary *info) {
@@ -161,7 +161,7 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
     imageRequestOptions.networkAccessAllowed = YES; // 允许访问网络
     imageRequestOptions.progressHandler = phProgressHandler;
-    return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+    return [[[ GAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
         if (completion) {
             completion([UIImage imageWithData:imageData], info);
         }
@@ -172,7 +172,7 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
     imageRequestOptions.networkAccessAllowed = YES; // 允许访问网络
     imageRequestOptions.progressHandler = phProgressHandler;
-    return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
+    return [[[ GAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData * _Nullable imageData, NSString * _Nullable dataUTI, UIImageOrientation orientation, NSDictionary * _Nullable info) {
         if (completion) {
             completion(imageData, info);
         }
@@ -184,7 +184,7 @@ static NSString * const kAssetInfoSize = @"size";
     imageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeFast;
     imageRequestOptions.networkAccessAllowed = YES;
     // 在 PHImageManager 中，targetSize 等 size 都是使用 px 作为单位，因此需要对targetSize 中对传入的 Size 进行处理，宽高各自乘以 ScreenScale，从而得到正确的图片
-    return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:CGSizeMake(size.width * [[UIScreen mainScreen] nativeScale], size.height * [[UIScreen mainScreen] nativeScale]) contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
+    return [[[ GAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:CGSizeMake(size.width * [[UIScreen mainScreen] nativeScale], size.height * [[UIScreen mainScreen] nativeScale]) contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
         if (completion) {
             completion(result, info);
         }
@@ -195,7 +195,7 @@ static NSString * const kAssetInfoSize = @"size";
     PHImageRequestOptions *imageRequestOptions = [[PHImageRequestOptions alloc] init];
     imageRequestOptions.networkAccessAllowed = YES; // 允许访问网络
     imageRequestOptions.progressHandler = phProgressHandler;
-    return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
+    return [[[ GAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:_phAsset targetSize:PHImageManagerMaximumSize contentMode:PHImageContentModeAspectFill options:imageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
         if (completion) {
             completion(result, info);
         }
@@ -207,7 +207,7 @@ static NSString * const kAssetInfoSize = @"size";
         PHLivePhotoRequestOptions *livePhotoRequestOptions = [[PHLivePhotoRequestOptions alloc] init];
         livePhotoRequestOptions.networkAccessAllowed = YES; // 允许访问网络
         livePhotoRequestOptions.progressHandler = phProgressHandler;
-        return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestLivePhotoForAsset:_phAsset targetSize:CGSizeMake(XCASSET_WIDTH, XCASSET_HEIGHT) contentMode:PHImageContentModeDefault options:livePhotoRequestOptions resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nullable info) {
+        return [[[ GAssetsManager sharedInstance] phCachingImageManager] requestLivePhotoForAsset:_phAsset targetSize:CGSizeMake(GAsset_WIDTH, GAsset_HEIGHT) contentMode:PHImageContentModeDefault options:livePhotoRequestOptions resultHandler:^(PHLivePhoto * _Nullable livePhoto, NSDictionary * _Nullable info) {
             if (completion) {
                 completion(livePhoto, info);
             }
@@ -225,7 +225,7 @@ static NSString * const kAssetInfoSize = @"size";
         PHVideoRequestOptions *videoRequestOptions = [[PHVideoRequestOptions alloc] init];
         videoRequestOptions.networkAccessAllowed = YES; // 允许访问网络
         videoRequestOptions.progressHandler = phProgressHandler;
-        return [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestPlayerItemForVideo:_phAsset options:videoRequestOptions resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
+        return [[[ GAssetsManager sharedInstance] phCachingImageManager] requestPlayerItemForVideo:_phAsset options:videoRequestOptions resultHandler:^(AVPlayerItem * _Nullable playerItem, NSDictionary * _Nullable info) {
             if (completion) {
                 completion(playerItem, info);
             }
@@ -239,7 +239,7 @@ static NSString * const kAssetInfoSize = @"size";
 }
 
 - (void)requestImageData:(void (^)(NSData *imageData, NSDictionary<NSString *, id> *info, BOOL isGIF, BOOL isHEIC))completion {
-    if (self.assetType !=  XCAssetTypeImage) {
+    if (self.assetType !=  GAssetTypeImage) {
         if (completion) {
             completion(nil, nil, NO, NO);
         }
@@ -253,7 +253,7 @@ static NSString * const kAssetInfoSize = @"size";
             strongSelf.phAssetInfo = phAssetInfo;
             if (completion) {
                 NSString *dataUTI = phAssetInfo[kAssetInfoDataUTI];
-                BOOL isGIF = self.assetSubType ==  XCAssetSubTypeGIF;
+                BOOL isGIF = self.assetSubType ==  GAssetSubTypeGIF;
                 BOOL isHEIC = [dataUTI isEqualToString:@"public.heic"];
                 NSDictionary<NSString *, id> *originInfo = phAssetInfo[kAssetInfoOriginInfo];
                 if (isGIF) {
@@ -296,7 +296,7 @@ static NSString * const kAssetInfoSize = @"size";
     } else {
         if (completion) {
             NSString *dataUTI = self.phAssetInfo[kAssetInfoDataUTI];
-            BOOL isGIF = self.assetSubType ==  XCAssetSubTypeGIF;
+            BOOL isGIF = self.assetSubType ==  GAssetSubTypeGIF;
             BOOL isHEIC = [@"public.heic" isEqualToString:dataUTI];
             NSDictionary<NSString *, id> *originInfo = self.phAssetInfo[kAssetInfoOriginInfo];
             if (isGIF) {
@@ -317,7 +317,7 @@ static NSString * const kAssetInfoSize = @"size";
 
 - (UIImageOrientation)imageOrientation {
     UIImageOrientation orientation;
-    if (self.assetType ==  XCAssetTypeImage) {
+    if (self.assetType ==  GAssetTypeImage) {
         if (!self.phAssetInfo) {
             // PHAsset 的 UIImageOrientation 需要调用过 requestImageDataForAsset 才能获取
             __weak __typeof(self)weakSelf = self;
@@ -351,10 +351,10 @@ static NSString * const kAssetInfoSize = @"size";
         }
         return;
     }
-    if (self.assetType ==  XCAssetTypeVideo) {
+    if (self.assetType ==  GAssetTypeVideo) {
         PHVideoRequestOptions *videoRequestOptions = [[PHVideoRequestOptions alloc] init];
         videoRequestOptions.networkAccessAllowed = YES;
-        [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestAVAssetForVideo:_phAsset options:videoRequestOptions resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
+        [[[ GAssetsManager sharedInstance] phCachingImageManager] requestAVAssetForVideo:_phAsset options:videoRequestOptions resultHandler:^(AVAsset * _Nullable asset, AVAudioMix * _Nullable audioMix, NSDictionary * _Nullable info) {
             if ([asset isKindOfClass:[AVURLAsset class]]) {
                 NSMutableDictionary *tempInfo = [[NSMutableDictionary alloc] init];
                 if (info) {
@@ -383,7 +383,7 @@ static NSString * const kAssetInfoSize = @"size";
     imageRequestOptions.synchronous = synchronous;
     imageRequestOptions.networkAccessAllowed = YES;
     
-    [[[XCAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
+    [[[GAssetsManager sharedInstance] phCachingImageManager] requestImageDataForAsset:_phAsset options:imageRequestOptions resultHandler:^(NSData *imageData, NSString *dataUTI, UIImageOrientation orientation, NSDictionary *info) {
         if (info) {
             NSMutableDictionary *tempInfo = [[NSMutableDictionary alloc] init];
             if (imageData) {
@@ -407,7 +407,7 @@ static NSString * const kAssetInfoSize = @"size";
     if (completion == nil) {
         return;
     }
-    if (self.assetType != XCAssetTypeVideo) {
+    if (self.assetType != GAssetTypeVideo) {
         if (completion) {
             completion(nil);
         }
@@ -503,11 +503,11 @@ static NSString * const kAssetInfoSize = @"size";
 
 - (void)setDownloadProgress:(double)downloadProgress {
     _downloadProgress = downloadProgress;
-    _downloadStatus =  XCAssetDownloadStatusDownloading;
+    _downloadStatus =  GAssetDownloadStatusDownloading;
 }
 
 - (void)updateDownloadStatusWithDownloadResult:(BOOL)succeed {
-    _downloadStatus = succeed ?  XCAssetDownloadStatusSucceed :  XCAssetDownloadStatusFailed;
+    _downloadStatus = succeed ?  GAssetDownloadStatusSucceed :  GAssetDownloadStatusFailed;
 }
 
 - (void)assetSize:(void (^)(long long size))completion {
@@ -535,7 +535,7 @@ static NSString * const kAssetInfoSize = @"size";
 }
 
 - (NSTimeInterval)duration {
-    if (self.assetType !=  XCAssetTypeVideo) {
+    if (self.assetType !=  GAssetTypeVideo) {
         return 0;
     }
     return _phAsset.duration;
@@ -545,7 +545,7 @@ static NSString * const kAssetInfoSize = @"size";
     if (!object) return NO;
     if (self == object) return YES;
     if (![object isKindOfClass:[self class]]) return NO;
-    return [self.identifier isEqualToString:(( XCAsset *)object).identifier];
+    return [self.identifier isEqualToString:(( GAsset *)object).identifier];
 }
 
 - (BOOL)isLongImage

@@ -13,7 +13,7 @@
 #import "GDorisPickerBrowserLoader.h"
 #import "GDorisPhotoPickerBean.h"
 #import "GDorisPickerBrowserThumbnailView.h"
-#import "XCAsset.h"
+#import "GAsset.h"
 
 #define GDorisPickerBrowserToolbarHeight (40+GDoris_TabBarMargin)
 
@@ -230,8 +230,8 @@
 - (void)dorisBrowserCell:(GDorisBrowserBaseCell *)cell didTapPhoto:(GDorisPhotoPickerBean *)object
 {
     GDorisPhotoPickerBean * bean = object;
-    XCAsset * asset = bean.asset;
-    if (asset.assetType == XCAssetTypeVideo) {
+    GAsset * asset = bean.asset;
+    if (asset.assetType == GAssetTypeVideo) {
         __weak typeof(self) weakSelf = self;
         [asset exportVideoOutputPathSuccess:^(NSURL * _Nonnull fileUrl) {
             dispatch_async(dispatch_get_main_queue(), ^{

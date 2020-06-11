@@ -16,26 +16,19 @@
 #import "GDorisDragDropView.h"
 #import "GDorisEditerHitTestView.h"
 #import "Masonry.h"
-#import "XCMacroSystem.h"
 #import "GDorisEditerCropController.h"
 #import "GDorisDrawing.h"
-#import "NSString+Helpers.h"
-
 #import "CIFilter+GDoris.h"
-#import "XCCustomAlertView.h"
-#import "UIImageView+XCLoader.h"
 #import "GDorisFilterToolbar.h"
 
 @interface GDorisPhotoEditerController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate,GDorisCanvasViewDelegate,GDorisCanvasViewDatasource>
 @property (nonatomic, strong) GDorisEditerHitTestView * operationArea;
-@property (nonatomic, strong) XCNavigationBar * navigationBar;
 @property (nonatomic, strong) GDorisEditerToolbar * toolBar;
 @property (nonatomic, strong) GDorisFilterToolbar * filterToolbar;
 @property (nonatomic, strong) GDorisEditerColorPanel * colorPanel;
 @property (nonatomic, strong) GDorisEditerMosaicPanel * mosaicPanel;
 @property (nonatomic, strong) GDorisCanvasView * canvasView;
 @property (nonatomic, strong) GDorisCanvasView * mosaicCanvasView;
-@property (nonatomic, strong) XCChatEmojiPanel * emojiPanel;
 
 @property (nonatomic, strong) UIScrollView * scrollerContainer;
 @property (nonatomic, strong) UIImageView * imageView;
@@ -135,17 +128,15 @@
 
 - (void)initializeMosaic
 {
-    WS(weakSelf);
+    __weak typeof(self) weakSelf = self;;
     [GDorisPhotoHelper fitImageSize:self.originImage.size containerSize:CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height) Completed:^(CGRect containerFrame, CGSize scrollContentSize) {
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
             UIImage * mosaicImage = [weakSelf.originImage mosaicLevel:20 size:containerFrame.size];
             UIColor * mosaicColor = [UIColor colorWithPatternImage:mosaicImage];
             UIImage * blurImage = [weakSelf.originImage blurLevel:20 size:containerFrame.size];
             UIColor * blurColor  = [UIColor colorWithPatternImage:blurImage];
-            XCSafeInvokeThread(^{
-                weakSelf.blurColor = blurColor;
-                weakSelf.mosaicColor = mosaicColor;
-            });
+            weakSelf.blurColor = blurColor;
+            weakSelf.mosaicColor = mosaicColor;
         });
     }];
     
@@ -153,7 +144,7 @@
 
 - (void)initializeFilterItems
 {
-    WS(weakSelf);
+    __weak typeof(self) weakSelf = self;;
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         NSMutableArray * filters = [NSMutableArray array];
         GDorisFilterItem * original = [GDorisFilterItem filterWithLookup:@"" title:@"原图"];
@@ -213,13 +204,13 @@
 
 - (void)loadNavigationbar
 {
-    self.navigationBar = [XCNavigationBar navigationBar];
-    [self.operationArea addSubview:self.navigationBar];
-    self.navigationBar.backgroundImageView.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
-    XCNavigationItem *cancel = [XCNavItemFactory createTitleButton:@"取消" titleColor:[UIColor whiteColor] highlightColor:[UIColor lightGrayColor] target:self selctor:@selector(cancel)];
-    self.navigationBar.leftNavigationItem = cancel;
-    XCNavigationItem *done = [XCNavItemFactory createTitleButton:@"完成" titleColor:GDorisColorCreate(@"29CE85") highlightColor:GDorisColorCreate(@"154212") target:self selctor:@selector(done)];
-    self.navigationBar.rightNavigationItem = done;
+//    self.navigationBar = [XCNavigationBar navigationBar];
+//    [self.operationArea addSubview:self.navigationBar];
+//    self.navigationBar.backgroundImageView.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
+//    XCNavigationItem *cancel = [XCNavItemFactory createTitleButton:@"取消" titleColor:[UIColor whiteColor] highlightColor:[UIColor lightGrayColor] target:self selctor:@selector(cancel)];
+//    self.navigationBar.leftNavigationItem = cancel;
+//    XCNavigationItem *done = [XCNavItemFactory createTitleButton:@"完成" titleColor:GDorisColorCreate(@"29CE85") highlightColor:GDorisColorCreate(@"154212") target:self selctor:@selector(done)];
+//    self.navigationBar.rightNavigationItem = done;
 }
 
 - (void)loadToolbar
@@ -363,32 +354,6 @@
     [self.dragViews addObject:dragView];
 }
 
-- (void)selectEmojiItem:(XCChatEmojiItem *)model
-{
-    [self hiddenEmojiPanel];
-    UIImageView * view = [[UIImageView alloc] init];
-    view.contentMode = UIViewContentModeScaleAspectFill;
-    view.clipsToBounds = YES;
-    [view xc_setImageWithURL:[NSURL URLWithString:model.url]];
-    CGFloat w = 100.0;// model.w*0.5;
-    CGFloat h = (w * model.h) / model.w; ///model.h*0.5;
-    if (w>= self.imageView.g_width) {
-        w = self.imageView.g_width * 0.25;
-    }
-    if (h>= self.imageView.g_height) {
-        h = self.imageView.g_height*0.25;
-    }
-    view.frame = CGRectMake(0, 0, w,h);
-    GDorisDragDropView * dragView = [[GDorisDragDropView alloc] initWithContentView:view];
-    CGPoint  point = self.imageView.center;
-    CGPoint realPoint = [self.imageView.superview convertPoint:point toView:self.imageView];
-    dragView.center = realPoint;
-    dragView.outlineBorderColor = [UIColor whiteColor];
-    dragView.editEnabled = YES;
-    [self.imageView addSubview:dragView];
-    [self.dragViews addObject:dragView];
-}
-
 
 - (void)bringDragViewToFront
 {
@@ -429,9 +394,7 @@
 
 - (void)handleTapGesture:(UITapGestureRecognizer *)recognizer
 {
-    if (_emojiPanel && !_emojiPanel.hidden) {
-        [self hiddenEmojiPanel];
-    }
+
     [self operaAreaHidden:!self.operationArea.hidden anmiated:NO];
 }
 
@@ -488,7 +451,7 @@
 
 - (UIImage *)generateEmojiImage:(NSString*)emoji
 {
-    CGSize fontsize = [emoji calculateSizeWithFont:[UIFont systemFontOfSize:12] maximumWidth:100];
+    CGSize fontsize = CGSizeMake(20, 20);// [emoji calculateSizeWithFont:[UIFont systemFontOfSize:12] maximumWidth:100];
     
     UIGraphicsBeginImageContextWithOptions(fontsize, false, 0);
     [UIColor.clearColor set];
@@ -553,19 +516,12 @@
 {
     [self resetEditToolbarState];
     [self operaAreaHidden:YES anmiated:NO];
-    self.emojiPanel.hidden = NO;
-    [UIView animateWithDuration:0.25 animations:^{
-        self.emojiPanel.g_bottom = G_SCREEN_HEIGHT;
-    }];
+
 }
 
 - (void)hiddenEmojiPanel
 {
-    [UIView animateWithDuration:0.25 animations:^{
-        self.emojiPanel.g_top = G_SCREEN_HEIGHT;
-    } completion:^(BOOL finished) {
-        self.emojiPanel.hidden = YES;
-    }];
+
 }
 
 - (void)filterPhoto
@@ -683,7 +639,7 @@
         [self bringSubviewToFront];
         _filterToolbar.frame = CGRectMake(0, self.toolBar.g_top-83, [UIScreen mainScreen].bounds.size.width, 63+20);
         _filterToolbar.hidden = YES;
-        WS(weakSelf);
+        __weak typeof(self) weakSelf = self;;
         _filterToolbar.filterAction = ^(GDorisFilterItem * _Nonnull item) {
             [weakSelf filterImageWithLookup:item.lookup_img];
         };
@@ -698,24 +654,6 @@
         _dragViews = [[NSMutableArray alloc] init];
     }
     return _dragViews;
-}
-
-
-- (XCChatEmojiPanel *)emojiPanel
-{
-    if (!_emojiPanel) {
-        _emojiPanel = [[XCChatEmojiPanel alloc] initWithFrame:CGRectMake(0, [UIScreen mainScreen].bounds.size.height, [UIScreen mainScreen].bounds.size.width, 258+kTabBarMargin)];
-        _emojiPanel.fromPage = 2;
-        [self.view addSubview:_emojiPanel];
-        [self bringSubviewToFront];
-        __weak typeof(self) weakSelf = self;
-        _emojiPanel.selectsystemFaceBlock = ^(XCChatEmojiItem * _Nonnull model) {
-            [weakSelf selectEmojiItem:model];
-        };
-        _emojiPanel.hidden = YES;
-    }
-    [self.view bringSubviewToFront:_emojiPanel];
-    return _emojiPanel;
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -790,9 +728,7 @@
     if (self.operationArea.hidden) {
         rect = CGRectZero;
     }
-    if (!self.emojiPanel.hidden) {
-        rect = self.emojiPanel.frame;
-    }
+
     if (!self.filterToolbar.hidden) {
         rect = CGRectMake(0, self.filterToolbar.g_top, self.filterToolbar.g_width, [UIScreen mainScreen].bounds.size.height-self.filterToolbar.g_top);
     }

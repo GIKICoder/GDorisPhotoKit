@@ -73,7 +73,7 @@
     self.backView.frame = self.contentView.frame;
 }
 
-- (void)configCollectionModel:(XCAssetsGroup*)collection
+- (void)configCollectionModel:(GAssetsGroup*)collection
 {
     self.photoView.image = [collection posterImageWithSize:CGSizeMake(56, 56)];
     NSString * collectionName = collection.name;

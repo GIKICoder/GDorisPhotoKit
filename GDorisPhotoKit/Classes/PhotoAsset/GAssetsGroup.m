@@ -1,23 +1,23 @@
 //
-//  XCAssetsGroup.m
+//  GAssetsGroup.m
 //  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/8/13.
 //  Copyright © 2019 GIKI. All rights reserved.
 //
 
-#import "XCAssetsGroup.h"
-#import "XCAsset.h"
-#import "XCAssetsManager.h"
+#import "GAssetsGroup.h"
+#import "GAsset.h"
+#import "GAssetsManager.h"
 
-@interface  XCAssetsGroup()
+@interface  GAssetsGroup()
 
 @property(nonatomic, strong, readwrite) PHAssetCollection *phAssetCollection;
 @property(nonatomic, strong, readwrite) PHFetchResult *phFetchResult;
 
 @end
 
-@implementation  XCAssetsGroup
+@implementation  GAssetsGroup
 
 - (instancetype)initWithPHCollection:(PHAssetCollection *)phAssetCollection fetchAssetsOptions:(PHFetchOptions *)pHFetchOptions {
     self = [super init];
@@ -57,7 +57,7 @@
         pHImageRequestOptions.synchronous = YES; // 同步请求
         pHImageRequestOptions.resizeMode = PHImageRequestOptionsResizeModeExact;
         // targetSize 中对传入的 Size 进行处理，宽高各自乘以 ScreenScale，从而得到正确的图片
-        [[[ XCAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:asset targetSize:CGSizeMake(size.width * [[UIScreen mainScreen] scale], size.height * [[UIScreen mainScreen] scale]) contentMode:PHImageContentModeAspectFill options:pHImageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
+        [[[ GAssetsManager sharedInstance] phCachingImageManager] requestImageForAsset:asset targetSize:CGSizeMake(size.width * [[UIScreen mainScreen] scale], size.height * [[UIScreen mainScreen] scale]) contentMode:PHImageContentModeAspectFill options:pHImageRequestOptions resultHandler:^(UIImage *result, NSDictionary *info) {
             resultImage = result;
         }];
     }
@@ -77,7 +77,7 @@
     }
     __block NSMutableArray * tempsM = [NSMutableArray array];
     [self.phFetchResult enumerateObjectsWithOptions:(Options) usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        XCAsset *asset = [[ XCAsset alloc] initWithPHAsset:obj];
+        GAsset *asset = [[ GAsset alloc] initWithPHAsset:obj];
         [tempsM addObject:asset];
         if (idx >= count) {
             *stop = YES;
@@ -92,7 +92,7 @@
 /// 获取最新的相册资源
 /// @param count 回去的数量
 /// @param enumerationBlock <#enumerationBlock description#>
-- (void)enumerateLasterAssetsWithCount:(NSInteger)count usingBlock:(void (^)( XCAsset *resultAsset))enumerationBlock
+- (void)enumerateLasterAssetsWithCount:(NSInteger)count usingBlock:(void (^)( GAsset *resultAsset))enumerationBlock
 {
     #ifdef DEBUG
         CFTimeInterval startTime = CACurrentMediaTime();
@@ -100,7 +100,7 @@
         NSEnumerationOptions Options = NSEnumerationReverse;
         __block NSInteger total = 0;
         [self.phFetchResult enumerateObjectsWithOptions:(Options) usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            XCAsset *asset = [[ XCAsset alloc] initWithPHAsset:obj];
+            GAsset *asset = [[ GAsset alloc] initWithPHAsset:obj];
             if (enumerationBlock) {
                 enumerationBlock(asset);
             }
@@ -122,7 +122,7 @@
         }
 }
 
-- (void)enumerateAssetsWithOptions:( XCAlbumSortType)albumSortType usingBlock:(void (^)( XCAsset *resultAsset))enumerationBlock {
+- (void)enumerateAssetsWithOptions:( XCAlbumSortType)albumSortType usingBlock:(void (^)( GAsset *resultAsset))enumerationBlock {
 #ifdef DEBUG
     CFTimeInterval startTime = CACurrentMediaTime();
 #endif
@@ -131,7 +131,7 @@
         Options = NSEnumerationReverse;
     }
     [self.phFetchResult enumerateObjectsWithOptions:(Options) usingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        XCAsset *asset = [[ XCAsset alloc] initWithPHAsset:obj];
+        GAsset *asset = [[ GAsset alloc] initWithPHAsset:obj];
       
         if (enumerationBlock) {
             enumerationBlock(asset);
@@ -150,7 +150,7 @@
     }
 }
 
-- (void)enumerateAssetsUsingBlock:(void (^)( XCAsset *resultAsset))enumerationBlock {
+- (void)enumerateAssetsUsingBlock:(void (^)( GAsset *resultAsset))enumerationBlock {
     [self enumerateAssetsWithOptions: XCAlbumSortTypePositive usingBlock:enumerationBlock];
 }
 

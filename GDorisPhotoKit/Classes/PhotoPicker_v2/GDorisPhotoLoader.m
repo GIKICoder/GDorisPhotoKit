@@ -7,7 +7,7 @@
 //
 
 #import "GDorisPhotoLoader.h"
-#import "XCAsset.h"
+#import "GAsset.h"
 #import <SDWebImage/SDWebImage.h>
 #import "SDPhotosPlugin.h"
 #import "GDorisPhotoPickerCell.h"
@@ -58,7 +58,7 @@
 
 - (void)low_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
-    XCAsset * asset = object.asset;
+    GAsset * asset = object.asset;
     imageView.image = [asset thumbnailWithSize:CGSizeMake(self.cellWidth, self.cellWidth)];
     __weak typeof(self) weakself = self;
     [[GDorisRunLoopWorker sharedInstance] postTask:^BOOL{
@@ -69,7 +69,7 @@
 
 - (void)loadLargeImage:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
-    XCAsset * asset = object.asset;
+    GAsset * asset = object.asset;
     PHImageRequestID imageRequestID = (PHImageRequestID)[asset requestThumbnailImageWithSize:CGSizeMake(self.cellWidth, self.cellWidth) completion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
         // 排除取消，错误，低清图三种情况，即已经获取到了高清图
         BOOL downloadFinined = ![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue];
@@ -81,7 +81,7 @@
 
 - (void)sd_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
-    XCAsset * asset = object.asset;
+    GAsset * asset = object.asset;
     PHAsset * ph_asset = asset.phAsset;
     NSURL * URL = [NSURL sd_URLWithAsset:ph_asset];
     /// Cause memory leak
@@ -116,8 +116,8 @@
 /// @return @{@"TagType" : @(GDorisPhotoTagType),@"TagMsg" : @"GIF"}
 - (NSDictionary *)generatePhotoTagData:(GDorisPhotoPickerBean *)object
 {
-    XCAsset * asset = object.asset;
-    if (asset.assetType == XCAssetTypeVideo) {
+    GAsset * asset = object.asset;
+    if (asset.assetType == GAssetTypeVideo) {
         NSTimeInterval timeInterval = asset.duration;//获取需要转换的timeinterval
         NSDate *date = [NSDate dateWithTimeIntervalSince1970:timeInterval];
         NSDateFormatter *formatter = [self videoFormatter];
@@ -127,7 +127,7 @@
             @"TagMsg" : dateString
         };
     }
-    if (asset.assetSubType == XCAssetSubTypeGIF) {
+    if (asset.assetSubType == GAssetSubTypeGIF) {
         return @{
             @"TagType" : @(GDorisPhotoType_GIF),
             @"TagMsg" : @"GIF"

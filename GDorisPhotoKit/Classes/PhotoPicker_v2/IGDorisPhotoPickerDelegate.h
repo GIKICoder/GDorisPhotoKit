@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XCAsset.h"
+#import "GAsset.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @class GDorisPhotoPickerController;
@@ -18,9 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
  选择相册资源完成后回调
 
  @param picker GDorisPhotoPickerController
- @param assets NSArray<XCAsset *>
+ @param assets NSArray<GAsset *>
  */
-- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker didFinishPickingAssets:(NSArray<XCAsset *> *)assets;
+- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker didFinishPickingAssets:(NSArray<GAsset *> *)assets;
 
 /**
  取消相册资源选择控制器
@@ -33,26 +33,26 @@ NS_ASSUME_NONNULL_BEGIN
  判断资源是否可选择
 
  @param picker GDorisPhotoPickerController
- @param asset XCAsset
+ @param asset GAsset
  @return 是否可选中
  */
-- (BOOL)dorisPhotoPicker:(GDorisPhotoPickerController *)picker shouldSelectAsset:(XCAsset *)asset;
+- (BOOL)dorisPhotoPicker:(GDorisPhotoPickerController *)picker shouldSelectAsset:(GAsset *)asset;
 
 /**
  选择相册资源
 
  @param picker GDorisPhotoPickerController
- @param asset XCAsset
+ @param asset GAsset
  */
-- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker didSelectAsset:(XCAsset *)asset;
+- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker didSelectAsset:(GAsset *)asset;
 
 /**
  取消选中相册资源
 
  @param picker GDorisPhotoPickerController
- @param asset XCAsset
+ @param asset GAsset
  */
-- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker didDeselectAsset:(XCAsset *)asset;
+- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker didDeselectAsset:(GAsset *)asset;
 
 /**
  选中的asset资源改变时回调
@@ -60,7 +60,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param picker picker description
  @param assets assets description
  */
-- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker selectItemsChanged:(NSArray<XCAsset *> *)assets;
+- (void)dorisPhotoPicker:(GDorisPhotoPickerController *)picker selectItemsChanged:(NSArray<GAsset *> *)assets;
 @end
 
 NS_ASSUME_NONNULL_END

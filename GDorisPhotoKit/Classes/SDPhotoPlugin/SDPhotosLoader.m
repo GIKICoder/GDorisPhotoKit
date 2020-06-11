@@ -12,7 +12,7 @@
 #import "PHImageRequestOptions+SDPhotoPlugin.h"
 #import "SDPhotosError.h"
 #import <objc/runtime.h>
-#import "XCAssetsManager.h"
+#import "GAssetsManager.h"
 // Compatible
 #if SD_UIKIT
 #import <MobileCoreServices/MobileCoreServices.h>
@@ -244,7 +244,7 @@ typedef CGImagePropertyOrientation SDImageOrientation;
     }
     
     __weak typeof(operation) weakOperation = operation;
-    PHImageRequestID requestID = [[XCAssetsManager sharedInstance].phCachingImageManager requestImageForAsset:asset targetSize:targetSize contentMode:contentMode options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    PHImageRequestID requestID = [[GAssetsManager sharedInstance].phCachingImageManager requestImageForAsset:asset targetSize:targetSize contentMode:contentMode options:requestOptions resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         if (weakOperation.isCancelled) {
             // Cancelled
             NSError *error = [NSError errorWithDomain:NSURLErrorDomain code:NSURLErrorCancelled userInfo:nil];

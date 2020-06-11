@@ -128,7 +128,7 @@
         cell = [[GDorisPhotoAlbumCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"GDorisPhotoAlbumCell"];
         
     }
-    XCAssetsGroup * group = [self.photoAlbums g_objectAtIndexSafely:indexPath.row];
+    GAssetsGroup * group = [self.photoAlbums g_objectAtIndexSafely:indexPath.row];
     [cell configCollectionModel:group];
     
     if (indexPath.item == self.selectIndex) {
@@ -145,7 +145,7 @@
 {
     self.selectIndex = indexPath.row;
     [self.tableView reloadData];
-    XCAssetsGroup * group = [self.photoAlbums g_objectAtIndexSafely:indexPath.row];
+    GAssetsGroup * group = [self.photoAlbums g_objectAtIndexSafely:indexPath.row];
     if (self.selectPhotoAlbum) {
         self.selectPhotoAlbum(group);
     }

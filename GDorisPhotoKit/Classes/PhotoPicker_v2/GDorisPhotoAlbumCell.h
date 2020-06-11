@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "XCAssetsManager.h"
+#import "GAssetsManager.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GDorisPhotoAlbumCell : UITableViewCell
 
-- (void)configCollectionModel:(XCAssetsGroup*)collection;
+- (void)configCollectionModel:(GAssetsGroup*)collection;
 
 - (void)selectIndex:(BOOL)select;
 @end

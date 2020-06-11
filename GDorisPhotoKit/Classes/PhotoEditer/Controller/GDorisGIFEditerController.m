@@ -10,7 +10,6 @@
 #import "GDorisPhotoHelper.h"
 #import "FLAnimatedImage.h"
 #import "GDorisEditerHitTestView.h"
-#import "XCNavigationBar.h"
 #import "GDorisEditerToolbar.h"
 #import "GDorisGIFCutView.h"
 #import "GDorisGIFMetalData.h"
@@ -19,7 +18,6 @@
 @property (nonatomic, strong) FLAnimatedImage * gifImage;
 @property (nonatomic, strong) UIScrollView * scrollerContainer;
 @property (nonatomic, strong) GDorisEditerHitTestView * operationArea;
-@property (nonatomic, strong) XCNavigationBar * navigationBar;
 @property (nonatomic, strong) UITapGestureRecognizer * tapGesture;
 @property (nonatomic, strong) GDorisEditerToolbar * toolBar;
 @property (nonatomic, strong) GDorisGIFCutView * gifCutView;
@@ -128,13 +126,7 @@
 
 - (void)loadNavigationbar
 {
-    self.navigationBar = [XCNavigationBar navigationBar];
-    [self.operationArea addSubview:self.navigationBar];
-    self.navigationBar.backgroundImageView.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
-    XCNavigationItem *cancel = [XCNavItemFactory createTitleButton:@"取消" titleColor:[UIColor whiteColor] highlightColor:[UIColor lightGrayColor] target:self selctor:@selector(cancel)];
-    self.navigationBar.leftNavigationItem = cancel;
-    XCNavigationItem *done = [XCNavItemFactory createTitleButton:@"完成" titleColor:GDorisColorCreate(@"29CE85") highlightColor:GDorisColorCreate(@"154212") target:self selctor:@selector(done)];
-    self.navigationBar.rightNavigationItem = done;
+  
 }
 
 - (void)loadToolbar

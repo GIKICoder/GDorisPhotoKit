@@ -7,12 +7,11 @@
 //
 
 #import "GDorisInputStylePanel.h"
-#import "XCCVideoSliderView.h"
+#import "GDorisSliderView.h"
 #import "GDorisPhotoHelper.h"
-#import "NSArray+XCMasonry.h"
 @interface GDorisInputStylePanel ()
 @property (nonatomic, strong) UILabel * alphaLabel;
-@property (nonatomic, strong) XCCVideoSliderView * sliderView;
+@property (nonatomic, strong) GDorisSliderView * sliderView;
 @property (nonatomic, strong) UIView * functionPanel;
 @end
 
@@ -30,7 +29,7 @@
             _alphaLabel;
         })];
         [self addSubview:({
-            _sliderView = [[XCCVideoSliderView alloc] initWithFrame:CGRectZero];
+            _sliderView = [[GDorisSliderView alloc] initWithFrame:CGRectZero];
             _sliderView.trackHeight = 2;
             _sliderView.value = 1;
             _sliderView.maximumTrackTintColor = GDorisColorCreate(@"999999");
@@ -74,7 +73,7 @@
          [self.functionPanel addSubview:btn];
          [btns addObject:btn];
     }];
-    [btns mas_distributeLatticeViewsWithFixedItemWidth:40 fixedItemHeight:40 fixedLineSpacing:10 fixedInteritemSpacing:10 warpCount:5 topSpacing:5 bottomSpacing:5 leadSpacing:15 tailSpacing:15];
+//    [btns mas_distributeLatticeViewsWithFixedItemWidth:40 fixedItemHeight:40 fixedLineSpacing:10 fixedInteritemSpacing:10 warpCount:5 topSpacing:5 bottomSpacing:5 leadSpacing:15 tailSpacing:15];
 }
 
 - (UIButton *)factoryCreateButtonWithTitle:(NSString *)title tag:(NSInteger)tag

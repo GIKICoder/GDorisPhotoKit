@@ -8,7 +8,7 @@
 
 #import "GDorisPickerBrowserLoader.h"
 #import "GDorisBrowserBaseCell.h"
-#import "XCAsset.h"
+#import "GAsset.h"
 #import <SDWebImageYYPlugin/SDWebImageYYPlugin.h>
 #import "SDPhotosPlugin.h"
 #import "GDorisPickerBrowserCell.h"
@@ -26,8 +26,8 @@
 
 - (NSString *)generateBrowerCellClassIdentify:(GDorisPhotoPickerBean *)object
 {
-    XCAsset * asset = object.asset;
-    if (asset && [asset isKindOfClass:XCAsset.class] && asset.assetType == XCAssetTypeVideo) {
+    GAsset * asset = object.asset;
+    if (asset && [asset isKindOfClass:GAsset.class] && asset.assetType == GAssetTypeVideo) {
         return NSStringFromClass(GDorisPickerBrowserVideoCell.class);
     }
     return NSStringFromClass(GDorisPickerBrowserCell.class);
@@ -39,17 +39,17 @@
            completion:(void (^)(UIImage * image, NSError * error))completion
 {
     GDorisPhotoPickerBean * pickerBean = (id)object;
-    XCAsset * asset = pickerBean.asset;
-    if (!asset || ![asset isKindOfClass:XCAsset.class]) {
+    GAsset * asset = pickerBean.asset;
+    if (!asset || ![asset isKindOfClass:GAsset.class]) {
         return;
     }
     GDorisPickerBrowserCell * browserCell = (id)cell;
-    BOOL isGif = (asset.assetSubType == XCAssetSubTypeGIF);
+    BOOL isGif = (asset.assetSubType == GAssetSubTypeGIF);
     
     __weak __typeof(browserCell) weakCell = browserCell;
     __weak __typeof(imageView) weakView = imageView;
     CGSize size = asset.imageSize;
-    if (asset.assetSubType != XCAssetSubTypeGIF) {
+    if (asset.assetSubType != GAssetSubTypeGIF) {
         [browserCell fitImageSize:size containerSize:browserCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
             weakCell.scrollView.contentSize = scrollContentSize;
             weakCell.scrollSize = scrollContentSize;
@@ -103,8 +103,8 @@
 - (void)loadVideoItem:(id)object completion:(void (^)(AVPlayerItem * item, NSError * error))completion
 {
     GDorisPhotoPickerBean * pickerBean = (id)object;
-       XCAsset * asset = pickerBean.asset;
-       if (!asset || ![asset isKindOfClass:XCAsset.class]) {
+       GAsset * asset = pickerBean.asset;
+       if (!asset || ![asset isKindOfClass:GAsset.class]) {
            return;
        }
     [asset requestPlayerItemWithCompletion:^(AVPlayerItem * _Nonnull playerItem, NSDictionary<NSString *,id> * _Nonnull info) {

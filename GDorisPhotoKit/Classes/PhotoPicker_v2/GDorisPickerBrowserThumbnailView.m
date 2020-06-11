@@ -8,7 +8,7 @@
 
 #import "GDorisPickerBrowserThumbnailView.h"
 #import "GDorisPhotoHelper.h"
-#import "XCAsset.h"
+#import "GAsset.h"
 @interface GDorisPhotoPickerThumbnailCell : UICollectionViewCell
 @property (nonatomic, strong) UIImageView * imageView;
 @property (nonatomic, strong) UIView * borderView;
@@ -47,7 +47,7 @@
 
 - (void)configAsset:(GDorisPhotoPickerBean *)assetModel
 {
-    XCAsset * asset = assetModel.asset;
+    GAsset * asset = assetModel.asset;
     __weak typeof(self) weakSelf = self;
     [asset requestThumbnailImageWithSize:CGSizeMake(55, 55) completion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
         weakSelf.imageView.image = result;

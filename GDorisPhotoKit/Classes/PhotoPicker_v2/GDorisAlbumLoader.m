@@ -8,7 +8,7 @@
 
 #import "GDorisAlbumLoader.h"
 #import "GDorisPhotoConfiguration.h"
-#import "XCAssetsManager.h"
+#import "GAssetsManager.h"
 #import "GDorisPhotoPickerBean.h"
 @interface GDorisAlbumLoader ()
 
@@ -29,7 +29,7 @@
         DorisAlbumContentType albumType =  configuration.albumType;
         XCAlbumContentType  type = [self.class covertAssetTypeWith:albumType];
         dispatch_block_t block = ^{
-            NSArray * groups = [[XCAssetsManager sharedInstance] fetchAllAlbumsWithAlbumContentType:type showEmptyAlbum:NO showSmartAlbum:YES];
+            NSArray * groups = [[GAssetsManager sharedInstance] fetchAllAlbumsWithAlbumContentType:type showEmptyAlbum:NO showSmartAlbum:YES];
             dispatch_async(dispatch_get_main_queue(), ^{
                 self.albumDatas = groups;
                 if (completion) {
@@ -38,7 +38,7 @@
             });
         };
         if (quick) {
-            XCAssetsGroup * group = [[XCAssetsManager sharedInstance] fetchSystemAlbumWithContentType:type];
+            GAssetsGroup * group = [[GAssetsManager sharedInstance] fetchSystemAlbumWithContentType:type];
             if (group) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     self.albumDatas = @[group];
@@ -74,12 +74,12 @@
             camera.index = index ++;
             [tempArray addObject:camera];
         }
-        XCAssetsGroup * group = collection;
+        GAssetsGroup * group = collection;
         NSInteger fetchMaxCount = configuration.fetchPhotoMaxCount;
         __block NSInteger blockIndex = 0;
         NSInteger quickCount = configuration.firstNeedsLoadCount;
         if (fetchMaxCount > 0) {
-            [group enumerateLasterAssetsWithCount:fetchMaxCount usingBlock:^(XCAsset * _Nonnull resultAsset) {
+            [group enumerateLasterAssetsWithCount:fetchMaxCount usingBlock:^(GAsset * _Nonnull resultAsset) {
                 blockIndex ++;
                 if (blockIndex == quickCount && quickCount > 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -98,7 +98,7 @@
             }];
         } else { ///全部获取
             XCAlbumSortType sortType = configuration.appearance.isReveres ? XCAlbumSortTypeReverse : XCAlbumSortTypePositive;
-            [group enumerateAssetsWithOptions:sortType usingBlock:^(XCAsset * _Nonnull resultAsset) {
+            [group enumerateAssetsWithOptions:sortType usingBlock:^(GAsset * _Nonnull resultAsset) {
                 blockIndex ++;
                 if (blockIndex == quickCount && quickCount > 0) {
                     dispatch_async(dispatch_get_main_queue(), ^{
@@ -134,7 +134,7 @@
 
 /// 获取相册名称
 /// @param collection collection description
-- (NSString *)fetchAlbumTitleString:(XCAssetsGroup *)collection
+- (NSString *)fetchAlbumTitleString:(GAssetsGroup *)collection
 {
     return collection.name;
 }
@@ -142,8 +142,8 @@
 /// 是否获取相册权限
 - (BOOL)photoAuthorizationStatusAuthorized
 {
-    XCAssetAuthorizationStatus status = [XCAssetsManager authorizationStatus];
-    if (status == XCAssetAuthorizationStatusAuthorized) {
+    GAssetAuthorizationStatus status = [GAssetsManager authorizationStatus];
+    if (status == GAssetAuthorizationStatusAuthorized) {
         return YES;
     }
     return NO;
@@ -154,7 +154,7 @@
 /// @param config GDorisPhotoConfiguration
 - (BOOL)checkPhotoCanSelected:(GDorisPhotoPickerBean *)object config:(GDorisPhotoConfiguration *)config
 {
-    XCAsset * asset = object.asset;
+    GAsset * asset = object.asset;
     DorisPhotoRegularType type = [self.class covertRegularType:asset.assetType];
     if (config.onlySelectOneMediaType && config.onlyEnableSelectAssetType != type && object.selectDisabled) {
 //        [XCProgressHUD showToastHUD:[UIApplication sharedApplication].keyWindow info:@"不能同时选择照片和视频"];
@@ -164,7 +164,7 @@
     BOOL temp = (self.selectObjects.count < maxCount);
     if (!temp) {
         NSString * name = @"张照片";
-        if (asset.assetType == XCAssetTypeVideo) {
+        if (asset.assetType == GAssetTypeVideo) {
             name = @"个视频";
         }
         NSString * msg = [NSString stringWithFormat:@"最多只能选择%ld%@",(long)maxCount,name];
@@ -186,13 +186,13 @@
         [self.selectObjects addObject:object];
         NSInteger maxCount = [self fetchSelectMaxCount:object config:config];
         if (maxCount <= self.selectObjects.count) {
-            XCAsset * asset = object.asset;
+            GAsset * asset = object.asset;
             DorisPhotoRegularType type = [self.class covertRegularType:asset.assetType];
             config.onlyEnableSelectAssetType = type;
             [self processPhotoDisabled:config overMax:YES];
         } else {
             if (config.onlySelectOneMediaType && config.onlyEnableSelectAssetType == DorisPhotoRegularTypeAll) {
-                XCAsset * asset = object.asset;
+                GAsset * asset = object.asset;
                 config.onlyEnableSelectAssetType = [self.class covertRegularType:asset.assetType];
                 [self processOneMidiaTypePhotoDisabled:config];
             }
@@ -250,17 +250,17 @@
 
 - (NSInteger)fetchSelectMaxCount:(GDorisPhotoPickerBean *)object config:(GDorisPhotoConfiguration *)config
 {
-    XCAsset * asset = object.asset;
+    GAsset * asset = object.asset;
     NSDictionary * regular = config.selectCountRegular;
     DorisPhotoRegularType regularType = DorisPhotoRegularTypeAll;
     NSNumber * maxCount_N = [regular objectForKey:@(regularType)];
     if (config.onlySelectOneMediaType) {
-        if (asset.assetType == XCAssetTypeVideo) {
+        if (asset.assetType == GAssetTypeVideo) {
             NSNumber * video_N = [regular objectForKey:@(DorisPhotoRegularTypeVideo)];
             if (video_N) {
                 maxCount_N = video_N;
             }
-        } else if (asset.assetType == XCAssetTypeImage) {
+        } else if (asset.assetType == GAssetTypeImage) {
             NSNumber * photo_N = [regular objectForKey:@(DorisPhotoRegularTypePhoto)];
             if (photo_N) {
                 maxCount_N = photo_N;
@@ -288,11 +288,11 @@
 - (void)processOneMidiaTypePhotoDisabled:(GDorisPhotoConfiguration *)config
 {
     [self.photoDatas enumerateObjectsUsingBlock:^(GDorisPhotoPickerBean *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        XCAsset * asset = obj.asset;
+        GAsset * asset = obj.asset;
         if (config.onlyEnableSelectAssetType == DorisPhotoRegularTypeAll) {
             obj.selectDisabled = NO;
         } else {
-            XCAssetType  onlyType = [self.class covertRegular2AssetType:config.onlyEnableSelectAssetType];
+            GAssetType  onlyType = [self.class covertRegular2AssetType:config.onlyEnableSelectAssetType];
             if (asset.assetType != onlyType) {
                 obj.selectDisabled = YES;
             }
@@ -318,31 +318,31 @@
     }
 }
 
-+ (XCAssetType)covertRegular2AssetType:(DorisPhotoRegularType)regularType
++ (GAssetType)covertRegular2AssetType:(DorisPhotoRegularType)regularType
 {
     switch (regularType) {
         case DorisPhotoRegularTypeAll:
-            return XCAssetTypeUnknow;
+            return GAssetTypeUnknow;
             break;
         case DorisPhotoRegularTypePhoto:
-            return XCAssetTypeImage;
+            return GAssetTypeImage;
             break;
         case DorisPhotoRegularTypeVideo:
-            return XCAssetTypeVideo;
+            return GAssetTypeVideo;
             break;
         default:
-            return XCAssetTypeUnknow;
+            return GAssetTypeUnknow;
             break;
     }
 }
 
-+ (DorisPhotoRegularType)covertRegularType:(XCAssetType)assetType
++ (DorisPhotoRegularType)covertRegularType:(GAssetType)assetType
 {
     switch (assetType) {
-        case XCAssetTypeImage:
+        case GAssetTypeImage:
             return DorisPhotoRegularTypePhoto;
             break;
-        case XCAssetTypeVideo:
+        case GAssetTypeVideo:
             return DorisPhotoRegularTypeVideo;
             break;
         default:

@@ -59,10 +59,10 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		650FED4FD1A7A7D9AE08F330 /* Pods-GDorisPhotoKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit_Example.release.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit_Example/Pods-GDorisPhotoKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7715AF0E7109EAE07A00D42D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		7715AF0E7109EAE07A00D42D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		8D61BC903CAA5794717DFC99 /* GDorisPhotoKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = GDorisPhotoKit.podspec; path = ../GDorisPhotoKit.podspec; sourceTree = "<group>"; };
-		94836D36E3AF4999CAC718E0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		8D61BC903CAA5794717DFC99 /* GDorisPhotoKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = GDorisPhotoKit.podspec; path = ../GDorisPhotoKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		94836D36E3AF4999CAC718E0 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		B70F2A950F468A9A3A62D4A9 /* Pods-GDorisPhotoKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit_Tests.debug.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit_Tests/Pods-GDorisPhotoKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		BC6143820BF9DCA59FC1FA13 /* Pods-GDorisPhotoKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GDorisPhotoKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-GDorisPhotoKit_Example/Pods-GDorisPhotoKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		D89AA712B4A014271385C078 /* Pods_GDorisPhotoKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GDorisPhotoKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -193,7 +193,6 @@
 				B70F2A950F468A9A3A62D4A9 /* Pods-GDorisPhotoKit_Tests.debug.xcconfig */,
 				256DB2CC769FBD82DDC8AA20 /* Pods-GDorisPhotoKit_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -258,6 +257,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);

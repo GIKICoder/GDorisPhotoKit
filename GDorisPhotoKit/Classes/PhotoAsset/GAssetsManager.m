@@ -1,37 +1,37 @@
 //
-//  XCAssetsManager.m
+//  GAssetsManager.m
 //  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/8/13.
 //  Copyright © 2019 GIKI. All rights reserved.
 //
 
-#import "XCAssetsManager.h"
-#import "XCAsset.h"
+#import "GAssetsManager.h"
+#import "GAsset.h"
 
-void XCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  XCAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
-    [[ XCAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:albumAssetsGroup orientation:image.imageOrientation completionBlock:completionBlock];
+void XCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
+    [[ GAssetsManager sharedInstance] saveImageWithImageRef:image.CGImage albumAssetsGroup:albumAssetsGroup orientation:image.imageOrientation completionBlock:completionBlock];
 }
 
-void XCSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  XCAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
-    [[ XCAssetsManager sharedInstance] saveImageWithImagePathURL:[NSURL fileURLWithPath:imagePath] albumAssetsGroup:albumAssetsGroup completionBlock:completionBlock];
+void XCSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
+    [[ GAssetsManager sharedInstance] saveImageWithImagePathURL:[NSURL fileURLWithPath:imagePath] albumAssetsGroup:albumAssetsGroup completionBlock:completionBlock];
 }
 
-void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  XCAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
-    [[ XCAssetsManager sharedInstance] saveVideoWithVideoPathURL:[NSURL fileURLWithPath:videoPath] albumAssetsGroup:albumAssetsGroup completionBlock:completionBlock];
+void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock) {
+    [[ GAssetsManager sharedInstance] saveVideoWithVideoPathURL:[NSURL fileURLWithPath:videoPath] albumAssetsGroup:albumAssetsGroup completionBlock:completionBlock];
 }
 
-@interface XCAssetsManager ()
+@interface GAssetsManager ()
 
 @end
 
-@implementation  XCAssetsManager {
+@implementation  GAssetsManager {
     PHCachingImageManager *_phCachingImageManager;
 }
 
-+ ( XCAssetsManager *)sharedInstance {
++ ( GAssetsManager *)sharedInstance {
     static dispatch_once_t onceToken;
-    static  XCAssetsManager *instance = nil;
+    static  GAssetsManager *instance = nil;
     dispatch_once(&onceToken,^{
         instance = [[super allocWithZone:NULL] init];
     });
@@ -73,7 +73,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     NSString * key = [NSString stringWithFormat:@"XCPHOTOPICKER_ALBUM_%lu_%d_%d",(unsigned long)XCAlbumContentTypeAll,0,1];
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
         __block NSMutableArray * arrayM = [NSMutableArray array];
-        [[XCAssetsManager sharedInstance]  enumerateAllAlbumsWithAlbumContentType:XCAlbumContentTypeAll showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:^(XCAssetsGroup * _Nonnull resultAssetsGroup) {
+        [[GAssetsManager sharedInstance]  enumerateAllAlbumsWithAlbumContentType:XCAlbumContentTypeAll showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:^(GAssetsGroup * _Nonnull resultAssetsGroup) {
             if (resultAssetsGroup) {
                 [arrayM addObject:resultAssetsGroup];
             }
@@ -92,29 +92,29 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 
 }
 
-+ ( XCAssetAuthorizationStatus)authorizationStatus {
-    __block  XCAssetAuthorizationStatus status;
++ ( GAssetAuthorizationStatus)authorizationStatus {
+    __block  GAssetAuthorizationStatus status;
     // 获取当前应用对照片的访问授权状态
     PHAuthorizationStatus authorizationStatus = [PHPhotoLibrary authorizationStatus];
     if (authorizationStatus == PHAuthorizationStatusRestricted || authorizationStatus == PHAuthorizationStatusDenied) {
-        status =  XCAssetAuthorizationStatusNotAuthorized;
+        status =  GAssetAuthorizationStatusNotAuthorized;
     } else if (authorizationStatus == PHAuthorizationStatusNotDetermined) {
-        status =  XCAssetAuthorizationStatusNotDetermined;
+        status =  GAssetAuthorizationStatusNotDetermined;
     } else {
-        status =  XCAssetAuthorizationStatusAuthorized;
+        status =  GAssetAuthorizationStatusAuthorized;
     }
     return status;
 }
 
-+ (void)requestAuthorization:(void(^)( XCAssetAuthorizationStatus status))handler {
++ (void)requestAuthorization:(void(^)( GAssetAuthorizationStatus status))handler {
     [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus phStatus) {
-        XCAssetAuthorizationStatus status;
+        GAssetAuthorizationStatus status;
         if (phStatus == PHAuthorizationStatusRestricted || phStatus == PHAuthorizationStatusDenied) {
-            status =  XCAssetAuthorizationStatusNotAuthorized;
+            status =  GAssetAuthorizationStatusNotAuthorized;
         } else if (phStatus == PHAuthorizationStatusNotDetermined) {
-            status =  XCAssetAuthorizationStatusNotDetermined;
+            status =  GAssetAuthorizationStatusNotDetermined;
         } else {
-            status =  XCAssetAuthorizationStatusAuthorized;
+            status =  GAssetAuthorizationStatusAuthorized;
         }
         if (handler) {
             handler(status);
@@ -122,21 +122,21 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     }];
 }
 
-- (XCAssetsGroup *)fetchSystemAlbumWithContentType:( XCAlbumContentType)contentType
+- (GAssetsGroup *)fetchSystemAlbumWithContentType:( XCAlbumContentType)contentType
 {
     //    CFTimeInterval startTime = CACurrentMediaTime();
-    // 创建一个 PHFetchOptions，用于创建  XCAssetsGroup 对资源的排序和类型进行控制
+    // 创建一个 PHFetchOptions，用于创建  GAssetsGroup 对资源的排序和类型进行控制
     PHFetchOptions *fetchOptions = [PHPhotoLibrary createFetchOptionsWithAlbumContentType:contentType];
     PHFetchResult * fetchResult = [PHAssetCollection fetchAssetCollectionsWithType:PHAssetCollectionTypeSmartAlbum subtype:PHAssetCollectionSubtypeSmartAlbumUserLibrary options:nil];
     //    CFTimeInterval endTime2 = CACurrentMediaTime();
     //     CFTimeInterval consumingTim2 = endTime2 - startTime;
     //     NSLog(@"fetchAssetCollectionsWithType 耗时：%@", @(consumingTim2));
-    __block XCAssetsGroup * assetsGroup = nil;
+    __block GAssetsGroup * assetsGroup = nil;
     [fetchResult enumerateObjectsUsingBlock:^(PHCollection *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isKindOfClass:[PHAssetCollection class]]) {
             PHAssetCollection *assetCollection = (PHAssetCollection *)obj;
             if (assetCollection.assetCollectionSubtype == PHAssetCollectionSubtypeSmartAlbumUserLibrary) {
-                XCAssetsGroup *_assetsGroup = [[XCAssetsGroup alloc] initWithPHCollection:assetCollection fetchAssetsOptions:fetchOptions];
+                GAssetsGroup *_assetsGroup = [[GAssetsGroup alloc] initWithPHCollection:assetCollection fetchAssetsOptions:fetchOptions];
                 assetsGroup = _assetsGroup;
             }
         }
@@ -152,33 +152,33 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 /// @param contentType <#contentType description#>
 /// @param showEmptyAlbum <#showEmptyAlbum description#>
 /// @param showSmartAlbum <#showSmartAlbum description#>
-- (NSArray<XCAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum
+- (NSArray<GAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum
 {
     NSArray * array = [PHPhotoLibrary fetchAllAlbumsWithAlbumContentType:contentType showEmptyAlbum:showEmptyAlbum showSmartAlbum:showSmartAlbum];
-    // 创建一个 PHFetchOptions，用于  XCAssetsGroup 对资源的排序以及对内容类型进行控制
+    // 创建一个 PHFetchOptions，用于  GAssetsGroup 对资源的排序以及对内容类型进行控制
     PHFetchOptions *phFetchOptions = [PHPhotoLibrary createFetchOptionsWithAlbumContentType:contentType];
     __block NSMutableArray * groupsM = [NSMutableArray array];
     [array enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         PHAssetCollection *phAssetCollection = obj;
-        XCAssetsGroup *assetsGroup = [[XCAssetsGroup alloc] initWithPHCollection:phAssetCollection fetchAssetsOptions:phFetchOptions];
-        if (assetsGroup && [assetsGroup isKindOfClass:XCAssetsGroup.class]) {
+        GAssetsGroup *assetsGroup = [[GAssetsGroup alloc] initWithPHCollection:phAssetCollection fetchAssetsOptions:phFetchOptions];
+        if (assetsGroup && [assetsGroup isKindOfClass:GAssetsGroup.class]) {
             [groupsM addObject:assetsGroup];
         }
     }];
     return groupsM.copy;
 }
 
-- (void)enumerateAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)( XCAssetsGroup *resultAssetsGroup))enumerationBlock {
+- (void)enumerateAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)( GAssetsGroup *resultAssetsGroup))enumerationBlock {
     // 根据条件获取所有合适的相册，并保存到临时数组中
     NSArray *tempAlbumsArray = [PHPhotoLibrary fetchAllAlbumsWithAlbumContentType:contentType showEmptyAlbum:showEmptyAlbum showSmartAlbum:showSmartAlbumIfSupported];
     
-    // 创建一个 PHFetchOptions，用于  XCAssetsGroup 对资源的排序以及对内容类型进行控制
+    // 创建一个 PHFetchOptions，用于  GAssetsGroup 对资源的排序以及对内容类型进行控制
     PHFetchOptions *phFetchOptions = [PHPhotoLibrary createFetchOptionsWithAlbumContentType:contentType];
     
-    // 遍历结果，生成对应的  XCAssetsGroup，并调用 enumerationBlock
+    // 遍历结果，生成对应的  GAssetsGroup，并调用 enumerationBlock
     for (NSUInteger i = 0; i < [tempAlbumsArray count]; i++) {
         PHAssetCollection *phAssetCollection = [tempAlbumsArray objectAtIndex:i];
-        XCAssetsGroup *assetsGroup = [[ XCAssetsGroup alloc] initWithPHCollection:phAssetCollection fetchAssetsOptions:phFetchOptions];
+        GAssetsGroup *assetsGroup = [[ GAssetsGroup alloc] initWithPHCollection:phAssetCollection fetchAssetsOptions:phFetchOptions];
         if (enumerationBlock) {
             enumerationBlock(assetsGroup);
         }
@@ -192,7 +192,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     }
 }
 
-- (void)enumerateAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType usingBlock:(void (^)( XCAssetsGroup *resultAssetsGroup))enumerationBlock {
+- (void)enumerateAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType usingBlock:(void (^)( GAssetsGroup *resultAssetsGroup))enumerationBlock {
     [self enumerateAllAlbumsWithAlbumContentType:contentType showEmptyAlbum:NO showSmartAlbumIfSupported:YES usingBlock:enumerationBlock];
 }
 /**
@@ -219,7 +219,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     }];
 }
 
-- (void)saveImageWithImageRef:(CGImageRef)imageRef albumAssetsGroup:( XCAssetsGroup *)albumAssetsGroup orientation:(UIImageOrientation)orientation completionBlock:(XCWriteAssetCompletionBlock)completionBlock {
+- (void)saveImageWithImageRef:(CGImageRef)imageRef albumAssetsGroup:( GAssetsGroup *)albumAssetsGroup orientation:(UIImageOrientation)orientation completionBlock:(XCWriteAssetCompletionBlock)completionBlock {
     __block PHAssetCollection *albumPhAssetCollection = albumAssetsGroup.phAssetCollection;
     // 把图片加入到指定的相册对应的 PHAssetCollection
     [[PHPhotoLibrary sharedPhotoLibrary] addImageToAlbum:imageRef
@@ -235,16 +235,16 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
             fetchOptions.predicate = [NSPredicate predicateWithFormat:@"creationDate=%@", creationDate];
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:albumPhAssetCollection options:fetchOptions];
             PHAsset *phAsset = fetchResult.lastObject;
-            XCAsset *asset = [[XCAsset alloc] initWithPHAsset:phAsset];
+            GAsset *asset = [[GAsset alloc] initWithPHAsset:phAsset];
             completionBlock(asset, error);
         } else {
-            NSLog(@"XCAssetLibrary Get PHAsset of image error: %@", error);
+            NSLog(@"GAssetLibrary Get PHAsset of image error: %@", error);
             completionBlock(nil, error);
         }
     }];
 }
 
-- (void)saveImageWithImagePathURL:(NSURL *)imagePathURL albumAssetsGroup:( XCAssetsGroup *)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock {
+- (void)saveImageWithImagePathURL:(NSURL *)imagePathURL albumAssetsGroup:( GAssetsGroup *)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock {
     PHAssetCollection *albumPhAssetCollection = albumAssetsGroup.phAssetCollection;
     // 把图片加入到指定的相册对应的 PHAssetCollection
     [[PHPhotoLibrary sharedPhotoLibrary] addImageToAlbum:imagePathURL
@@ -255,16 +255,16 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
             fetchOptions.predicate = [NSPredicate predicateWithFormat:@"creationDate = %@", creationDate];
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:albumPhAssetCollection options:fetchOptions];
             PHAsset *phAsset = fetchResult.lastObject;
-            XCAsset *asset = [[ XCAsset alloc] initWithPHAsset:phAsset];
+            GAsset *asset = [[ GAsset alloc] initWithPHAsset:phAsset];
             completionBlock(asset, error);
         } else {
-            NSLog(@"XCAssetLibrary Get PHAsset of image error: %@", error);
+            NSLog(@"GAssetLibrary Get PHAsset of image error: %@", error);
             completionBlock(nil, error);
         }
     }];
 }
 
-- (void)saveVideoWithVideoPathURL:(NSURL *)videoPathURL albumAssetsGroup:( XCAssetsGroup *)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock {
+- (void)saveVideoWithVideoPathURL:(NSURL *)videoPathURL albumAssetsGroup:( GAssetsGroup *)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock {
     PHAssetCollection *albumPhAssetCollection = albumAssetsGroup.phAssetCollection;
     // 把视频加入到指定的相册对应的 PHAssetCollection
     [[PHPhotoLibrary sharedPhotoLibrary] addVideoToAlbum:videoPathURL
@@ -275,18 +275,18 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
             fetchOptions.predicate = [NSPredicate predicateWithFormat:@"creationDate = %@", creationDate];
             PHFetchResult *fetchResult = [PHAsset fetchAssetsInAssetCollection:albumPhAssetCollection options:fetchOptions];
             PHAsset *phAsset = fetchResult.lastObject;
-            XCAsset *asset = [[ XCAsset alloc] initWithPHAsset:phAsset];
+            GAsset *asset = [[ GAsset alloc] initWithPHAsset:phAsset];
             completionBlock(asset, error);
         } else {
-            NSLog(@" XCAssetLibrary Get PHAsset of video Error: %@", error);
+            NSLog(@" GAssetLibrary Get PHAsset of video Error: %@", error);
             completionBlock(nil, error);
         }
     }];
 }
 
-/// 根据phasset_id 获取一个xcasset
+/// 根据phasset_id 获取一个GAsset
 /// @param localIdentifier phasset id
-- (XCAsset *)fetchAssetWithLocalIdentifier:(NSString *)localIdentifier
+- (GAsset *)fetchAssetWithLocalIdentifier:(NSString *)localIdentifier
 {
     if (!localIdentifier || ![localIdentifier isKindOfClass:NSString.class]) {
         return nil;
@@ -294,8 +294,8 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
     PHFetchResult *fetchResult = [PHAsset fetchAssetsWithLocalIdentifiers:@[localIdentifier] options:nil];
     PHAsset *asset = fetchResult.firstObject;
     if (asset && [asset isKindOfClass:PHAsset.class]) {
-        XCAsset * xcasset = [[XCAsset alloc] initWithPHAsset:asset];
-        return xcasset;
+        GAsset * asset_ = [[GAsset alloc] initWithPHAsset:asset];
+        return asset_;
     }
     return nil;
 }
@@ -345,7 +345,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
 + (NSArray *)fetchAllAlbumsWithAlbumContentType:( XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum {
     NSMutableArray *tempAlbumsArray = [[NSMutableArray alloc] init];
     
-    // 创建一个 PHFetchOptions，用于创建  XCAssetsGroup 对资源的排序和类型进行控制
+    // 创建一个 PHFetchOptions，用于创建  GAssetsGroup 对资源的排序和类型进行控制
     PHFetchOptions *fetchOptions = [PHPhotoLibrary createFetchOptionsWithAlbumContentType:contentType];
     
     PHFetchResult *fetchResult;
@@ -449,7 +449,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
         } else if (imagePathURL) {
             assetChangeRequest = [PHAssetChangeRequest creationRequestForAssetFromImageAtFileURL:imagePathURL];
         } else {
-            NSLog(@" XCAssetLibrary Creating asset with empty data");
+            NSLog(@" GAssetLibrary Creating asset with empty data");
             return;
         }
         assetChangeRequest.creationDate = [NSDate date];
@@ -469,7 +469,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
         
     } completionHandler:^(BOOL success, NSError *error) {
         if (!success) {
-            NSLog(@"XCAssetLibrary Creating asset of image error : %@", error.localizedDescription);
+            NSLog(@"GAssetLibrary Creating asset of image error : %@", error.localizedDescription);
         }
         
         if (completionHandler) {
@@ -508,7 +508,7 @@ void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath
         
     } completionHandler:^(BOOL success, NSError *error) {
         if (!success) {
-            NSLog(@"XCAssetLibrary Creating asset of video error: %@", error.localizedDescription);
+            NSLog(@"GAssetLibrary Creating asset of video error: %@", error.localizedDescription);
         }
         
         if (completionHandler) {

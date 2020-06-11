@@ -1,5 +1,5 @@
 //
-//  XCAssetsManager.h
+//  GAssetsManager.h
 //  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/8/13.
@@ -18,63 +18,63 @@
 #import <Photos/PHFetchOptions.h>
 #import <Photos/PHImageManager.h>
 #import <Photos/PHAssetCreationRequest.h>
-#import "XCAssetsGroup.h"
-#import "XCAsset.h"
+#import "GAssetsGroup.h"
+#import "GAsset.h"
 NS_ASSUME_NONNULL_BEGIN
 
 
 @class PHCachingImageManager;
-@class  XCAsset;
+@class  GAsset;
 
 /// Asset 授权的状态
-typedef NS_ENUM(NSUInteger,  XCAssetAuthorizationStatus) {
-     XCAssetAuthorizationStatusNotDetermined,      // 还不确定有没有授权
-     XCAssetAuthorizationStatusAuthorized,         // 已经授权
-     XCAssetAuthorizationStatusNotAuthorized       // 手动禁止了授权
+typedef NS_ENUM(NSUInteger,  GAssetAuthorizationStatus) {
+     GAssetAuthorizationStatusNotDetermined,      // 还不确定有没有授权
+     GAssetAuthorizationStatusAuthorized,         // 已经授权
+     GAssetAuthorizationStatusNotAuthorized       // 手动禁止了授权
 };
 
-typedef void (^XCWriteAssetCompletionBlock)(XCAsset * __nullable asset, NSError * __nullable error);
+typedef void (^XCWriteAssetCompletionBlock)(GAsset * __nullable asset, NSError * __nullable error);
 
 
 /// 保存图片到指定相册（传入 UIImage）
-extern void XCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  XCAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
+extern void XCImageWriteToSavedPhotosAlbumWithAlbumAssetsGroup(UIImage *image,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
 
 /// 保存图片到指定相册（传入图片路径）
-extern void XCSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  XCAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
+extern void XCSaveImageAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *imagePath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
 
 /// 保存视频到指定相册
-extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  XCAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
+extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *videoPath,  GAssetsGroup *albumAssetsGroup, XCWriteAssetCompletionBlock completionBlock);
 
 /**
- *  构建  XCAssetsManager 这个对象并提供单例的调用方式主要出于下面两点考虑：
+ *  构建  GAssetsManager 这个对象并提供单例的调用方式主要出于下面两点考虑：
  *  1. 保存照片/视频的方法较为复杂，为了方便封装系统接口，同时灵活地扩展功能，需要有一个独立对象去管理这些方法。
  *  2. 使用 PhotoKit 获取图片，基本都需要一个 PHCachingImageManager 的实例，为了减少消耗，
- *      XCAssetsManager 单例内部也构建了一个 PHCachingImageManager，并且暴露给外面，方便获取
+ *      GAssetsManager 单例内部也构建了一个 PHCachingImageManager，并且暴露给外面，方便获取
  *     PHCachingImageManager 的实例。
  */
-@interface  XCAssetsManager : NSObject
+@interface  GAssetsManager : NSObject
 
-/// 获取  XCAssetsManager 的单例
+/// 获取  GAssetsManager 的单例
 + (instancetype)sharedInstance;
 
 /// 获取当前应用的“照片”访问授权状态
-+ ( XCAssetAuthorizationStatus)authorizationStatus;
++ ( GAssetAuthorizationStatus)authorizationStatus;
 
 /**
  *  调起系统询问是否授权访问“照片”的 UIAlertView
  *  @param handler 授权结束后调用的 block，默认不在主线程上执行，如果需要在 block 中修改 UI，记得 dispatch 到 mainqueue
  */
-+ (void)requestAuthorization:(void(^)( XCAssetAuthorizationStatus status))handler;
++ (void)requestAuthorization:(void(^)( GAssetAuthorizationStatus status))handler;
 
 /// 获取系统相册
 /// @param contentType <#contentType description#>
-- (XCAssetsGroup *)fetchSystemAlbumWithContentType:( XCAlbumContentType)contentType;
+- (GAssetsGroup *)fetchSystemAlbumWithContentType:( XCAlbumContentType)contentType;
 
 /// 获取全部相册
 /// @param contentType <#contentType description#>
 /// @param showEmptyAlbum <#showEmptyAlbum description#>
 /// @param showSmartAlbum <#showSmartAlbum description#>
-- (NSArray<XCAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum;
+- (NSArray<GAssetsGroup *> *)fetchAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbum:(BOOL)showSmartAlbum;
 
 /**
  *  获取所有的相册，包括个人收藏，最近添加，自拍这类“智能相册”
@@ -85,10 +85,10 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
  *  @param enumerationBlock          参数 resultAssetsGroup 表示每次枚举时对应的相册。枚举所有相册结束后，enumerationBlock 会被再调用一次，
  *                                   这时 resultAssetsGroup 的值为 nil。可以以此作为判断枚举结束的标记。
  */
-- (void)enumerateAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)(XCAssetsGroup *resultAssetsGroup))enumerationBlock;
+- (void)enumerateAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType showEmptyAlbum:(BOOL)showEmptyAlbum showSmartAlbumIfSupported:(BOOL)showSmartAlbumIfSupported usingBlock:(void (^)(GAssetsGroup *resultAssetsGroup))enumerationBlock;
 
 /// 获取所有相册，默认显示系统的“智能相册”，不显示空相册（经过 contentType 过滤后为空的相册）
-- (void)enumerateAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType usingBlock:(void (^)(XCAssetsGroup *resultAssetsGroup))enumerationBlock;
+- (void)enumerateAllAlbumsWithAlbumContentType:(XCAlbumContentType)contentType usingBlock:(void (^)(GAssetsGroup *resultAssetsGroup))enumerationBlock;
 
 /**
  *  保存图片或视频到指定的相册
@@ -100,11 +100,11 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
  *           因此这应该是一个合符官方预期的表现。
  *  @warning 无法通过该方法把图片保存到“智能相册”，“智能相册”只能由系统控制资源的增删。
  */
-- (void)saveImageWithImageRef:(CGImageRef)imageRef albumAssetsGroup:(XCAssetsGroup * __nullable)albumAssetsGroup orientation:(UIImageOrientation)orientation completionBlock:(XCWriteAssetCompletionBlock)completionBlock;
+- (void)saveImageWithImageRef:(CGImageRef)imageRef albumAssetsGroup:(GAssetsGroup * __nullable)albumAssetsGroup orientation:(UIImageOrientation)orientation completionBlock:(XCWriteAssetCompletionBlock)completionBlock;
 
-- (void)saveImageWithImagePathURL:(NSURL *)imagePathURL albumAssetsGroup:(XCAssetsGroup * __nullable)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock;
+- (void)saveImageWithImagePathURL:(NSURL *)imagePathURL albumAssetsGroup:(GAssetsGroup * __nullable)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock;
 
-- (void)saveVideoWithVideoPathURL:(NSURL *)videoPathURL albumAssetsGroup:(XCAssetsGroup * __nullable)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock;
+- (void)saveVideoWithVideoPathURL:(NSURL *)videoPathURL albumAssetsGroup:(GAssetsGroup * __nullable)albumAssetsGroup completionBlock:(XCWriteAssetCompletionBlock)completionBlock;
 
 /**
  保存imageData 到相册
@@ -112,9 +112,9 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
 - (void)saveImageWithImageData:(NSData *)imageData
              completionHandler:(void(^)(BOOL success, NSDate *creationDate, NSError *error))completionHandler;
 
-/// 根据phasset_id 获取一个xcasset
+/// 根据phasset_id 获取一个GAsset
 /// @param localIdentifier phasset id
-- (XCAsset *)fetchAssetWithLocalIdentifier:(NSString *)localIdentifier;
+- (GAsset *)fetchAssetWithLocalIdentifier:(NSString *)localIdentifier;
 
 /// 获取一个 PHCachingImageManager 的实例
 - (PHCachingImageManager *)phCachingImageManager;
@@ -151,7 +151,7 @@ extern void XCSaveVideoAtPathToSavedPhotosAlbumWithAlbumAssetsGroup(NSString *vi
  *  保存图片或视频到指定的相册
  *
  *  @warning 无论用户保存到哪个自行创建的相册，系统都会在“相机胶卷”相册中同时保存这个图片。
- *           原因请参考  XCAssetsManager 对象的保存图片和视频方法的注释。
+ *           原因请参考  GAssetsManager 对象的保存图片和视频方法的注释。
  *  @warning 无法通过该方法把图片保存到“智能相册”，“智能相册”只能由系统控制资源的增删。
  */
 - (void)addImageToAlbum:(CGImageRef)imageRef albumAssetCollection:(PHAssetCollection *)albumAssetCollection orientation:(UIImageOrientation)orientation completionHandler:(void(^)(BOOL success, NSDate *creationDate, NSError *error))completionHandler;

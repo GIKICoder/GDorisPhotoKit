@@ -9,20 +9,20 @@
 #import "GDorisInputViewController.h"
 #import "GDorisPhotoHelper.h"
 #import "UIView+GDoris.h"
-#import "XCNavigationBar.h"
 #import "YYText.h"
 #import "GDorisInputTextParse.h"
 #import "GDorisInputColorToolbar.h"
-#import "XCGrowingTextView.h"
+//#import "XCGrowingTextView.h"
 #import "GDorisInputStylePanel.h"
 #import "GDorisTextStyleItem.h"
-@interface GDorisInputViewController ()<YYTextViewDelegate,XCGrowingTextViewDelegate>
-@property (nonatomic, strong) XCNavigationBar * navigationBar;
+@interface GDorisInputViewController ()<YYTextViewDelegate>
+//@property (nonatomic, strong) XCNavigationBar * navigationBar;
 @property (nonatomic, strong) YYLabel * textLabel;
 @property (nonatomic, strong) UIView * toolbarView;
 @property (nonatomic, strong) GDorisInputColorToolbar * colorToolbar;
 @property (nonatomic, strong) UIView * inputBar;
-@property (nonatomic, strong) XCGrowingTextView * inputTextView;
+//@property (nonatomic, strong) XCGrowingTextView * inputTextView;
+@property (nonatomic, strong) UITextView * inputTextView;
 @property (nonatomic, strong) UIButton * moreButton;
 @property (nonatomic, strong) UIColor * currentColor;
 @property (nonatomic, strong) UIView * keyboardPanel;
@@ -53,7 +53,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [self.inputTextView becomeFirstResponder];
+//    [self.inputTextView becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -102,7 +102,7 @@
     container.backgroundColor = UIColor.whiteColor;
     self.inputBar = container;
     [self.toolbarView addSubview:container];
-    
+    /*
     self.inputTextView = [[XCGrowingTextView alloc] initWithFrame:CGRectMake(15,6, [UIScreen mainScreen].bounds.size.width-15-48, 36)];
     self.inputTextView.returnKeyType = UIReturnKeyDefault;
     self.inputTextView.minHeight = 36;
@@ -121,7 +121,7 @@
         self.inputTextView.internalTextView.textDragInteraction.enabled = NO;
     }
     [container addSubview:self.inputTextView];
-    
+    */
     [container addSubview:({
         _moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [_moreButton setImage:[UIImage imageNamed:@"Fire_btn_emoji_black"] forState:UIControlStateNormal];
@@ -158,13 +158,13 @@
 
 - (void)setupNavigationbar
 {
-    self.navigationBar = [XCNavigationBar navigationBar];
-    [self.view addSubview:self.navigationBar];
-    self.navigationBar.backgroundImageView.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
-    XCNavigationItem *cancel = [XCNavItemFactory createTitleButton:@"取消" titleColor:[UIColor whiteColor] highlightColor:[UIColor lightGrayColor] target:self selctor:@selector(cancel)];
-    self.navigationBar.leftNavigationItem = cancel;
-    XCNavigationItem *done = [XCNavItemFactory createTitleButton:@"完成" titleColor:GDorisColorCreate(@"29CE85") highlightColor:GDorisColorCreate(@"154212") target:self selctor:@selector(done)];
-    self.navigationBar.rightNavigationItem = done;
+//    self.navigationBar = [XCNavigationBar navigationBar];
+//    [self.view addSubview:self.navigationBar];
+//    self.navigationBar.backgroundImageView.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
+//    XCNavigationItem *cancel = [XCNavItemFactory createTitleButton:@"取消" titleColor:[UIColor whiteColor] highlightColor:[UIColor lightGrayColor] target:self selctor:@selector(cancel)];
+//    self.navigationBar.leftNavigationItem = cancel;
+//    XCNavigationItem *done = [XCNavItemFactory createTitleButton:@"完成" titleColor:GDorisColorCreate(@"29CE85") highlightColor:GDorisColorCreate(@"154212") target:self selctor:@selector(done)];
+//    self.navigationBar.rightNavigationItem = done;
 }
 
 - (void)setupKeybaordPanel
@@ -368,7 +368,7 @@
 {
     
 }
-
+/*
 #pragma mark - XCGrowingTextViewDelegate
 
 - (BOOL)growingTextViewShouldBeginEditing:(XCGrowingTextView *)growingTextView
@@ -420,4 +420,5 @@
     }
     [self processTextLayout];
 }
+ */
 @end
