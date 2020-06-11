@@ -121,7 +121,6 @@
 {
     self.pickerNavBar = [[GDorisPickerNavigationBar alloc] initWithCustomBar:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, GDorisNavBarContentHeight)];
     [self.view addSubview:self.pickerNavBar];
-    self.pickerNavBar.backgroundColor = UIColor.redColor;
     self.pickerNavBar.titleLabel.text = @"相机胶卷";
     __weak typeof(self) weakSelf = self;
     self.pickerNavBar.closeAction = ^{
