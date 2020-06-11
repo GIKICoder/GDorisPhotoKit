@@ -1,9 +1,9 @@
 //
 //  XCAssetsManager.h
-//  XCChat
+//  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/8/13.
-//  Copyright © 2019 xiaochuankeji. All rights reserved.
+//  Copyright © 2019 GIKI. All rights reserved.
 //
 //  Code Reference: https://github.com/Tencent/QMUI_iOS
 

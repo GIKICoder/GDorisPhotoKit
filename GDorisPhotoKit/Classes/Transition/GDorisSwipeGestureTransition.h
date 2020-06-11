@@ -1,9 +1,9 @@
 //
 //  GDorisSwipeGestureTransition.h
-//  XCChat
+//  GDorisPhotoKit
 //
 //  Created by GIKI on 2020/3/27.
-//  Copyright © 2020 xiaochuankeji. All rights reserved.
+//  Copyright © 2020 GIKI. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
