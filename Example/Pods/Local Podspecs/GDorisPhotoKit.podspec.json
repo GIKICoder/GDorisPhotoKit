@@ -19,6 +19,11 @@
     "ios": "8.0"
   },
   "source_files": "GDorisPhotoKit/Classes/**/*",
+  "resource_bundles": {
+    "GDorisPhotoKit": [
+      "GDorisPhotoKit/Assets/*.png"
+    ]
+  },
   "dependencies": {
     "YYText": [
 

@@ -9,6 +9,7 @@
 #import "GDorisPickerNavigationBar.h"
 #import "UIControl+GDoris.h"
 #import "GDorisPhotoHelper.h"
+#import "UIImage+GDoris.h"
 @interface GDorisPickerNavigationBar ()
 @property (nonatomic, assign) BOOL  isCustom;
 @property (nonatomic, strong) UIView * container;
@@ -50,7 +51,7 @@
     })];
     [self.container addSubview:({
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setImage:[UIImage imageNamed:@"Fire_btn_cancel_black"] forState:UIControlStateNormal];
+        [_closeButton setImage:[UIImage g_imageNamed:@"GDoris_photo_picker_close"] forState:UIControlStateNormal];
         [_closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
         [_closeButton g_enlargeHitWithEdges:UIEdgeInsetsMake(8, 8, 8, 8)];
         _closeButton;
@@ -68,7 +69,7 @@
     })];
     [self.titleButton addSubview:({
         _iconView = [[UIImageView alloc] init];
-        _iconView.image = [UIImage imageNamed:@"Fire_btn_drop-down_black"];
+        _iconView.image = [UIImage g_imageNamed:@"GDoris_photo_picker_drop_down_ic"];
         _iconView;
     })];
     [self layoutUI];
@@ -95,7 +96,7 @@
         make.centerX.mas_equalTo(self.container.mas_centerX);
         make.centerY.mas_equalTo(self.container.mas_centerY);
     }];
-    UIImage * image = [UIImage imageNamed:@"Fire_btn_drop-down_black"];
+    UIImage * image = [UIImage g_imageNamed:@"GDoris_photo_picker_drop_down_ic"];
     [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.bottom.equalTo(self.titleButton);
         make.right.mas_equalTo(self.iconView.mas_left).mas_offset(0);
@@ -133,10 +134,10 @@
 {
     self.titleButton.selected = selected;
     if (selected) {
-        UIImage * image = [UIImage imageNamed:@"Fire_btn_drop-up_black"];
+        UIImage * image = [UIImage g_imageNamed:@"GDoris_photo_picker_drop_up_ic"];
         _iconView.image = image;
     } else {
-       UIImage * image = [UIImage imageNamed:@"Fire_btn_drop-down_black"];
+       UIImage * image = [UIImage g_imageNamed:@"GDoris_photo_picker_drop_down_ic"];
        _iconView.image = image;
     }
 }

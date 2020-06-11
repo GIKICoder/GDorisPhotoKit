@@ -22,6 +22,7 @@
 @property (nonatomic, strong) GDorisPickerToolView * toolBarView;
 @property (nonatomic, strong) UIView * notAuthorizedView;
 @property (nonatomic, strong) GDorisPhotoAlbumTableView * albumListView;
+@property (nonatomic, strong) UIActivityIndicatorView * indicatorView;
 @end
 
 @implementation GDorisPhotoPickerController
@@ -31,8 +32,8 @@
     self = [super initWithConfiguration:configuration];
     if (self) {
         configuration.appearance.edgeInset = UIEdgeInsetsMake(GDorisNavBarContentHeight, 4, GDorisPhotoPickerToolbarHeight, 4);
-        BOOL temp = [self.albumLoader photoAuthorizationStatusAuthorized];
-        if (temp) {
+        BOOL author = [self.albumLoader photoAuthorizationStatusAuthorized];
+        if (author) {
             [self loadAlbums];
         }
     }
@@ -92,8 +93,14 @@
     [self updateAlbumTitleWithCollection:collection];
     [self.albumLoader loadPhotos:self.configuration collection:collection quick:^BOOL(NSArray * _Nonnull assets) {
         [weakSelf reloadPhotoUI];
+        if (weakSelf.indicatorView && [weakSelf isViewLoaded]) {
+            [weakSelf.indicatorView stopAnimating];
+        }
         return YES;
     } completion:^(NSArray * _Nonnull assets) {
+        if (weakSelf.indicatorView && [weakSelf isViewLoaded]) {
+            [weakSelf.indicatorView stopAnimating];
+        }
         [weakSelf reloadPhotoUI];
     }];
 }
@@ -114,6 +121,7 @@
 {
     self.pickerNavBar = [[GDorisPickerNavigationBar alloc] initWithCustomBar:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, GDorisNavBarContentHeight)];
     [self.view addSubview:self.pickerNavBar];
+    self.pickerNavBar.backgroundColor = UIColor.redColor;
     self.pickerNavBar.titleLabel.text = @"相机胶卷";
     __weak typeof(self) weakSelf = self;
     self.pickerNavBar.closeAction = ^{
@@ -131,12 +139,17 @@
     [self.toolBarView.rightButton setTitle:@"确定" forState:UIControlStateNormal];
     [self.view addSubview:self.toolBarView];
     
-    BOOL temp = [self.albumLoader photoAuthorizationStatusAuthorized];
-    if (!temp) {
+    BOOL author = [self.albumLoader photoAuthorizationStatusAuthorized];
+    if (!author) {
         self.notAuthorizedView.hidden = NO;
         [self.view bringSubviewToFront:self.notAuthorizedView];
         [self.view bringSubviewToFront:self.pickerNavBar];
         [self requestAuthorized];
+    } else if(!self.albumLoader.photoDatas) {
+        self.indicatorView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.view addSubview:self.indicatorView];
+        [self.indicatorView startAnimating];
+        self.indicatorView.center = CGPointMake(self.view.g_centerX, 200);
     }
     [self setupAlbumListView];
 }

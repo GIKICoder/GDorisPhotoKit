@@ -13,6 +13,23 @@
 
 @implementation UIImage (GDoris)
 
++ (UIImage *)g_imageNamed:(NSString *)name
+{
+    return [[self class] g_imageNamed:name clazz:NSClassFromString(@"GDorisPhotoPickerBaseController")];
+}
+
++ (UIImage *)g_imageNamed:(NSString *)name clazz:(Class)clazz
+{
+    NSBundle *frameworkbundle = [NSBundle bundleForClass:[clazz class]];
+    NSURL * URL = [frameworkbundle URLForResource:@"GDorisPhotoKit" withExtension:@"bundle"];
+    if (URL) {
+        NSBundle * resBundle = [NSBundle bundleWithURL:URL];
+        UIImage *image = [UIImage imageNamed:name inBundle:resBundle compatibleWithTraitCollection:nil];
+        return image;
+    }
+    return nil;
+}
+
 - (UIImage *)g_fixOrientation {
     
     // No-op if the orientation is already correct
