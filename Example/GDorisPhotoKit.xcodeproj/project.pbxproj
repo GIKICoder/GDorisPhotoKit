@@ -247,6 +247,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "810373457@qq.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 3PNU3QCSP6;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -512,6 +515,7 @@
 			baseConfigurationReference = BC6143820BF9DCA59FC1FA13 /* Pods-GDorisPhotoKit_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3PNU3QCSP6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GDorisPhotoKit/GDorisPhotoKit-Prefix.pch";
 				INFOPLIST_FILE = "GDorisPhotoKit/GDorisPhotoKit-Info.plist";
@@ -528,6 +532,7 @@
 			baseConfigurationReference = 650FED4FD1A7A7D9AE08F330 /* Pods-GDorisPhotoKit_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3PNU3QCSP6;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "GDorisPhotoKit/GDorisPhotoKit-Prefix.pch";
 				INFOPLIST_FILE = "GDorisPhotoKit/GDorisPhotoKit-Info.plist";
