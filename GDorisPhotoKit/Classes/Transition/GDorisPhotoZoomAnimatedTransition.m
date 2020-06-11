@@ -148,8 +148,10 @@ CGRect GImageAspectFitRectForSize(UIImage *image, CGSize size){
         UIView * presetedView_ = [self.presentedAdapter presentedView];
         if (presetedView_.frame.size.height < inView.frame.size.height) {
             presentedView = presetedView_;
-        } else {
+        } else if(presetedView_.superview) {
             presentedView = presetedView_.superview;
+        } else {
+            presentedView = presetedView_;
         }
     }
     UIView * backgroundView = inView;
@@ -438,7 +440,7 @@ CGRect GImageAspectFitRectForSize(UIImage *image, CGSize size){
     UIView *containerView = [transitioning containerView];
     UIColor *windowBackgroundColor = [window backgroundColor];
     
-//    toViewController.view.frame = [transitioning finalFrameForViewController:toViewController];
+    //    toViewController.view.frame = [transitioning finalFrameForViewController:toViewController];
     
     id<GDorisZoomPresentingAdapter> toAdapter = self.presentingAdapter;
     id<GDorisZoomPresentedAdapter> fromAdapter = self.presentedAdapter;
