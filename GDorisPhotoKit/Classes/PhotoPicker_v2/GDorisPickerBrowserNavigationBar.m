@@ -10,6 +10,7 @@
 #import "GDorisAnimatedButton.h"
 #import "UIControl+GDoris.h"
 #import "GDorisPhotoHelper.h"
+#import "UIImage+GDoris.h"
 @interface GDorisPickerBrowserNavigationBar ()
 @property (nonatomic, strong) UIView * container;
 @property (nonatomic, strong) UIButton * closeButton;
@@ -47,7 +48,7 @@
     })];
     [self.container addSubview:({
         _closeButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        [_closeButton setImage:[UIImage imageNamed:@"Fire_btn_cancel_white"] forState:UIControlStateNormal];
+        [_closeButton setImage:[UIImage g_imageNamed:@"GDoris_photo_picker_white_close"] forState:UIControlStateNormal];
         [_closeButton addTarget:self action:@selector(closeAction:) forControlEvents:UIControlEventTouchUpInside];
         [_closeButton g_enlargeHitWithEdges:UIEdgeInsetsMake(8, 8, 8, 8)];
         _closeButton;
@@ -57,7 +58,7 @@
     self.selectCountBtn.frame = CGRectMake(0, 0, 28, 28);
     self.selectCountBtn.selectType = GDorisPickerSelectCount;
     self.selectCountBtn.countFont = [UIFont systemFontOfSize:17];
-    UIImage * image = [UIImage imageNamed:@"PhotoLibrary_unselected"];
+    UIImage * image = [UIImage g_imageNamed:@"GDoris_photo_picker_cell_unselect_ic"];
     [self.selectCountBtn setImage:image forState:UIControlStateNormal];
     [self.selectCountBtn addTarget:self action:@selector(selectBtnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.selectCountBtn g_enlargeHitWithEdges:UIEdgeInsetsMake(10, 10, 10, 10)];
