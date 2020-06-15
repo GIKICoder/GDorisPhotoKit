@@ -62,7 +62,7 @@ typedef enum : NSInteger {
         self.containerCorners = 10;
         self.swipeGestureEnabled = YES;
         self.containerOffset = 0;
-        self.dismissDistance = [UIScreen mainScreen].bounds.size.height*0.5-30;
+        self.dismissDistance = [UIScreen mainScreen].bounds.size.height*(1.0/3);
         self.horizontalDistance = [UIScreen mainScreen].bounds.size.width*(1.0/3);
         self.swipeOptions = GDorisSwipeGestureVertical | GDorisSwipeGestureHorizontal;
     }
