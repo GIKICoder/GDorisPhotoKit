@@ -194,6 +194,7 @@
 
 - (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    [super collectionView:collectionView willDisplayCell:cell forItemAtIndexPath:indexPath];
     GDorisPhotoPickerBean * bean = [self.photoDatas objectAtIndex:indexPath.item];
     if (bean.isCamera) {
         NSInteger index = indexPath.item;

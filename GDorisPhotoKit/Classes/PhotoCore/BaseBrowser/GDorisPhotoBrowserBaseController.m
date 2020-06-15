@@ -153,6 +153,11 @@
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
+- (void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    self.currentIndex = indexPath.item;
+}
+
 - (void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath
 {
     GDorisBrowserBaseCell * cell_doris = (id)cell;
@@ -184,7 +189,7 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSInteger index = scrollView.contentOffset.x / [UIScreen mainScreen].bounds.size.width;
+    NSInteger index = scrollView.contentOffset.x / ([UIScreen mainScreen].bounds.size.width + _lineSpace);
     self.currentIndex = index;
 }
 
