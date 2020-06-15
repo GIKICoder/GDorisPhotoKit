@@ -50,6 +50,9 @@ typedef NS_OPTIONS(NSUInteger, GDorisSwipeGestureOptions) {
 /// 页面下滑消失距离 default: [UIScreen mainScreen].bounds.size.height*0.5
 @property (nonatomic, assign) CGFloat  dismissDistance;
 
+/// 侧滑消失距离
+@property (nonatomic, assign) CGFloat  horizontalDistance;
+
 /**
  如果有scrollView需要处理scrollveiw滑动事件.
  在scrollview delegate方法中调用如下方法即可

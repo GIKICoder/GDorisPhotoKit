@@ -63,6 +63,7 @@ typedef enum : NSInteger {
         self.swipeGestureEnabled = YES;
         self.containerOffset = 0;
         self.dismissDistance = [UIScreen mainScreen].bounds.size.height*0.5-30;
+        self.horizontalDistance = [UIScreen mainScreen].bounds.size.width*(1.0/3);
         self.swipeOptions = GDorisSwipeGestureVertical | GDorisSwipeGestureHorizontal;
     }
     return self;
@@ -145,7 +146,7 @@ typedef enum : NSInteger {
 
 - (void)horizontalGestureRecognizedEnded:(UIPanGestureRecognizer *)recognizer
 {
-    if (self.targetView.transform.tx > self.targetView.frame.size.width/2) {
+    if (self.targetView.transform.tx > self.horizontalDistance) {
         CGAffineTransform _transform = CGAffineTransformMakeTranslation(self.targetView.frame.size.width, 0);
         [UIView animateWithDuration:0.25 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:6.0 options:UIViewAnimationOptionAllowUserInteraction animations:^{
             self.targetView.transform = _transform;
