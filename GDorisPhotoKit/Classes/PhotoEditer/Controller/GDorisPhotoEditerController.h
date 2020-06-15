@@ -1,6 +1,6 @@
 //
 //  GDorisPhotoEditerController.h
-//  GDorisPhotoKitExample
+//  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/12/23.
 //  Copyright © 2019 GIKI. All rights reserved.

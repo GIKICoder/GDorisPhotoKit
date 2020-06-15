@@ -36,7 +36,7 @@ NS_ASSUME_NONNULL_BEGIN
 #define GDoris_TabBarMargin (GDORIS_IS_NOTCH ? (34.f) :(0.0f))
 
 /// 导航栏高度 44
-#define GDorisNavBarContentHeight (50.0f)
+#define GDorisNavBarContentHeight (44.0f)
 /// 隐藏状态栏的情况下 也有值
 #define GDorisStatusBarHeight (GDORIS_IS_NOTCH ? (44.f) :(20.0f))
 #define GDorisNavBarHeight (GDorisNavBarContentHeight+GDorisStatusBarHeight)

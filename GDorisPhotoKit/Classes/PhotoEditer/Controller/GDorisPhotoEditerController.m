@@ -1,6 +1,6 @@
 //
 //  GDorisPhotoEditerController.m
-//  GDorisPhotoKitExample
+//  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/12/23.
 //  Copyright © 2019 GIKI. All rights reserved.
@@ -20,8 +20,9 @@
 #import "GDorisDrawing.h"
 #import "CIFilter+GDoris.h"
 #import "GDorisFilterToolbar.h"
-
+#import "GDorisEditerNavigationBar.h"
 @interface GDorisPhotoEditerController ()<UIScrollViewDelegate,UIGestureRecognizerDelegate,GDorisCanvasViewDelegate,GDorisCanvasViewDatasource>
+@property (nonatomic, strong) GDorisEditerNavigationBar * navigationBar;
 @property (nonatomic, strong) GDorisEditerHitTestView * operationArea;
 @property (nonatomic, strong) GDorisEditerToolbar * toolBar;
 @property (nonatomic, strong) GDorisFilterToolbar * filterToolbar;
@@ -204,13 +205,16 @@
 
 - (void)loadNavigationbar
 {
-//    self.navigationBar = [XCNavigationBar navigationBar];
-//    [self.operationArea addSubview:self.navigationBar];
-//    self.navigationBar.backgroundImageView.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
-//    XCNavigationItem *cancel = [XCNavItemFactory createTitleButton:@"取消" titleColor:[UIColor whiteColor] highlightColor:[UIColor lightGrayColor] target:self selctor:@selector(cancel)];
-//    self.navigationBar.leftNavigationItem = cancel;
-//    XCNavigationItem *done = [XCNavItemFactory createTitleButton:@"完成" titleColor:GDorisColorCreate(@"29CE85") highlightColor:GDorisColorCreate(@"154212") target:self selctor:@selector(done)];
-//    self.navigationBar.rightNavigationItem = done;
+    self.navigationBar = [[GDorisEditerNavigationBar alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, GDorisNavBarHeight)];
+    [self.operationArea addSubview:self.navigationBar];
+    self.navigationBar.backgroundColor = GDorisColorA(0, 0, 0, 0.01);
+    __weak typeof(self) weakSelf = self;
+    self.navigationBar.closeAction = ^{
+        [weakSelf cancel];
+    };
+    self.navigationBar.confirmAction = ^{
+        [weakSelf done];
+    };
 }
 
 - (void)loadToolbar

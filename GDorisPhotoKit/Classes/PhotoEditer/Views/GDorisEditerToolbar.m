@@ -9,7 +9,7 @@
 #import "GDorisEditerToolbar.h"
 #import "UIView+GDoris.h"
 #import "GDorisPhotoHelper.h"
-
+#import "UIImage+GDoris.h"
 @interface GDorisEditerToolbar ()
 
 @property (nonatomic, strong) NSArray * buttons;
@@ -47,7 +47,7 @@
 - (UIButton *)createButton:(NSString *)icon
 {
     UIButton * button = [UIButton buttonWithType:UIButtonTypeCustom];
-    [button setImage:[UIImage imageNamed:icon] forState:UIControlStateNormal];
+    [button setImage:[UIImage g_imageNamed:icon] forState:UIControlStateNormal];
     [button addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
     return button;
 }

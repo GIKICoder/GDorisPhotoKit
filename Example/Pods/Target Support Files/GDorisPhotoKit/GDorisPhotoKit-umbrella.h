@@ -77,6 +77,7 @@
 #import "GDorisEditerColorPanel.h"
 #import "GDorisEditerCropToolbar.h"
 #import "GDorisEditerHitTestView.h"
+#import "GDorisEditerNavigationBar.h"
 #import "GDorisEditerToolbar.h"
 #import "GDorisFilterToolbar.h"
 #import "GDorisSliderView.h"

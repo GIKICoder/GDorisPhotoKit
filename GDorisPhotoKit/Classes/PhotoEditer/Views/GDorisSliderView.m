@@ -1,9 +1,9 @@
 //
 //  GDorisSliderView.m
-//  XCChat
+//  GDorisPhotoKit
 //
 //  Created by GIKI on 2019/4/13.
-//  Copyright © 2019年 xiaochuankeji. All rights reserved.
+//  Copyright © 2019年 GIKI. All rights reserved.
 //
 
 #import "GDorisSliderView.h"

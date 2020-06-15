@@ -14,6 +14,7 @@
 #import "GDorisPhotoPickerBean.h"
 #import "GDorisPickerBrowserThumbnailView.h"
 #import "GAsset.h"
+#import "GDorisPhotoEditerController.h"
 
 #define GDorisPickerBrowserToolbarHeight (40+GDoris_TabBarMargin)
 
@@ -92,7 +93,20 @@
 {
     if (itemType == DorisPickerToolbarRight) {
         [self sendConfirmAction];
+    } else if (itemType == DorisPickerToolbarLeft) {
+        [self openEditerPage];
     }
+}
+
+- (void)openEditerPage
+{
+    GDorisPhotoPickerBean * bean = [self.photoDatas g_objectAtIndexSafely:self.currentIndex];
+    GAsset * asset = bean.asset;
+    GDorisPhotoEditerController  * controller = [GDorisPhotoEditerController photoEditerWithImage:[asset previewImage]];
+    controller.userInfo = asset;
+    controller.delegate = self;
+    controller.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:controller animated:NO completion:nil];
 }
 
 - (void)sendConfirmAction
