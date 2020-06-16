@@ -47,8 +47,8 @@
         SDPhotosLoader.sharedLoader.requestImageAssetOnly = NO;
         
         CDOperationQueue *serialQueue = [CDOperationQueue queueWithName:CONDUCTOR_APP_QUEUE];
-           [serialQueue setMaxConcurrentOperationCount:3];
-           [[CDQueueController sharedInstance] addQueue:serialQueue];
+        [serialQueue setMaxConcurrentOperationCount:4];
+        [[CDQueueController sharedInstance] addQueue:serialQueue];
     }
     return self;
 }
@@ -95,7 +95,7 @@
     PHAsset * ph_asset = asset.phAsset;
     NSURL * URL = [NSURL sd_URLWithAsset:ph_asset];
     /// Cause memory leak
-//    imageView.sd_imageIndicator = SDWebImageActivityIndicator.grayIndicator;
+    //    imageView.sd_imageIndicator = SDWebImageActivityIndicator.grayIndicator;
     NSMutableDictionary * context = [NSMutableDictionary new];
     context[SDWebImageContextPhotosRequestImageData] = @(NO);
     context[SDWebImageContextStoreCacheType] = @(SDImageCacheTypeNone);

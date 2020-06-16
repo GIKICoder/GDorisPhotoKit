@@ -28,6 +28,7 @@ static char kAssociatedObjectKey_identifier;
 - (void)doris_loadPhotoWithAsset:(GAsset *)asset completion:(void (^)(UIImage * result, NSError * error))completion
 {
     if (self.identifier) {
+        self.image = nil;
         GDorisPhotoLoaderOperation * op = (id)[[CDQueueController sharedInstance] operationWithIdentifier:self.identifier inQueueNamed:CONDUCTOR_APP_QUEUE];
         if (op) {
             [op cancel];
