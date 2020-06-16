@@ -10,6 +10,16 @@
 #endif
 #endif
 
+#import "CDCoreDataOperation.h"
+#import "CDKVOOperation.h"
+#import "CDOperation.h"
+#import "CDOperationQueue.h"
+#import "CDProgressObserver.h"
+#import "CDQueueController+State.h"
+#import "CDQueueController+Test.h"
+#import "CDQueueController.h"
+#import "Conductor.h"
+#import "ConductorInner.h"
 #import "GDorisPhotoPickerBrowserController.h"
 #import "GDorisPhotoPickerController.h"
 #import "IGDorisPhotoPickerDelegate.h"

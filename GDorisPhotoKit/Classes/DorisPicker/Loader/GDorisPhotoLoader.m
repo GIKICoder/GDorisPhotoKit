@@ -14,6 +14,9 @@
 #import "GDorisPhotoCameraCell.h"
 #import "GDorisPhotoConfiguration.h"
 #import "GDorisRunLoopWorker.h"
+#import "UIImageView+GDorisLoader.h"
+#import "Conductor.h"
+#import "ConductorInner.h"
 /// 是否是小屏幕
 #define PHOTO_LOADER_SCREEN_SMALL      ([UIScreen mainScreen].currentMode.size.width <= 640 ? YES : NO)
 
@@ -42,12 +45,18 @@
         SDPhotosLoader.sharedLoader.imageRequestOptions = imageRequestOptions;
         // Request Video Asset Poster as well
         SDPhotosLoader.sharedLoader.requestImageAssetOnly = NO;
+        
+        CDOperationQueue *serialQueue = [CDOperationQueue queueWithName:CONDUCTOR_APP_QUEUE];
+           [serialQueue setMaxConcurrentOperationCount:3];
+           [[CDQueueController sharedInstance] addQueue:serialQueue];
     }
     return self;
 }
 
 - (void)loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
+    [self doris_loadPhotoData:imageView withObject:object];
+    return;
     if (PHOTO_LOADER_SCREEN_SMALL) {
         [self low_loadPhotoData:imageView withObject:object];
     } else {
@@ -55,6 +64,7 @@
     }
     
 }
+
 
 - (void)low_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
@@ -93,6 +103,14 @@
                  placeholderImage:nil
                           options:0
                           context:context.copy];
+}
+
+
+- (void)doris_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
+{
+    [imageView doris_loadPhotoWithAsset:object.asset completion:^(UIImage * _Nonnull result, NSError * _Nonnull error) {
+        
+    }];
 }
 
 
