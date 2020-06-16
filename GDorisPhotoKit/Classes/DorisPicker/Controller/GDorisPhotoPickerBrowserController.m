@@ -65,6 +65,7 @@
     self.toolBarView = [[GDorisPickerToolView alloc] initWithFrame:CGRectMake(0, 80, [UIScreen mainScreen].bounds.size.width, GDorisPickerBrowserToolbarHeight)];
     self.toolBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
     [self.toolBarView.rightButton setTitle:self.functionTitle forState:UIControlStateNormal];
+    [self.toolBarView.leftButton setTitle:@"编辑" forState:UIControlStateNormal];
     [self.bottomView addSubview:self.toolBarView];
     self.toolBarView.photoToolbarClickBlock = ^(DorisPickerToolbarType itemType) {
         [weakSelf photoToolbarClickAction:itemType];

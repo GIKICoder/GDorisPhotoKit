@@ -33,8 +33,8 @@
             [_leftButton addTarget:self action:@selector(buttonClick:) forControlEvents:UIControlEventTouchUpInside];
             _leftButton.enabled = YES;
             _leftButton.titleLabel.font = [UIFont systemFontOfSize:15];
-            [_leftButton setTitleColor:GDorisColorCreate(@"262626") forState:UIControlStateNormal];
-            [_leftButton setTitleColor:GDorisColorCreate(@"262626") forState:UIControlStateHighlighted];
+            [_leftButton setTitleColor:UIColor.whiteColor forState:UIControlStateNormal];
+            [_leftButton setTitleColor:UIColor.whiteColor forState:UIControlStateHighlighted];
             [_leftButton setTitleColor:GDorisAppearanceINST.tintColor forState:UIControlStateDisabled];
             _leftButton.tag = DorisPickerToolbarLeft;
             _leftButton;
