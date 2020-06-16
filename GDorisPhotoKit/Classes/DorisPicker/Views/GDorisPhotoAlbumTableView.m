@@ -13,6 +13,7 @@
 #define kPhotoAlbumCellHeight 80
 @interface GDorisPhotoAlbumTableView()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic, strong) UIControl * maskControl;
+@property (nonatomic, strong) UIView * cornerView;
 @property (nonatomic, strong) UITableView * tableView;
 @property (nonatomic, strong) NSArray * photoAlbums;
 @property (nonatomic, assign) CGFloat  tableHeight;
@@ -31,9 +32,20 @@
         self.maskControl.backgroundColor = [UIColor clearColor];
         [self.maskControl addTarget:self action:@selector(maskControlAction) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:self.maskControl];
+        
+        self.cornerView = [UIView new];
+        self.cornerView.backgroundColor = UIColor.whiteColor;
+        [self addSubview:self.cornerView];
+        [self.cornerView mas_makeConstraints:^(MASConstraintMaker *make) {
+           make.top.left.right.equalTo(self);
+           make.height.mas_equalTo(10);
+        }];
+        
         self.tableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
         self.tableView.dataSource = self;
         self.tableView.delegate = self;
+        self.tableView.layer.cornerRadius = 10;
+        self.tableView.layer.masksToBounds = YES;
         self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
         [self addSubview:self.tableView];
         [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -56,7 +68,6 @@
     self.selectIndex = index;
     CGFloat totalheight = albums.count * kPhotoAlbumCellHeight;
     self.tableHeight = MIN(totalheight, self.maxHeight);
-    
 }
 
 - (void)show
