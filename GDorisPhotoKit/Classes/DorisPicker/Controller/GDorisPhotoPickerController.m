@@ -135,7 +135,7 @@
     };
     
     self.toolBarView = [[GDorisPickerToolView alloc] initWithFrame:CGRectMake(0, self.view.g_height-GDorisPhotoPickerToolbarHeight, [UIScreen mainScreen].bounds.size.width, GDorisPhotoPickerToolbarHeight)];
-    [self.toolBarView.rightButton setTitle:@"确定" forState:UIControlStateNormal];
+    [self.toolBarView.rightButton setTitle:self.configuration.functionTitle forState:UIControlStateNormal];
     [self.view addSubview:self.toolBarView];
     
     BOOL author = [self.albumLoader photoAuthorizationStatusAuthorized];
@@ -241,11 +241,12 @@
 - (void)configureSelectCount
 {
     self.toolBarView.enabled = (self.selectDatas.count > 0);
+    NSString * title = self.configuration.functionTitle;
     if (self.selectDatas.count > 0) {
-        NSString * msg = [NSString stringWithFormat:@"确定(%ld)",self.selectDatas.count];
+        NSString * msg = [NSString stringWithFormat:@"%@(%ld)",title,self.selectDatas.count];
         [self.toolBarView.rightButton setTitle:msg forState:UIControlStateNormal];
     } else {
-        [self.toolBarView.rightButton setTitle:@"确定" forState:UIControlStateNormal];
+        [self.toolBarView.rightButton setTitle:title forState:UIControlStateNormal];
     }
 }
 
@@ -275,6 +276,7 @@
     [super collectionView:collectionView didSelectItemAtIndexPath:indexPath];
     self.clickIndexPath = indexPath;
     GDorisPhotoPickerBrowserController * controller = [[GDorisPhotoPickerBrowserController alloc] initWithPhotoItems:self.photoDatas beginIndex:indexPath.item];
+    controller.functionTitle = self.configuration.functionTitle;
     controller.delegate = self;
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:controller];
     self.transition = [GDorisPhotoZoomAnimatedTransition zoomAnimatedWithPresenting:self presented:controller];

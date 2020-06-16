@@ -35,6 +35,7 @@
             @(DorisPhotoRegularTypePhoto) :@(8),
             @(DorisPhotoRegularTypeVideo) :@(1),
         };
+        self.functionTitle = @"发送";
     }
     return self;
 }

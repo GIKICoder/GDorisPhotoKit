@@ -50,6 +50,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前仅可选择的类型 Default: DorisPhotoRegularTypeAll
 @property (nonatomic, assign) DorisPhotoRegularType  onlyEnableSelectAssetType;
 
+/// 图片功能按钮 Default: 确定
+@property (nonatomic, copy  ) NSString * functionTitle;
+
 + (instancetype)defaultConfiguration;
 
 @end

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param browser GDorisPhotoPickerBrowserController
  @param photos NSArray<GDorisPhotoPickerBean *>
  */
-- (void)dorisPhotoBrowser:(GDorisPhotoPickerBrowserController *)browser didFinishPickerPhotos:(NSArray *)photos;
+- (void)dorisPhotoBrowser:(GDorisPhotoPickerBrowserController *)browser didFinishPickerPhotos:(NSArray<GDorisPhotoPickerBean *> *)photos;
 
 /**
  取消图片预览控制器
@@ -65,6 +65,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface GDorisPhotoPickerBrowserController : GDorisPhotoBrowserBaseController
 
 @property (nonatomic, weak  ) id<GDorisPhotoPickerBrowserDelegate>   delegate;
+@property (nonatomic, copy  ) NSString * functionTitle;
 
 @end
 

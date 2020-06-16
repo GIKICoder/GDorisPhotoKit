@@ -18,7 +18,7 @@
 
 #define GDorisPickerBrowserToolbarHeight (40+GDoris_TabBarMargin)
 
-@interface GDorisPhotoPickerBrowserController ()<GDorisBrowserBaseCellDelegate>
+@interface GDorisPhotoPickerBrowserController ()<GDorisBrowserBaseCellDelegate,GDorisPhotoEditerControllerDelegate>
 @property (nonatomic, strong) GDorisPickerBrowserNavigationBar * browserNaviBar;
 @property (nonatomic, strong) UIView * bottomView;
 @property (nonatomic, strong) GDorisPickerToolView * toolBarView;
@@ -33,6 +33,7 @@
     if (self) {
         self.modalPresentationStyle = UIModalPresentationCustom;
         self.browerLoader = [GDorisPickerBrowserLoader new];
+        self.functionTitle = @"确定";
     }
     return self;
 }
@@ -63,7 +64,7 @@
     
     self.toolBarView = [[GDorisPickerToolView alloc] initWithFrame:CGRectMake(0, 80, [UIScreen mainScreen].bounds.size.width, GDorisPickerBrowserToolbarHeight)];
     self.toolBarView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.5];
-    [self.toolBarView.rightButton setTitle:@"确定" forState:UIControlStateNormal];
+    [self.toolBarView.rightButton setTitle:self.functionTitle forState:UIControlStateNormal];
     [self.bottomView addSubview:self.toolBarView];
     self.toolBarView.photoToolbarClickBlock = ^(DorisPickerToolbarType itemType) {
         [weakSelf photoToolbarClickAction:itemType];
@@ -147,11 +148,12 @@
     self.thumbnailView.hidden = !(selects.count > 0);
     [self.thumbnailView configDorisAssetItems:selects];
     self.toolBarView.enabled = (selects.count > 0);
+    NSString * title = self.functionTitle;
     if (selects.count > 0) {
-        NSString * msg = [NSString stringWithFormat:@"确定(%ld)",selects.count];
+        NSString * msg = [NSString stringWithFormat:@"%@(%ld)",title,selects.count];
         [self.toolBarView.rightButton setTitle:msg forState:UIControlStateNormal];
     } else {
-        [self.toolBarView.rightButton setTitle:@"确定" forState:UIControlStateNormal];
+        [self.toolBarView.rightButton setTitle:title forState:UIControlStateNormal];
     }
 }
 
