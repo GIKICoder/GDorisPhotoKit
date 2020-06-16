@@ -13,7 +13,6 @@
 #import "GDorisPhotoPickerCell.h"
 #import "GDorisPhotoCameraCell.h"
 #import "GDorisPhotoConfiguration.h"
-#import "GDorisRunLoopWorker.h"
 #import "UIImageView+GDorisLoader.h"
 #import "Conductor.h"
 #import "ConductorInner.h"
@@ -55,38 +54,9 @@
 
 - (void)loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
-    [self doris_loadPhotoData:imageView withObject:object];
-    return;
-    if (PHOTO_LOADER_SCREEN_SMALL) {
-        [self low_loadPhotoData:imageView withObject:object];
-    } else {
-        [self sd_loadPhotoData:imageView withObject:object];
-    }
-    
-}
-
-
-- (void)low_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
-{
-    GAsset * asset = object.asset;
-    imageView.image = [asset thumbnailWithSize:CGSizeMake(self.cellWidth, self.cellWidth)];
-    __weak typeof(self) weakself = self;
-    [[GDorisRunLoopWorker sharedInstance] postTask:^BOOL{
-        [weakself loadLargeImage:imageView withObject:object];
-        return YES;
-    } withKey:@(object.index)];
-}
-
-- (void)loadLargeImage:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
-{
-    GAsset * asset = object.asset;
-    PHImageRequestID imageRequestID = (PHImageRequestID)[asset requestThumbnailImageWithSize:CGSizeMake(self.cellWidth, self.cellWidth) completion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
-        // 排除取消，错误，低清图三种情况，即已经获取到了高清图
-        BOOL downloadFinined = ![[info objectForKey:PHImageCancelledKey] boolValue] && ![info objectForKey:PHImageErrorKey] && ![[info objectForKey:PHImageResultIsDegradedKey] boolValue];
-        if (result && downloadFinined) {
-            imageView.image = result;
-        }
-    }];
+//    [self doris_loadPhotoData:imageView withObject:object];
+//    return;
+    [self sd_loadPhotoData:imageView withObject:object];
 }
 
 - (void)sd_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
