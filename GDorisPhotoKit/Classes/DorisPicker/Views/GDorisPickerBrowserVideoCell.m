@@ -36,15 +36,14 @@
         UIImage * image = [UIImage g_imageNamed:@"GDoris_photo_browser_video_play"];
         _playView.image = image;
         self.ic_size = image.size;
-        [self.contentView addSubview:_playView];
+        [self.containerView addSubview:_playView];
     }
     {
-        CGFloat left = 0;
-        CGFloat top = 0;
+        CGFloat left = (self.containerView.frame.size.width-self.ic_size.width)*0.5;
+        CGFloat top = (self.containerView.frame.size.height-self.ic_size.height)*0.5;
         CGFloat width = self.ic_size.width;
         CGFloat height = self.ic_size.height;
         _playView.frame = CGRectMake(left, top, width, height);
-        _playView.center = self.contentView.center;
     }
     return _playView;
 }
@@ -52,7 +51,13 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    
+    if (_playView && _playView.superview) {
+        CGFloat left = (self.containerView.frame.size.width-self.ic_size.width)*0.5;
+        CGFloat top = (self.containerView.frame.size.height-self.ic_size.height)*0.5;
+        CGFloat width = self.ic_size.width;
+        CGFloat height = self.ic_size.height;
+        _playView.frame = CGRectMake(left, top, width, height);
+    }
 }
 
 - (void)dealloc
@@ -126,7 +131,7 @@
 
 - (void)handleSingleTap:(UITapGestureRecognizer *)tapGestureRecognizer
 {
-
+    
     if (_player.rate == 0.0) {
         [self play];
     } else {
