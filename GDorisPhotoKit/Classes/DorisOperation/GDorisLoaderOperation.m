@@ -93,7 +93,6 @@
 - (void)beginBackgroundTask
 {
     UIApplication *application = [UIApplication sharedApplication];
-
     self.backgroundTaskID = [application beginBackgroundTaskWithExpirationHandler:^{
         [self backgroundTaskExpirationCleanup];
         

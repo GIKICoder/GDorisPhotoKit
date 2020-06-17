@@ -58,4 +58,22 @@ static char kAssociatedObjectKey_identifier;
     
 }
 
+- (void)doris_loadPhotoWithAsset:(GAsset *)asset size:(CGSize)size completion:(void (^)(UIImage * result, NSError * error))completion
+{
+    GDorisLoaderQueue *serialQueue = [GDorisLoaderQueue queueWithName:LOAD_PHOTO_APP_QUEUE];
+    [serialQueue setMaxConcurrentOperationCount:4];
+    [[GDorisLoaderController sharedInstance] addQueue:serialQueue];
+    if (self.identifier) {
+        self.image = nil;
+        GDorisPhotoLoaderOperation * op = (id)[[GDorisLoaderController sharedInstance] fetchOperationWithIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
+        if (op) [op cancel];
+    }
+    self.identifier = asset.identifier;
+    GDorisPhotoLoaderOperation * operation = [[GDorisPhotoLoaderOperation alloc] initWithIdentifier:asset.identifier];
+}
+
+- (void)doris_loadPhotoDataWithAsset:(GAsset *)asset completion:(void (^)(UIImage * result, NSError * error))completion
+{
+    
+}
 @end

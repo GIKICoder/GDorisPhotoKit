@@ -9,6 +9,13 @@
 
 @implementation GDorisPhotoLoaderOperation
 
++ (instancetype)photoWithAsset:(GAsset *)asset size:(CGSize)size
+{
+    GDorisPhotoLoaderOperation * operation = [[GDorisPhotoLoaderOperation alloc] initWithIdentifier:asset.identifier];
+    operation.asset = asset;
+    operation.size = size;
+    return operation;
+}
 
 - (void)work
 {
