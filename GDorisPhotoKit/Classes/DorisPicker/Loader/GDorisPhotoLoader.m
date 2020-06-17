@@ -77,9 +77,11 @@
 
 - (void)doris_loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
-    [imageView doris_loadPhotoWithAsset:object.asset completion:^(UIImage * _Nonnull result, NSError * _Nonnull error) {
-        
-    }];
+    CGSize size = CGSizeMake(self.cellWidth, self.cellWidth);
+    [imageView doris_loadPhotoWithAsset:object.asset size:size completion:nil];
+//    [imageView doris_loadPhotoWithAsset:object.asset completion:^(UIImage * _Nonnull result, NSError * _Nonnull error) {
+//        
+//    }];
 }
 
 

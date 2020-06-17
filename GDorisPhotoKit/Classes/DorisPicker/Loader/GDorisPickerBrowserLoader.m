@@ -14,6 +14,7 @@
 #import "GDorisPickerBrowserCell.h"
 #import "GDorisPhotoPickerBean.h"
 #import "GDorisPickerBrowserVideoCell.h"
+#import "UIImageView+GDorisLoader.h"
 @implementation GDorisPickerBrowserLoader
 
 - (NSArray<NSString *> *)registerBrowserCellClass
@@ -49,6 +50,16 @@
     __weak __typeof(browserCell) weakCell = browserCell;
     __weak __typeof(imageView) weakView = imageView;
     CGSize size = asset.imageSize;
+    
+    [imageView doris_loadPhotoWithAsset:asset size:size completion:^(UIImage * _Nonnull result, NSError * _Nonnull error) {
+        [weakCell fitImageSize:size containerSize:weakCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
+            weakCell.scrollView.contentSize = scrollContentSize;
+            weakCell.scrollSize = scrollContentSize;
+            // 更新 imageView 的大小时，imageView 可能已经被缩放过，所以要应用当前的缩放
+            weakView.frame = CGRectApplyAffineTransform(containerFrame, weakView.transform);
+        }];
+    }];
+    return;
     if (asset.assetSubType != GAssetSubTypeGIF) {
         [browserCell fitImageSize:size containerSize:browserCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
             weakCell.scrollView.contentSize = scrollContentSize;

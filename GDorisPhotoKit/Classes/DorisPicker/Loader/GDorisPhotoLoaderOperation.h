@@ -19,6 +19,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL  fetchData;
 @property(nonatomic, copy) void (^completion)(UIImage * image, NSError * error,NSString * idst);
 
+
+@property(nonatomic, copy) void (^requestImageBlock)(UIImage * image, NSString * identifier);
+@property(nonatomic, copy) void (^requestDataBlock)(NSData * data, BOOL isGIF, NSString * identifier);
 @end
 
 NS_ASSUME_NONNULL_END

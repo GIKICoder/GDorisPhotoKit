@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)doris_loadPhotoWithAsset:(GAsset *)asset completion:(void (^)(UIImage * result, NSError * error))completion;
 
-- (void)doris_loadPhotoDataWithAsset:(GAsset *)asset completion:(void (^)(UIImage * result, NSError * error))completion;
+- (void)doris_loadPhotoWithAsset:(GAsset *)asset size:(CGSize)size completion:(void (^)(UIImage * result, NSError * error))completion;
 
 @end
 
