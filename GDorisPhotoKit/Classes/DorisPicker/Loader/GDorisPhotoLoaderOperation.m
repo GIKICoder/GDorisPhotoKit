@@ -27,7 +27,7 @@
     [self.asset requestThumbnailImageWithSize:size completion:^(UIImage * _Nonnull result, NSDictionary<NSString *,id> * _Nonnull info) {
         BOOL isDegraded = [info[PHImageResultIsDegradedKey] boolValue];
         if (weakSelf.completion) {
-            weakSelf.completion(result, nil);
+            weakSelf.completion(result, nil,weakSelf.identifier);
         }
         if (!isDegraded) {
             dispatch_semaphore_signal(sem);

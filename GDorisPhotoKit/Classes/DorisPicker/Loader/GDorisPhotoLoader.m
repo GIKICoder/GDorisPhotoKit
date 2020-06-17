@@ -14,6 +14,7 @@
 #import "GDorisPhotoCameraCell.h"
 #import "GDorisPhotoConfiguration.h"
 #import "UIImageView+GDorisLoader.h"
+#import "GDorisLoaderController.h"
 /// 是否是小屏幕
 #define PHOTO_LOADER_SCREEN_SMALL      ([UIScreen mainScreen].currentMode.size.width <= 640 ? YES : NO)
 
@@ -43,7 +44,9 @@
         // Request Video Asset Poster as well
         SDPhotosLoader.sharedLoader.requestImageAssetOnly = NO;
         
-        
+        GDorisLoaderQueue *serialQueue = [GDorisLoaderQueue queueWithName:@"com.photo.queue"];
+          [serialQueue setMaxConcurrentOperationCount:4];
+          [[GDorisLoaderController sharedInstance] addQueue:serialQueue];
     }
     return self;
 }

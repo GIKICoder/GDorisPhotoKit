@@ -11,12 +11,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GDorisPhotoLoaderOperation : GDorisLoaderOperation
 
-+ (instancetype)photoWithIdentifier:(NSString *)identifier asset:(GAsset *)asset size:(CGSize)size;
++ (instancetype)photoWithAsset:(GAsset *)asset size:(CGSize)size;
+
 @property (nonatomic, assign) CGSize  size;
 @property (nonatomic, strong) GAsset * asset;
 /// 获取ImageData
 @property (nonatomic, assign) BOOL  fetchData;
-@property(nonatomic, copy) void (^completion)(UIImage * image, NSError * error);
+@property(nonatomic, copy) void (^completion)(UIImage * image, NSError * error,NSString * idst);
 
 @end
 

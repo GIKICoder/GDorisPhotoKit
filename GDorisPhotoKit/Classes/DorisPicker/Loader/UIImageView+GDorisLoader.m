@@ -18,39 +18,33 @@
 
 @implementation UIImageView (GDorisLoader)
 
-static char kAssociatedObjectKey_identifier;
-- (void)setIdentifier:(NSString *)identifier {
-    objc_setAssociatedObject(self, &kAssociatedObjectKey_identifier, identifier, OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-- (NSString *)identifier {
-    return (NSString *)objc_getAssociatedObject(self, &kAssociatedObjectKey_identifier);
-}
-
 - (void)doris_loadPhotoWithAsset:(GAsset *)asset completion:(void (^)(UIImage * result, NSError * error))completion
 {
-    GDorisLoaderQueue *serialQueue = [GDorisLoaderQueue queueWithName:LOAD_PHOTO_APP_QUEUE];
-    [serialQueue setMaxConcurrentOperationCount:4];
-    [[GDorisLoaderController sharedInstance] addQueue:serialQueue];
-    if (self.identifier) {
-        self.image = nil;
+    dispatch_async(dispatch_get_main_queue(), ^{
+                 self.image = nil;
+          });
+    if (self.identifier && self.identifier != asset.identifier) {
         GDorisPhotoLoaderOperation * op = (id)[[GDorisLoaderController sharedInstance] fetchOperationWithIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
         if (op) {
             [op cancel];
         }
+    } else if (self.identifier && [self.identifier isEqualToString:asset.identifier]) {
+        return;
     }
     self.identifier = asset.identifier;
     GDorisPhotoLoaderOperation * operation = [[GDorisPhotoLoaderOperation alloc] initWithIdentifier:asset.identifier];
     operation.asset = asset;
     __weak typeof(self) weakSelf = self;
-    operation.completion = ^(UIImage * _Nonnull image, NSError * _Nonnull error) {
+    operation.completion = ^(UIImage * _Nonnull image, NSError * _Nonnull error,NSString * idst) {
         __strong typeof(self) strongSelf = weakSelf;
         dispatch_async(dispatch_get_main_queue(), ^{
-            if (strongSelf) {
+            if (strongSelf && [strongSelf.identifier isEqualToString:idst]) {
                 strongSelf.image = image;
                 if (completion) {
                     completion(image,error);
                 }
+            } else {
+                NSLog(@"identifier -- %@",idst);
             }
         });
     };
@@ -69,11 +63,23 @@ static char kAssociatedObjectKey_identifier;
         if (op) [op cancel];
     }
     self.identifier = asset.identifier;
-    GDorisPhotoLoaderOperation * operation = [[GDorisPhotoLoaderOperation alloc] initWithIdentifier:asset.identifier];
+//    GDorisPhotoLoaderOperation * operation = [GDorisPhotoLoaderOperation photodor];
 }
 
 - (void)doris_loadPhotoDataWithAsset:(GAsset *)asset completion:(void (^)(UIImage * result, NSError * error))completion
 {
     
 }
+
+#pragma mark - category Method
+
+static char kAssociatedObjectKey_identifier;
+- (void)setIdentifier:(NSString *)identifier {
+    objc_setAssociatedObject(self, &kAssociatedObjectKey_identifier, identifier, OBJC_ASSOCIATION_COPY_NONATOMIC);
+}
+
+- (NSString *)identifier {
+    return (NSString *)objc_getAssociatedObject(self, &kAssociatedObjectKey_identifier);
+}
+
 @end
