@@ -102,7 +102,7 @@
 
 - (void)loadVideoItem:(id)object completion:(void (^)(AVPlayerItem * item, NSError * error))completion
 {
-    GDorisPhotoPickerBean * pickerBean = (id)object;
+    GDorisPhotoPickerBean *  pickerBean = (id)object;
        GAsset * asset = pickerBean.asset;
        if (!asset || ![asset isKindOfClass:GAsset.class]) {
            return;

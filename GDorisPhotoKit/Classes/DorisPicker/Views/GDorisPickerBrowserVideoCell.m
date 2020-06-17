@@ -159,6 +159,9 @@
             }
         }
             break;
+        case AVPlayerItemStatusFailed:
+            NSLog(@"error play video");
+            break;
         default:
             break;
     }

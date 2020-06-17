@@ -54,8 +54,8 @@
 
 - (void)loadPhotoData:(__kindof UIImageView *)imageView withObject:(GDorisPhotoPickerBean *)object
 {
-//    [self doris_loadPhotoData:imageView withObject:object];
-//    return;
+    [self doris_loadPhotoData:imageView withObject:object];
+    return;
     [self sd_loadPhotoData:imageView withObject:object];
 }
 
