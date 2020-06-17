@@ -26,12 +26,16 @@
     if (self.identifier && self.identifier != asset.identifier) {
         GDorisPhotoLoaderOperation * op = (id)[[GDorisLoaderController sharedInstance] fetchOperationWithIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
         if (op) {
-            [op cancel];
+            [[GDorisLoaderController sharedInstance] reviseOperationPriority:(NSOperationQueuePriorityNormal) withIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
         }
-    } else if (self.identifier && [self.identifier isEqualToString:asset.identifier]) {
-        return;
     }
     self.identifier = asset.identifier;
+    BOOL contain = [[GDorisLoaderController sharedInstance] containOperationWithIdentifier:asset.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
+    if (contain) {
+        [[GDorisLoaderController sharedInstance] reviseOperationPriority:(NSOperationQueuePriorityHigh) withIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
+        return;
+    }
+    
     GDorisPhotoLoaderOperation * operation = [[GDorisPhotoLoaderOperation alloc] initWithIdentifier:asset.identifier];
     operation.asset = asset;
     __weak typeof(self) weakSelf = self;
