@@ -27,6 +27,7 @@
         GDorisPhotoLoaderOperation * op = (id)[[GDorisLoaderController sharedInstance] fetchOperationWithIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
         if (op) {
             [[GDorisLoaderController sharedInstance] reviseOperationPriority:(NSOperationQueuePriorityNormal) withIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
+//            [op cancel];
         }
     }
     self.identifier = asset.identifier;
@@ -53,6 +54,7 @@
         });
     };
     [[GDorisLoaderController sharedInstance] addOperation:operation queueNamed:LOAD_PHOTO_APP_QUEUE];
+    [[GDorisLoaderController sharedInstance] reviseOperationPriority:(NSOperationQueuePriorityHigh) withIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
     
 }
 

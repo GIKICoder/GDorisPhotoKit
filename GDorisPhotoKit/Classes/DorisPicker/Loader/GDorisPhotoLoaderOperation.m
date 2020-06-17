@@ -38,8 +38,8 @@
 
 - (void)cleanup
 {
-    if (self.completion) {
-        self.completion = nil;
-    }
+//    if (self.completion) {
+//        self.completion = nil;
+//    }
 }
 @end
