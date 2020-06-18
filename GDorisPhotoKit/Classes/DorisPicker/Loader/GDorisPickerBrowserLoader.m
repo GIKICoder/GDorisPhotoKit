@@ -51,15 +51,64 @@
     __weak __typeof(imageView) weakView = imageView;
     CGSize size = asset.imageSize;
     
-    [imageView doris_loadPhotoWithAsset:asset size:size completion:^(UIImage * _Nonnull result, NSError * _Nonnull error) {
-        [weakCell fitImageSize:size containerSize:weakCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
+    if (asset.assetSubType != GAssetSubTypeGIF) {
+        [browserCell fitImageSize:size containerSize:browserCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
             weakCell.scrollView.contentSize = scrollContentSize;
             weakCell.scrollSize = scrollContentSize;
             // 更新 imageView 的大小时，imageView 可能已经被缩放过，所以要应用当前的缩放
             weakView.frame = CGRectApplyAffineTransform(containerFrame, weakView.transform);
         }];
-    }];
-    return;
+    }
+    if (CGSizeEqualToSize(size, CGSizeZero)) {
+        size = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    }
+    CGSize tzsize = CGSizeMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+    if (size.width && !isnan(size.width) && size.height && !isnan(size.height)) {
+        tzsize = size;
+    }
+    
+    if (isGif) {
+        [imageView doris_loadPhotoDataWithAsset:asset completion:^(NSData * _Nonnull result, BOOL isGIF, NSError * _Nonnull error) {
+            if (result) {
+                YYImage * image = [YYImage imageWithData:result];
+                YYAnimatedImageView * animated = (YYAnimatedImageView *)weakCell.containerView;
+                animated.image = image;
+                [weakCell fitImageSize:image.size containerSize:weakCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
+                    weakCell.scrollView.contentSize = scrollContentSize;
+                    weakCell.scrollSize = scrollContentSize;
+                    // 更新 imageView 的大小时，imageView 可能已经被缩放过，所以要应用当前的缩放
+                    weakView.frame = CGRectApplyAffineTransform(containerFrame, weakView.transform);
+                }];
+            }
+        }];
+    } else {
+        [imageView doris_loadPhotoWithAsset:asset size:size completion:^(UIImage * _Nonnull result, NSError * _Nonnull error) {
+            [weakCell fitImageSize:size containerSize:weakCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
+                weakCell.scrollView.contentSize = scrollContentSize;
+                weakCell.scrollSize = scrollContentSize;
+                // 更新 imageView 的大小时，imageView 可能已经被缩放过，所以要应用当前的缩放
+                weakView.frame = CGRectApplyAffineTransform(containerFrame, weakView.transform);
+            }];
+        }];
+    }
+}
+
+- (void)loadPhotoData1:(id)object
+                  cell:(UICollectionViewCell<IGDorisBrowerCellProtocol> *)cell
+             imageView:(__kindof UIImageView *)imageView
+            completion:(void (^)(UIImage * image, NSError * error))completion
+{
+    GDorisPhotoPickerBean * pickerBean = (id)object;
+    GAsset * asset = pickerBean.asset;
+    if (!asset || ![asset isKindOfClass:GAsset.class]) {
+        return;
+    }
+    GDorisPickerBrowserCell * browserCell = (id)cell;
+    BOOL isGif = (asset.assetSubType == GAssetSubTypeGIF);
+    
+    __weak __typeof(browserCell) weakCell = browserCell;
+    __weak __typeof(imageView) weakView = imageView;
+    CGSize size = asset.imageSize;
     if (asset.assetSubType != GAssetSubTypeGIF) {
         [browserCell fitImageSize:size containerSize:browserCell.scrollView.bounds.size completed:^(CGRect containerFrame, CGSize scrollContentSize) {
             weakCell.scrollView.contentSize = scrollContentSize;
@@ -114,10 +163,10 @@
 - (void)loadVideoItem:(id)object completion:(void (^)(AVPlayerItem * item, NSError * error))completion
 {
     GDorisPhotoPickerBean *  pickerBean = (id)object;
-       GAsset * asset = pickerBean.asset;
-       if (!asset || ![asset isKindOfClass:GAsset.class]) {
-           return;
-       }
+    GAsset * asset = pickerBean.asset;
+    if (!asset || ![asset isKindOfClass:GAsset.class]) {
+        return;
+    }
     [asset requestPlayerItemWithCompletion:^(AVPlayerItem * _Nonnull playerItem, NSDictionary<NSString *,id> * _Nonnull info) {
         if (completion) {
             completion(playerItem,nil);

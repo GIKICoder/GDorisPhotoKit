@@ -24,13 +24,15 @@
     } else {
         [self requestImage];
     }
- 
 }
 
 - (void)cleanup
 {
-    if (self.completion) {
-        self.completion = nil;
+    if (self.requestDataBlock) {
+        self.requestDataBlock = nil;
+    }
+    if (self.requestImageBlock) {
+        self.requestImageBlock = nil;
     }
 }
 
