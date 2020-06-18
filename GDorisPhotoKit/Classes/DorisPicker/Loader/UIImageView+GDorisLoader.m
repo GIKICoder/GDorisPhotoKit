@@ -95,7 +95,9 @@
         });
     };
     [[GDorisLoaderController sharedInstance] addOperation:operation queueNamed:LOAD_PHOTO_APP_QUEUE];
+#ifdef DEBUG
     [[GDorisLoaderController sharedInstance] reviseOperationPriority:(NSOperationQueuePriorityHigh) withIdentifier:self.identifier queueNamed:LOAD_PHOTO_APP_QUEUE];
+#endif
 }
 
 #pragma mark - category Method
