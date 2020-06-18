@@ -8,13 +8,13 @@
 
 #import "CIFilter+GDoris.h"
 #import <OpenGLES/EAGL.h>
-
+#import "UIImage+GDoris.h"
 
 @implementation CIFilter (GDoris)
 
 + (CIFilter *)colorCubeWithLUTImageNamed:(NSString *)imageName dimension:(NSInteger)n
 {
-    UIImage *image = [UIImage imageNamed:imageName];
+    UIImage *image = [UIImage g_imageNamedWithMain:imageName];
 
     int width = (int)CGImageGetWidth(image.CGImage);
     int height = (int)CGImageGetHeight(image.CGImage);

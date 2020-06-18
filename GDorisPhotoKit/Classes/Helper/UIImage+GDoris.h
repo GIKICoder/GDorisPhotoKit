@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (UIImage *)g_fixOrientation;
 
 + (UIImage *)g_imageNamed:(NSString *)name;
++ (UIImage *)g_imageNamedWithMain:(NSString *)name;
 
 @end
 

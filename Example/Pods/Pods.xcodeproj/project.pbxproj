@@ -124,6 +124,8 @@
 		2A360BB0836FCF37FD244E3DFBD8E123 /* Lookup_清晰.png in Sources */ = {isa = PBXBuildFile; fileRef = 272618A78E80C94BBBE10547CC6EED95 /* Lookup_清晰.png */; };
 		2A6ACA9F18346EC4D07B2D724F415828 /* GDorisInputColorToolbar.m in Sources */ = {isa = PBXBuildFile; fileRef = 337CD3746A4CB4F9B2EFC0FEE8F91F52 /* GDorisInputColorToolbar.m */; };
 		2ABCC4AD3DA572706B4A55F8E11300A2 /* NSArray+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 36383A1A900A01461AE34D385B179D26 /* NSArray+MASAdditions.m */; };
+		2B48DF84249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B48DF82249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@2x.png */; };
+		2B48DF85249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2B48DF83249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@3x.png */; };
 		2B5374BD2148FCB45EA54B1E749EDBE1 /* SDWebImageIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B0C8EE83669C2D6D6C187C6569B6B81 /* SDWebImageIndicator.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2B8DF3782498EFE000B3ABC3 /* UIImageView+GDorisLoader.h in Headers */ = {isa = PBXBuildFile; fileRef = 2B8DF3762498EFE000B3ABC3 /* UIImageView+GDorisLoader.h */; };
 		2B8DF3792498EFE000B3ABC3 /* UIImageView+GDorisLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DF3772498EFE000B3ABC3 /* UIImageView+GDorisLoader.m */; };
@@ -982,6 +984,8 @@
 		2A72A4157C7AF3216803A95C2A4FBDAB /* SDWebImageCompat.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageCompat.m; path = SDWebImage/Core/SDWebImageCompat.m; sourceTree = "<group>"; };
 		2B13A1B670F23447BF74D1AD0FE25CED /* SDWebImageTransition.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDWebImageTransition.m; path = SDWebImage/Core/SDWebImageTransition.m; sourceTree = "<group>"; };
 		2B14D294FE5C8DFDAB7BDE49F7666C89 /* SDImageTransformer.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SDImageTransformer.m; path = SDWebImage/Core/SDImageTransformer.m; sourceTree = "<group>"; };
+		2B48DF82249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GDoris_photoEdit_filterImg_original@2x.png"; path = "GDorisPhotoKit/Assets/GDoris_photoEdit_filterImg_original@2x.png"; sourceTree = "<group>"; };
+		2B48DF83249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GDoris_photoEdit_filterImg_original@3x.png"; path = "GDorisPhotoKit/Assets/GDoris_photoEdit_filterImg_original@3x.png"; sourceTree = "<group>"; };
 		2B7370EF2A32C3535E506219148BD49C /* SDImageHEICCoderInternal.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDImageHEICCoderInternal.h; path = SDWebImage/Private/SDImageHEICCoderInternal.h; sourceTree = "<group>"; };
 		2B8DF3762498EFE000B3ABC3 /* UIImageView+GDorisLoader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImageView+GDorisLoader.h"; sourceTree = "<group>"; };
 		2B8DF3772498EFE000B3ABC3 /* UIImageView+GDorisLoader.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+GDorisLoader.m"; sourceTree = "<group>"; };
@@ -2762,6 +2766,8 @@
 				33B977E16D93E6F2AFEAA5B1725EAFB2 /* GDoris_PhotoEdit_draw_ic@2x.png */,
 				AD257C84991B995BF7E76B0F76C1BE24 /* GDoris_PhotoEdit_draw_ic@3x.png */,
 				ECCDD7788AAFF41A36A9EE61C085E30A /* GDoris_PhotoEdit_emoji_ic@2x.png */,
+				2B48DF82249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@2x.png */,
+				2B48DF83249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@3x.png */,
 				A378475E94D9A4EFA3692F99624D2F37 /* GDoris_PhotoEdit_emoji_ic@3x.png */,
 				3807CD9169CE0F5609D705B1D88B3BC0 /* GDoris_PhotoEdit_filter_ic@2x.png */,
 				823DB274299DC80CD785547840055E1C /* GDoris_PhotoEdit_filter_ic@3x.png */,
@@ -3667,8 +3673,10 @@
 				468F9494B3B866254D69986C18174078 /* GDoris_photo_picker_cell_unselect_ic@2x.png in Resources */,
 				41A140097C3ACB9879F653B6F2CDCBF0 /* GDoris_photo_picker_cell_unselect_ic@3x.png in Resources */,
 				9236D5C5F9BF35DFAAB84B6BCA5AA18C /* GDoris_photo_picker_close@2x.png in Resources */,
+				2B48DF85249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@3x.png in Resources */,
 				5FABF7026EF3D7AE487DE146370322C8 /* GDoris_photo_picker_close@3x.png in Resources */,
 				9834BF53B162B8B7D72EA41838F95D82 /* GDoris_photo_picker_drop_down_ic@2x.png in Resources */,
+				2B48DF84249B65ED00FDB540 /* GDoris_photoEdit_filterImg_original@2x.png in Resources */,
 				4A120E6C14B54F4677C312117579C499 /* GDoris_photo_picker_drop_down_ic@3x.png in Resources */,
 				19B4D00E398CECACB05E09D57CD82A2C /* GDoris_photo_picker_drop_up_ic@2x.png in Resources */,
 				20D64FE7C2FD4B24F81C7DAED858E374 /* GDoris_photo_picker_drop_up_ic@3x.png in Resources */,

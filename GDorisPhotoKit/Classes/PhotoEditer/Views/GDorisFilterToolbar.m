@@ -9,6 +9,8 @@
 #import "GDorisFilterToolbar.h"
 #import "GDorisPhotoHelper.h"
 #import "CIFilter+GDoris.h"
+#import "UIImage+GDoris.h"
+
 @interface GDorisFilterToolbarCell : UICollectionViewCell
 @property (nonatomic, strong) UIImageView * imageView;
 @property (nonatomic, strong) UILabel * filterLabel;
@@ -170,7 +172,7 @@
     if (self == [super init]) {
         self.lookup_img = lookup;
         self.lookup_name = title;
-        self.filterIcon = [UIImage imageNamed:@"GDoris_filterImg_original"];
+        self.filterIcon = [UIImage g_imageNamed:@"GDoris_photoEdit_filterImg_original"];
         if (lookup.length > 0) {
              [self filterImageWithLookup:lookup];
         }

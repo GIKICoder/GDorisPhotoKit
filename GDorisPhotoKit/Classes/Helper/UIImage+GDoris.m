@@ -13,6 +13,13 @@
 
 @implementation UIImage (GDoris)
 
++ (UIImage *)g_imageNamedWithMain:(NSString *)name
+{
+    NSBundle *frameworkbundle = [NSBundle bundleForClass:NSClassFromString(@"GDorisPhotoPickerBaseController")];
+    UIImage *image = [UIImage imageNamed:name inBundle:frameworkbundle compatibleWithTraitCollection:nil];
+    return image;
+}
+
 + (UIImage *)g_imageNamed:(NSString *)name
 {
     return [[self class] g_imageNamed:name clazz:NSClassFromString(@"GDorisPhotoPickerBaseController")];
