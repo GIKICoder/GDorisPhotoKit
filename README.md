@@ -1,5 +1,11 @@
 # GDorisPhotoKit
 
+Alpha code ~~ 
+
+In development
+
+It can't be used in formal projects yet
+
 [![CI Status](https://img.shields.io/travis/810373457@qq.com/GDorisPhotoKit.svg?style=flat)](https://travis-ci.org/810373457@qq.com/GDorisPhotoKit)
 [![Version](https://img.shields.io/cocoapods/v/GDorisPhotoKit.svg?style=flat)](https://cocoapods.org/pods/GDorisPhotoKit)
 [![License](https://img.shields.io/cocoapods/l/GDorisPhotoKit.svg?style=flat)](https://cocoapods.org/pods/GDorisPhotoKit)
