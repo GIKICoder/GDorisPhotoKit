@@ -1,6 +1,0 @@
-framework module SDWebImageYYPlugin {
-  umbrella header "SDWebImageYYPlugin.h"
-
-  export *
-  module * { export * }
-}

@@ -9,12 +9,13 @@
 #import "GDorisPickerBrowserLoader.h"
 #import "GDorisBrowserBaseCell.h"
 #import "GAsset.h"
-#import <SDWebImageYYPlugin/SDWebImageYYPlugin.h>
 #import "SDPhotosPlugin.h"
 #import "GDorisPickerBrowserCell.h"
 #import "GDorisPhotoPickerBean.h"
 #import "GDorisPickerBrowserVideoCell.h"
 #import "UIImageView+GDorisLoader.h"
+#import "YYImage.h"
+
 @implementation GDorisPickerBrowserLoader
 
 - (NSArray<NSString *> *)registerBrowserCellClass

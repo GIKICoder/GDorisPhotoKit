@@ -16,7 +16,7 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "12.0"
   },
   "source_files": "GDorisPhotoKit/Classes/**/*",
   "resource_bundles": {
@@ -31,16 +31,10 @@
     "YYImage": [
 
     ],
-    "YYImage/WebP": [
-
-    ],
     "SDWebImage": [
-      "~> 5.0"
+
     ],
     "SDWebImageWebPCoder": [
-
-    ],
-    "SDWebImageYYPlugin": [
 
     ],
     "Masonry": [

@@ -9,13 +9,12 @@
 #import "GAppDelegate.h"
 #import <SDWebImageWebPCoder/SDWebImageWebPCoder.h>
 #import "SDPhotosPlugin.h"
-#import <SDWebImageYYPlugin/SDWebImageYYPlugin.h>
+
 @implementation GAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [[SDImageCodersManager sharedManager] addCoder:[SDImageWebPCoder sharedCoder]];
-    [SDImageCodersManager.sharedManager addCoder:SDImageYYCoder.sharedCoder];
     [[SDWebImageDownloader sharedDownloader].config setDownloadTimeout:10.0];
     // Replace default manager's loader implementation
     SDWebImageManager.defaultImageLoader = SDImageLoadersManager.sharedManager;

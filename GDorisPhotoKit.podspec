@@ -28,7 +28,7 @@ TODO: Add long description of the pod here.
   s.source           = { :git => 'https://github.com/gikicoder/GDorisPhotoKit.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '12.0'
 
   s.source_files = 'GDorisPhotoKit/Classes/**/*'
   
@@ -41,10 +41,8 @@ TODO: Add long description of the pod here.
   # s.dependency 'AFNetworking', '~> 2.3'
    s.dependency 'YYText'
    s.dependency 'YYImage'
-   s.dependency 'YYImage/WebP'
-   s.dependency 'SDWebImage', '~> 5.0'
+   s.dependency 'SDWebImage'
    s.dependency 'SDWebImageWebPCoder'
-   s.dependency 'SDWebImageYYPlugin'
    s.dependency 'Masonry'
    s.dependency 'FLAnimatedImage'
 end
